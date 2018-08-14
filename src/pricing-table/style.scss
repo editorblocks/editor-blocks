@@ -1,0 +1,143 @@
+.wp-block-editor-blocks-pricing-table .pricing-table__image {
+	width: 50px;
+	margin-bottom: 1em;
+}
+.wp-block-editor-blocks-pricing-table .pricing-table__features {
+	padding: 0;
+	margin: 1em 0;
+	list-style: none;
+	color: #5a5a5a;
+}
+.wp-block-editor-blocks-pricing-table .pricing-table__heading {
+	margin-top: 0;
+	margin-bottom: 0.625em;
+}
+.wp-block-editor-blocks-pricing-table .pricing-table__description {
+	margin-bottom: 1em;
+	font-size: 0.875em;
+	color: #8e8e8e;
+}
+.wp-block-editor-blocks-pricing-table .pricing-table__price {
+	font-size: 2em;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: .5em;
+	font-weight: bold;
+	display: inline-block;
+	margin-bottom: .25em;
+}
+
+.wp-block-editor-blocks-pricing-table:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.wp-block-editor-blocks-pricing-table .column {
+	float: left;
+	margin-right: 5%;
+	width: 47.5%;
+	padding: 3em;
+	background: #f3f3f3;
+}
+
+/*--------------------------------------------------------------
+# 2 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-pricing-table.col-1 .column {
+	width: 30%;
+	margin: 0 auto;
+float: none
+}
+
+/*--------------------------------------------------------------
+# 2 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-pricing-table.col-2 .column {
+	width: 30%;
+	margin-right: 10%;
+}
+
+.wp-block-editor-blocks-pricing-table.col-2 .column-1 {
+	margin-right: 0
+}
+
+/*--------------------------------------------------------------
+# 3 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-pricing-table.col-3 .column {
+	width: 30%;
+	margin-right: 5%;
+}
+
+.wp-block-editor-blocks-pricing-table.col-3 .column-2 {
+	margin-right: 0
+}
+
+/*--------------------------------------------------------------
+# 4 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-pricing-table.col-4 .column {
+	width: 22%;
+	margin-right: 4%;
+}
+
+.wp-block-editor-blocks-pricing-table.col-4 .column-3 {
+	margin-right: 0
+}
+
+/*--------------------------------------------------------------
+# 5 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-pricing-table.col-5 .column {
+	width: 18%;
+	margin-right: 2.5%;
+}
+
+.wp-block-editor-blocks-pricing-table.col-5 .column-4 {
+	margin-right: 0
+}
+
+/*--------------------------------------------------------------
+# 6 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-pricing-table.col-6 .column {
+	width: 15%;
+	margin-right: 2%;
+}
+
+.wp-block-editor-blocks-pricing-table.col-6 .column-5 {
+	margin-right: 0
+}
+
+.pricing-table__button {
+	background-color: rgb(188, 13, 13);
+	padding: .75em 1em;
+	border-radius: 3px;
+	font-weight: bold;
+	color: white;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.pricing-table__button:hover {
+ filter: contrast(150%);
+}
+
+@media only screen and (max-width: 1040px) {
+ .wp-block-editor-blocks-pricing-table .column {
+     margin-left: auto !important;
+		 margin-right: auto !important;
+		 width: 300px !important;
+		 float: none;
+		 margin-bottom: 50px
+ }
+ .wp-block-editor-blocks-pricing-table .column:last-child {
+		 margin-bottom: 0
+ }
+}

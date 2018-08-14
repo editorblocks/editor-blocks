@@ -1,0 +1,17 @@
+.wp-block-editor-blocks-horizontal-feature h2,
+.wp-block-editor-blocks-horizontal-feature p, {
+	margin-bottom: 1em;
+}
+
+.wp-block-editor-blocks-horizontal-feature:after {
+	display: block;
+  content: "";
+  clear: both;
+}
+
+.wp-block-editor-blocks-horizontal-feature .no-image {
+	padding: 25px;
+	border-radius: 500px;
+	background: #ececec;
+	margin-bottom: 1em;
+}

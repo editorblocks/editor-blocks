@@ -1,0 +1,77 @@
+.wp-block-editor-blocks-brands .no-image {
+  padding: 1.5em;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em; }
+.wp-block-editor-blocks-features .no-image {
+  padding: 1.5em;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em; }
+
+.wp-block-editor-blocks-features .feature__image,
+.wp-block-editor-blocks-features .feature__heading {
+  margin-bottom: 1em; }
+.wp-block-editor-blocks-hero .hero__heading,
+.wp-block-editor-blocks-hero .hero__text {
+  margin-bottom: 1em; }
+
+.editor-block-list__block-edit:after {
+  display: block;
+  content: "";
+  clear: both; }
+.wp-block-editor-blocks-horizontal-feature h2,
+.wp-block-editor-blocks-horizontal-feature p {
+  margin-bottom: 1em; }
+
+.wp-block-editor-blocks-horizontal-feature:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-horizontal-feature .no-image {
+  padding: 25px;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em; }
+.wp-block-editor-blocks-intro .intro__heading {
+  margin-bottom: 1em; }
+.wp-block-editor-blocks-pricing-table .no-image {
+  padding: 25px;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em; }
+
+.wp-block-editor-blocks-pricing-table .pricing-table__heading,
+.wp-block-editor-blocks-pricing-table .pricing-table__description {
+  margin-bottom: 1em; }
+
+.wp-block-editor-blocks-pricing-table .pricing-table__features {
+  list-style: none !important;
+  margin-bottom: 2em; }
+
+.wp-block-editor-blocks-pricing-table .pricing-table__price {
+  border-bottom: 0; }
+.wp-block-editor-blocks-team .no-image {
+  padding: 25px;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em; }
+.wp-block-editor-blocks-testimonial .no-image {
+  padding: 25px;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em; }
+.wp-block-editor-blocks-vertical-feature .vertical-feature__heading,
+.wp-block-editor-blocks-vertical-feature .vertical-feature__subheading,
+.wp-block-editor-blocks-vertical-feature .vertical-feature__text {
+  margin-bottom: 1em; }
+
+.wp-block-editor-blocks-vertical-feature .components-button {
+  display: inline-block; }
+
+.wp-block-editor-blocks-vertical-feature .no-image {
+  padding: 25px;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em; }

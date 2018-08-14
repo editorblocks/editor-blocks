@@ -1,0 +1,91 @@
+.wp-block-editor-blocks-team:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.wp-block-editor-blocks-team .team-member {
+	float: left;
+}
+
+.wp-block-editor-blocks-team .team-member__name {
+	margin-top: 0
+}
+
+.wp-block-editor-blocks-team .team-member__image {
+	width: auto;
+	margin-bottom: 1.5em
+}
+
+.wp-block-editor-blocks-team .team-member__position {
+	text-transform: uppercase;
+	font-size: .8em;
+	font-weight: bold;
+	margin-bottom: .75em;
+	display: block;
+}
+
+ /*--------------------------------------------------------------
+ # 2 Columns
+ --------------------------------------------------------------*/
+
+ .wp-block-editor-blocks-team.col-2 .team-member {
+ 	width: 40%;
+ 	margin-right: 10%;
+ }
+
+ .wp-block-editor-blocks-team.col-2 .team-member-1 {
+ 	margin-right: 0
+ }
+
+ /*--------------------------------------------------------------
+ # 3 Columns
+ --------------------------------------------------------------*/
+
+ .wp-block-editor-blocks-team.col-3 .team-member {
+ 	width: 30%;
+ 	margin-right: 5%;
+ }
+
+ .wp-block-editor-blocks-team.col-3 .team-member-2 {
+ 	margin-right: 0
+ }
+
+ /*--------------------------------------------------------------
+ # 4 Columns
+ --------------------------------------------------------------*/
+
+ .wp-block-editor-blocks-team.col-4 .team-member {
+ 	width: 22%;
+ 	margin-right: 4%;
+ }
+
+ .wp-block-editor-blocks-team.col-4 .team-member-3 {
+ 	margin-right: 0
+ }
+
+ @media only screen and (max-width: 1040px) {
+
+ 	.wp-block-editor-blocks-team .team-member {
+		width: 30% !important;
+    margin-right: 10% !important;
+    margin-left: 10% !important;
+ 	}
+	.wp-block-editor-blocks-team .team-member-0,
+	.wp-block-editor-blocks-team .team-member-1 {
+		margin-bottom: 25px
+	}
+	.wp-block-editor-blocks-team .team-member-1,
+	.wp-block-editor-blocks-team .team-member-3 {
+		margin-right: 0 !important
+	}
+ }
+
+ @media only screen and (max-width: 600px) {
+
+ 	.wp-block-editor-blocks-team .team-member {
+		width: 80% !important;
+    margin-right: 10% !important;
+    margin-left: 10% !important;
+ 	}
+ }

@@ -1,0 +1,20 @@
+.wp-block-editor-blocks-pricing-table .no-image {
+	padding: 25px;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em;
+}
+
+.wp-block-editor-blocks-pricing-table .pricing-table__heading,
+.wp-block-editor-blocks-pricing-table .pricing-table__description {
+	margin-bottom: 1em;
+}
+
+.wp-block-editor-blocks-pricing-table .pricing-table__features {
+	list-style: none !important;
+	margin-bottom: 2em;
+}
+
+.wp-block-editor-blocks-pricing-table .pricing-table__price {
+	border-bottom: 0
+}

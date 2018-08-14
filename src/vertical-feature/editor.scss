@@ -1,0 +1,16 @@
+.wp-block-editor-blocks-vertical-feature .vertical-feature__heading,
+.wp-block-editor-blocks-vertical-feature .vertical-feature__subheading,
+.wp-block-editor-blocks-vertical-feature .vertical-feature__text, {
+	margin-bottom: 1em;
+}
+
+.wp-block-editor-blocks-vertical-feature .components-button {
+	display: inline-block;
+}
+
+.wp-block-editor-blocks-vertical-feature .no-image {
+	padding: 25px;
+  border-radius: 500px;
+  background: #ececec;
+  margin-bottom: 1em;
+}

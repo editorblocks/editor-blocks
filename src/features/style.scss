@@ -1,0 +1,103 @@
+.wp-block-editor-blocks-features:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.wp-block-editor-blocks-features .feature {
+	float: left;
+	margin-right: 5%;
+	width: 47.5%;
+}
+
+.wp-block-editor-blocks-features .feature__image {
+	max-width: 50px;
+	margin-bottom: 1.5em;
+	display: inline-block;
+}
+
+.wp-block-editor-blocks-features .feature__heading {
+	margin-top: 0
+}
+
+.wp-block-editor-blocks-features .feature__text {
+	margin-bottom: 0
+}
+
+/*--------------------------------------------------------------
+# 2 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-features.col-2 .feature {
+	width: 40%;
+	margin-right: 10%;
+}
+
+.wp-block-editor-blocks-features.col-2 .feature-1 {
+	margin-right: 0
+}
+
+/*--------------------------------------------------------------
+# 3 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-features.col-3 .feature {
+	width: 30%;
+	margin-right: 5%;
+}
+
+.wp-block-editor-blocks-features.col-3 .feature-2 {
+	margin-right: 0
+}
+
+/*--------------------------------------------------------------
+# 4 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-features.col-4 .feature {
+	width: 22%;
+	margin-right: 4%;
+}
+
+.wp-block-editor-blocks-features.col-4 .feature-3 {
+	margin-right: 0
+}
+
+/*--------------------------------------------------------------
+# 5 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-features.col-5 .feature {
+	width: 18%;
+	margin-right: 2.5%;
+}
+
+.wp-block-editor-blocks-features.col-5 .feature-4 {
+	margin-right: 0
+}
+
+/*--------------------------------------------------------------
+# 6 Columns
+--------------------------------------------------------------*/
+
+.wp-block-editor-blocks-features.col-6 .feature {
+	width: 15%;
+	margin-right: 2%;
+}
+
+.wp-block-editor-blocks-features.col-6 .feature-5 {
+	margin-right: 0
+}
+
+@media only screen and (max-width: 1040px) {
+	.wp-block-editor-blocks-features .feature {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		width: 300px !important;
+		float: none;
+		margin-bottom: 10%
+	}
+	.wp-block-editor-blocks-features .feature:last-child {
+		margin-bottom: 0
+	}
+}

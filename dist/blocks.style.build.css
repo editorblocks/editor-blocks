@@ -1,0 +1,588 @@
+.wp-block-editor-blocks-brands {
+  text-align: center; }
+
+.wp-block-editor-blocks-brands:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-brands .brand {
+  float: left;
+  margin-right: 5%;
+  width: 47.5%; }
+
+/*--------------------------------------------------------------
+ # 2 Columns
+ --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-2 .brand {
+  width: 40%;
+  margin-right: 10%; }
+
+.wp-block-editor-blocks-brands.col-2 .brand-1 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+ # 3 Columns
+ --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-3 .brand {
+  width: 30%;
+  margin-right: 5%; }
+
+.wp-block-editor-blocks-brands.col-3 .brand-2 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+ # 4 Columns
+ --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-4 .brand {
+  width: 22%;
+  margin-right: 4%; }
+
+.wp-block-editor-blocks-brands.col-4 .brand-3 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+ # 5 Columns
+ --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-5 .brand {
+  width: 18%;
+  margin-right: 2.5%; }
+
+.wp-block-editor-blocks-brands.col-5 .brand-4 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+ # 6 Columns
+ --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-6 .brand {
+  width: 15%;
+  margin-right: 2%; }
+
+.wp-block-editor-blocks-brands.col-6 .brand-5 {
+  margin-right: 0; }
+.wp-block-editor-blocks-callout:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-callout .callout__text {
+  padding: 0;
+  margin: 0;
+  line-height: 2em; }
+
+.wp-block-editor-blocks-callout .callout__button {
+  background-color: #bc0d0d;
+  padding: .625em;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  float: right; }
+
+@media only screen and (max-width: 1040px) {
+  .wp-block-editor-blocks-callout {
+    padding-left: 5% !important;
+    padding-right: 5% !important; } }
+.wp-block-editor-blocks-features:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-features .feature {
+  float: left;
+  margin-right: 5%;
+  width: 47.5%; }
+
+.wp-block-editor-blocks-features .feature__image {
+  max-width: 50px;
+  margin-bottom: 1.5em;
+  display: inline-block; }
+
+.wp-block-editor-blocks-features .feature__heading {
+  margin-top: 0; }
+
+.wp-block-editor-blocks-features .feature__text {
+  margin-bottom: 0; }
+
+/*--------------------------------------------------------------
+# 2 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-features.col-2 .feature {
+  width: 40%;
+  margin-right: 10%; }
+
+.wp-block-editor-blocks-features.col-2 .feature-1 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+# 3 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-features.col-3 .feature {
+  width: 30%;
+  margin-right: 5%; }
+
+.wp-block-editor-blocks-features.col-3 .feature-2 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+# 4 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-features.col-4 .feature {
+  width: 22%;
+  margin-right: 4%; }
+
+.wp-block-editor-blocks-features.col-4 .feature-3 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+# 5 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-features.col-5 .feature {
+  width: 18%;
+  margin-right: 2.5%; }
+
+.wp-block-editor-blocks-features.col-5 .feature-4 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+# 6 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-features.col-6 .feature {
+  width: 15%;
+  margin-right: 2%; }
+
+.wp-block-editor-blocks-features.col-6 .feature-5 {
+  margin-right: 0; }
+
+@media only screen and (max-width: 1040px) {
+  .wp-block-editor-blocks-features .feature {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 300px !important;
+    float: none;
+    margin-bottom: 10%; }
+  .wp-block-editor-blocks-features .feature:last-child {
+    margin-bottom: 0; } }
+.wp-block-editor-blocks-hero .hero__button {
+  background-color: #bc0d0d;
+  padding: .75em 1em;
+  border-radius: 3px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.125em; }
+
+.wp-block-editor-blocks-hero .hero__button:hover {
+  -webkit-filter: contrast(150%);
+          filter: contrast(150%); }
+
+.wp-block-editor-blocks-hero .hero__heading {
+  margin-top: 0;
+  font-size: 2em; }
+
+.wp-block-editor-blocks-hero .hero__text {
+  font-size: 1.25em; }
+
+.wp-block-editor-blocks-hero.left .inner {
+  float: none; }
+
+.wp-block-editor-blocks-hero.center .inner {
+  margin: 0 auto;
+  float: none; }
+
+.wp-block-editor-blocks-hero.right .inner {
+  float: right; }
+.wp-block-editor-blocks-horizontal-feature .horizontal-feature__heading {
+  margin-top: 0; }
+
+.wp-block-editor-blocks-horizontal-feature .horizontal-feature__button {
+  background-color: #bc0d0d;
+  padding: .75em 1em;
+  border-radius: 3px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  text-decoration: none; }
+
+.wp-block-editor-blocks-horizontal-feature .horizontal-feature__button:hover {
+  -webkit-filter: contrast(150%);
+          filter: contrast(150%); }
+
+.wp-block-editor-blocks-horizontal-feature:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-horizontal-feature .horizontal-feature-image-wrapper {
+  text-align: center; }
+
+.wp-block-editor-blocks-horizontal-feature .horizontal-feature-content-wrapper,
+.wp-block-editor-blocks-horizontal-feature .horizontal-feature-image-wrapper {
+  float: left; }
+
+.wp-block-editor-blocks-horizontal-feature.image-position-right .horizontal-feature-content-wrapper {
+  float: left; }
+
+.wp-block-editor-blocks-horizontal-feature.image-position-right .horizontal-feature-image-wrapper {
+  float: right; }
+
+.wp-block-editor-blocks-horizontal-feature.image-position-left .horizontal-feature-image-wrapper {
+  float: left; }
+
+.wp-block-editor-blocks-horizontal-feature.image-position-left .horizontal-feature-content-wrapper {
+  float: right; }
+
+.wp-block-editor-blocks-horizontal-feature .horizontal-feature__subheading {
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: bold; }
+
+@media only screen and (max-width: 1040px) {
+  .wp-block-editor-blocks-horizontal-feature .horizontal-feature-content-wrapper {
+    width: auto !important;
+    max-width: 500px;
+    float: none !important;
+    margin: 0 auto;
+    margin-bottom: 10%; }
+  .wp-block-editor-blocks-horizontal-feature .horizontal-feature-image-wrapper {
+    width: 100% !important;
+    float: none !important; } }
+.wp-block-editor-blocks-intro .intro__heading {
+  margin-top: 0;
+  margin-bottom: 1em; }
+
+.wp-block-editor-blocks-intro .intro__subheading {
+  margin-bottom: 0; }
+
+.wp-block-editor-blocks-intro .inner {
+  display: inline-block; }
+.wp-block-editor-blocks-pricing-table .pricing-table__image {
+  width: 50px;
+  margin-bottom: 1em; }
+
+.wp-block-editor-blocks-pricing-table .pricing-table__features {
+  padding: 0;
+  margin: 1em 0;
+  list-style: none;
+  color: #5a5a5a; }
+
+.wp-block-editor-blocks-pricing-table .pricing-table__heading {
+  margin-top: 0;
+  margin-bottom: 0.625em; }
+
+.wp-block-editor-blocks-pricing-table .pricing-table__description {
+  margin-bottom: 1em;
+  font-size: 0.875em;
+  color: #8e8e8e; }
+
+.wp-block-editor-blocks-pricing-table .pricing-table__price {
+  font-size: 2em;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: .5em;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: .25em; }
+
+.wp-block-editor-blocks-pricing-table:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-pricing-table .column {
+  float: left;
+  margin-right: 5%;
+  width: 47.5%;
+  padding: 3em;
+  background: #f3f3f3; }
+
+/*--------------------------------------------------------------
+# 2 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-pricing-table.col-1 .column {
+  width: 30%;
+  margin: 0 auto;
+  float: none; }
+
+/*--------------------------------------------------------------
+# 2 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-pricing-table.col-2 .column {
+  width: 30%;
+  margin-right: 10%; }
+
+.wp-block-editor-blocks-pricing-table.col-2 .column-1 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+# 3 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-pricing-table.col-3 .column {
+  width: 30%;
+  margin-right: 5%; }
+
+.wp-block-editor-blocks-pricing-table.col-3 .column-2 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+# 4 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-pricing-table.col-4 .column {
+  width: 22%;
+  margin-right: 4%; }
+
+.wp-block-editor-blocks-pricing-table.col-4 .column-3 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+# 5 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-pricing-table.col-5 .column {
+  width: 18%;
+  margin-right: 2.5%; }
+
+.wp-block-editor-blocks-pricing-table.col-5 .column-4 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+# 6 Columns
+--------------------------------------------------------------*/
+.wp-block-editor-blocks-pricing-table.col-6 .column {
+  width: 15%;
+  margin-right: 2%; }
+
+.wp-block-editor-blocks-pricing-table.col-6 .column-5 {
+  margin-right: 0; }
+
+.pricing-table__button {
+  background-color: #bc0d0d;
+  padding: .75em 1em;
+  border-radius: 3px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  text-decoration: none; }
+
+.pricing-table__button:hover {
+  -webkit-filter: contrast(150%);
+          filter: contrast(150%); }
+
+@media only screen and (max-width: 1040px) {
+  .wp-block-editor-blocks-pricing-table .column {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 300px !important;
+    float: none;
+    margin-bottom: 50px; }
+  .wp-block-editor-blocks-pricing-table .column:last-child {
+    margin-bottom: 0; } }
+.wp-block-editor-blocks-team:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-team .team-member {
+  float: left; }
+
+.wp-block-editor-blocks-team .team-member__name {
+  margin-top: 0; }
+
+.wp-block-editor-blocks-team .team-member__image {
+  width: auto;
+  margin-bottom: 1.5em; }
+
+.wp-block-editor-blocks-team .team-member__position {
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: bold;
+  margin-bottom: .75em;
+  display: block; }
+
+/*--------------------------------------------------------------
+ # 2 Columns
+ --------------------------------------------------------------*/
+.wp-block-editor-blocks-team.col-2 .team-member {
+  width: 40%;
+  margin-right: 10%; }
+
+.wp-block-editor-blocks-team.col-2 .team-member-1 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+ # 3 Columns
+ --------------------------------------------------------------*/
+.wp-block-editor-blocks-team.col-3 .team-member {
+  width: 30%;
+  margin-right: 5%; }
+
+.wp-block-editor-blocks-team.col-3 .team-member-2 {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+ # 4 Columns
+ --------------------------------------------------------------*/
+.wp-block-editor-blocks-team.col-4 .team-member {
+  width: 22%;
+  margin-right: 4%; }
+
+.wp-block-editor-blocks-team.col-4 .team-member-3 {
+  margin-right: 0; }
+
+@media only screen and (max-width: 1040px) {
+  .wp-block-editor-blocks-team .team-member {
+    width: 30% !important;
+    margin-right: 10% !important;
+    margin-left: 10% !important; }
+  .wp-block-editor-blocks-team .team-member-0,
+  .wp-block-editor-blocks-team .team-member-1 {
+    margin-bottom: 25px; }
+  .wp-block-editor-blocks-team .team-member-1,
+  .wp-block-editor-blocks-team .team-member-3 {
+    margin-right: 0 !important; } }
+
+@media only screen and (max-width: 600px) {
+  .wp-block-editor-blocks-team .team-member {
+    width: 80% !important;
+    margin-right: 10% !important;
+    margin-left: 10% !important; } }
+.wp-block-editor-blocks-testimonial .inner {
+  display: inline-block; }
+
+.wp-block-editor-blocks-testimonial .testimonial__text {
+  margin: 0 0 15px;
+  font-weight: normal; }
+
+.wp-block-editor-blocks-testimonial .testimonial__image {
+  margin-bottom: 25px;
+  border-radius: 500px;
+  max-width: 100px;
+  display: inline-block; }
+.wp-block-editor-blocks-vertical-feature .vertical-feature__heading {
+  margin-top: 0; }
+
+.wp-block-editor-blocks-vertical-feature .vertical-feature__button {
+  background-color: #bc0d0d;
+  padding: .75em 1em;
+  border-radius: 3px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  text-decoration: none; }
+
+.wp-block-editor-blocks-vertical-feature .vertical-feature__button:hover {
+  -webkit-filter: contrast(150%);
+          filter: contrast(150%); }
+
+.wp-block-editor-blocks-vertical-feature:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-vertical-feature .vertical-feature-image-wrapper {
+  margin: 0 auto; }
+
+.wp-block-editor-blocks-vertical-feature .vertical-feature-content__inner,
+.wp-block-editor-blocks-vertical-feature .vertical-feature__image {
+  display: inline-block; }
+
+.wp-block-editor-blocks-vertical-feature .vertical-feature__subheading {
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: bold; }
+
+@media only screen and (max-width: 1040px) {
+  .wp-block-editor-blocks-vertical-feature .vertical-feature-content__inner {
+    width: auto !important;
+    max-width: 500px; }
+  .wp-block-editor-blocks-vertical-feature .vertical-feature-image-wrapper {
+    width: 100% !important; } }
+.wp-block-editor-blocks-wrapper:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.wp-block-editor-blocks-wrapper {
+  max-width: 1040px;
+  background-size: cover;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  background-position: center;
+  margin-left: auto;
+  margin-right: auto; }
+
+.wp-block-editor-blocks-wrapper.alignfull {
+  max-width: 100%; }
+
+.wp-block-editor-blocks-wrapper .wrapper-inner {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; }
+
+.wp-block-editor-blocks-wrapper .wrapper-inner-blocks {
+  margin-left: auto;
+  margin-right: auto; }
+
+.wp-block-editor-blocks-wrapper.left .wrapper-inner-blocks {
+  margin-left: 0; }
+
+.wp-block-editor-blocks-wrapper.right .wrapper-inner-blocks {
+  margin-right: 0; }
+
+.wp-block-editor-blocks-wrapper.gradient:before {
+  background: -webkit-linear-gradient(315deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 35%, rgba(0, 0, 0, 0) 100%);
+  background: -o-linear-gradient(315deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 35%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 35%, rgba(0, 0, 0, 0) 100%);
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #000; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-10:before {
+  opacity: .1; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-20:before {
+  opacity: .2; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-30:before {
+  opacity: .3; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-40:before {
+  opacity: .4; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-50:before {
+  opacity: .5; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-60:before {
+  opacity: .6; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-70:before {
+  opacity: .7; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-80:before {
+  opacity: .8; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-90:before {
+  opacity: .9; }
+
+.wp-block-editor-blocks-wrapper.has-background-dim-100:before {
+  opacity: 1; }
+
+@media only screen and (max-width: 1440px) {
+  .wp-block-editor-blocks-wrapper .wrapper-inner {
+    padding-left: 5%;
+    padding-right: 5%; } }
