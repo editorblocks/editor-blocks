@@ -38,7 +38,7 @@ There are various ways you can contribute:
 
 ## Create Guten Block ## 
 
-Editor Blocks wouldn't have been possible without the work of @aahmadawais.
+Editor Blocks wouldn't have been possible without the work of @ahmadawais.
 
 >`create-guten-block` is _zero configuration dev-toolkit_ (#0CJS) to develop WordPress Gutenberg blocks in a matter of minutes without configuring `React`, `webpack`, `ES6/7/8/Next`, `ESLint`, `Babel`, etc.
 
