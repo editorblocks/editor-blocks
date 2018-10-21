@@ -35,3 +35,11 @@ There are various ways you can contribute:
 1. Raise an [Issue](https://github.com/editorblocks/editor-blocks/issues/new) on GitHub
 2. Send a pull request with your bug fixes and/or new features
 3. Provide feedback and suggestions on [enhancements](https://github.com/editorblocks/editor-blocks/issues?direction=desc&labels=Enhancement&page=1&sort=created&state=open)
+
+## Create Guten Block ## 
+
+Editor Blocks wouldn't have been possible without the work of @ahmadawais.
+
+>`create-guten-block` is _zero configuration dev-toolkit_ (#0CJS) to develop WordPress Gutenberg blocks in a matter of minutes without configuring `React`, `webpack`, `ES6/7/8/Next`, `ESLint`, `Babel`, etc.
+
+https://github.com/ahmadawais/create-guten-block
