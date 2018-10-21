@@ -1,3 +1,7 @@
+.wp-block-editor-blocks-pricing-table * {
+	box-sizing: border-box;
+}
+
 .wp-block-editor-blocks-pricing-table .pricing-table__image {
 	width: 50px;
 	margin-bottom: 1em;
@@ -47,7 +51,7 @@
 .wp-block-editor-blocks-pricing-table.col-1 .column {
 	width: 30%;
 	margin: 0 auto;
-float: none
+	float: none
 }
 
 /*--------------------------------------------------------------

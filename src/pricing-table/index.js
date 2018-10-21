@@ -36,7 +36,7 @@ registerBlockType( 'editor-blocks/pricing-table', {
 				buttonText: { source: 'children', selector: '.pricing-table__button' },
 				buttonURL: { source: 'attribute', selector: '.pricing-table__button', attribute: 'href' },
 			},
-			default: [ [], [] ]
+			default: [],
 		},
 		count: {
 			type: 'number',
@@ -73,43 +73,41 @@ registerBlockType( 'editor-blocks/pricing-table', {
 
 	edit: function( props ) {
 
-			const { columns, count, alignment } = props.attributes;
-			const { className, setAttributes } = props;
-			const { columnBackgroundColor, headingColor, descriptionColor, priceColor, featuresColor, buttonColor, buttonBackgroundColor } = props.attributes;
-			const columnClasses = className  + ' col-' + count;
+		const { columns, count, alignment } = props.attributes;
+		const { className, setAttributes } = props;
+		const { columnBackgroundColor, headingColor, descriptionColor, priceColor, featuresColor, buttonColor, buttonBackgroundColor } = props.attributes;
+		const columnClasses = className  + ' col-' + count;
 
-			function onChangeColumn( value, i, attribute ) {
-				const newColumns = columns;
-				if( newColumns[i] === undefined ) {
-					newColumns[i] = {}
-				}
-				const column = newColumns[i];
-				column[attribute] = value;
-				setAttributes( { columns: [ ...newColumns ] } );
+		function onChangeColumn( value, i, attribute ) {
+			const newColumns = columns;
+			if( newColumns[i] === undefined ) {
+				newColumns[i] = {}
 			}
+			const column = newColumns[i];
+			column[attribute] = value;
+			setAttributes( { columns: [ ...newColumns ] } );
+		}
 
-			function onChangeColumnImage( value, i ) {
-				const newColumns = columns;
-				if( newColumns[i] === undefined ) {
-					newColumns[i] = {}
-				}
-				const column = newColumns[i];
-				column['image'] = value.url;
-				setAttributes( { columns: [ ...newColumns ] } );
+		function onChangeColumnImage( value, i ) {
+			const newColumns = columns;
+			if( newColumns[i] === undefined ) {
+				newColumns[i] = {}
 			}
+			const column = newColumns[i];
+			column['image'] = value.url;
+			setAttributes( { columns: [ ...newColumns ] } );
+		}
 
-			return [
-				<Inspector
-					{ ...props }
-				/>,
-				<BlockControls key="controls">
-					<AlignmentToolbar
-						value={ alignment }
-						onChange={ ( alignment ) => setAttributes( { alignment } ) }
-					/>
-				</BlockControls>,
-				<div style={ { textAlign: alignment } } className={ columnClasses }>
-				{ _times( count, ( index ) => {
+		return [
+			<Inspector { ...props } />,
+			<BlockControls key="controls">
+				<AlignmentToolbar
+					value={ alignment }
+					onChange={ ( alignment ) => setAttributes( { alignment } ) }
+				/>
+			</BlockControls>,
+			<div style={ { textAlign: alignment } } className={ columnClasses }>
+			{ _times( count, ( index ) => {
 				const image = _get( columns, [ index, 'image' ] )
 				const columnClass = 'column column-' + index;
 					return (
@@ -130,7 +128,7 @@ registerBlockType( 'editor-blocks/pricing-table', {
 									</Button>
 								) }
 							>
-						</MediaUpload>
+							</MediaUpload>
 							<RichText
 								value={ _get( columns, [ index, 'heading' ] ) }
 								onChange={ ( value ) => onChangeColumn( value, index, 'heading' ) }
@@ -174,81 +172,78 @@ registerBlockType( 'editor-blocks/pricing-table', {
 								<RichText
 									value={ _get( columns, [ index, 'buttonText' ], 'Click Here!' ) }
 									onChange={ ( value ) => onChangeColumn( value, index, 'buttonText' ) }
-									tagName='a'
+									tagName="a"
 									formattingControls={[]}
 									placeholder={ __( 'Feature One' ) }
 									keepPlaceholderOnFocus={ true }
-									style={ {  backgroundColor: buttonBackgroundColor, color: buttonColor } }
+									style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } }
 									className="pricing-table__button"
 								/>
 							</div>
 					</div>
 					);
-					} ) }
-				</div>
-			];
-
-		},
+				} ) }
+			</div>
+		];
+	},
 
 	save: function( props ) {
 
 		const { columns, count, alignment } = props.attributes;
-		const { columnBackgroundColor, headingColor, descriptionColor, priceColor, featuresColor, buttonColor, buttonBackgroundColor  } = props.attributes;
+		const { columnBackgroundColor, headingColor, descriptionColor, priceColor, featuresColor, buttonColor, buttonBackgroundColor } = props.attributes;
 		const columnClasses = 'col-' + count;
 
 		return (
 			<div className={ columnClasses } style={ { textAlign: alignment } }>
-			{ _times( count, ( index ) => {
-				const image = _get( columns, [ index, 'image' ] );
-				const columnClass = 'column column-' + index;
-				return (
-					<div className={ columnClass } key={ `column-${ index }` } style={ { backgroundColor: columnBackgroundColor } }>
-						{ image &&
+				{ _times( count, ( index ) => {
+					const image = _get( columns, [ index, 'image' ] );
+					const columnClass = 'column column-' + index;
+					return (
+						<div className={ columnClass } key={ `column-${ index }` } style={ { backgroundColor: columnBackgroundColor } }>
+							{ image &&
 								<img
 									className="pricing-table__image"
 									src={ image }
 									alt="Pricing Table Image"
 								/>
-						}
-						<RichText.Content
-							tagName="h3"
-							value={ _get( columns, [ index, 'heading' ] ) }
-							style={ { color: headingColor } }
-							className="pricing-table__heading"
-						/>
-						<RichText.Content
-							tagName="p"
-							value={ _get( columns, [ index, 'description' ] ) }
-							style={ { color: descriptionColor } }
-							className="pricing-table__description"
-						/>
-						<RichText.Content
-							tagName="p"
-							value={ _get( columns, [ index, 'price' ] ) }
-							style={ { color: priceColor } }
-							className="pricing-table__price"
-						/>
-						<RichText.Content
-							tagName="ul"
-							value={ _get( columns, [ index, 'features' ] ) }
-							style={ { color: featuresColor } }
-							className="pricing-table__features"
-						/>
-						<div className="button-container">
+							}
 							<RichText.Content
-								tagName="a"
-								href={ _get( columns, [ index, 'buttonURL' ] ) }
-								style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } }
-								value={ _get( columns, [ index, 'buttonText' ], 'Click Here!' ) }
-								className="pricing-table__button"
+								tagName="h3"
+								value={ _get( columns, [ index, 'heading' ] ) }
+								style={ { color: headingColor } }
+								className="pricing-table__heading"
 							/>
+							<RichText.Content
+								tagName="p"
+								value={ _get( columns, [ index, 'description' ] ) }
+								style={ { color: descriptionColor } }
+								className="pricing-table__description"
+							/>
+							<RichText.Content
+								tagName="p"
+								value={ _get( columns, [ index, 'price' ] ) }
+								style={ { color: priceColor } }
+								className="pricing-table__price"
+							/>
+							<RichText.Content
+								tagName="ul"
+								value={ _get( columns, [ index, 'features' ] ) }
+								style={ { color: featuresColor } }
+								className="pricing-table__features"
+							/>
+							<div className="button-container">
+								<RichText.Content
+									tagName="a"
+									href={ _get( columns, [ index, 'buttonURL' ] ) }
+									style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } }
+									value={ _get( columns, [ index, 'buttonText' ], 'Click Here!' ) }
+									className="pricing-table__button"
+								/>
+							</div>
 						</div>
-					</div>
-				);
-
-			} ) }
+					);
+				} ) }
 			</div>
 		);
-
 	},
 } );

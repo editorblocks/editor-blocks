@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { Component } = wp.element;
+const { Component, Fragment } = wp.element;
 const { InspectorControls, ColorPalette } = wp.editor;
 const { PanelBody, PanelColor, TextControl, SelectControl, RangeControl, ToggleControl } = wp.components;
 
@@ -11,16 +11,9 @@ const { PanelBody, PanelColor, TextControl, SelectControl, RangeControl, ToggleC
  */
 export default class Inspector extends Component {
 
-	constructor( props ) {
-		super( ...arguments );
-	}
-
 	render() {
 
-		const {
-			attributes,
-			setAttributes
-		} = this.props;
+		const { attributes, setAttributes } = this.props;
 
 		const { width, position, textColor, headingColor, showButton, buttonBackgroundColor, buttonColor, buttonText, buttonURL } = attributes;
 
@@ -52,18 +45,20 @@ export default class Inspector extends Component {
 						help={ ( checked ) => checked ? __( 'Button is visible.' ) : __( 'Button is not visible.' ) }
 						onChange={ ( showButton ) => setAttributes( { showButton } ) }
 					/>
-					{ showButton && [
-						<TextControl
-							label={ __( 'Button Text' ) }
-							value={ buttonText }
-							onChange={ ( buttonText ) => setAttributes( { buttonText } ) }
-						/>,
-						<TextControl
-							label={ __( 'Button URL' ) }
-							value={ buttonURL }
-							onChange={ ( buttonURL ) => setAttributes( { buttonURL } ) }
-						/>
-					] }
+					{ showButton && (
+						<Fragment>
+							<TextControl
+								label={ __( 'Button Text' ) }
+								value={ buttonText }
+								onChange={ ( buttonText ) => setAttributes( { buttonText } ) }
+							/>
+							<TextControl
+								label={ __( 'Button URL' ) }
+								value={ buttonURL }
+								onChange={ ( buttonURL ) => setAttributes( { buttonURL } ) }
+							/>
+						</Fragment>
+					) }
 				</PanelBody>
 				<PanelColor title={ __( 'Heading Color' ) } colorValue={ headingColor } initialOpen={ false }>
 					<ColorPalette
@@ -79,23 +74,24 @@ export default class Inspector extends Component {
 						onChange={ ( textColor ) => setAttributes( { textColor } ) }
 					/>
 				</PanelColor>
-				{ showButton && [
-					<PanelColor title={ __( 'Button Text Color' ) } colorValue={ buttonColor } initialOpen={ false }>
-						<ColorPalette
-							label={ __( 'Button Text Color' ) }
-							value={ buttonColor }
-							onChange={ ( buttonColor ) => setAttributes( { buttonColor } ) }
-						/>
-					</PanelColor>,
-					<PanelColor title={ __( 'Button Background Color' ) } colorValue={ buttonBackgroundColor } initialOpen={ false }>
-						<ColorPalette
-							label={ __( 'Button Background Color' ) }
-							value={ buttonBackgroundColor }
-							onChange={ ( buttonBackgroundColor ) => setAttributes( { buttonBackgroundColor } ) }
-						/>
-					</PanelColor>
-				] }
-
+				{ showButton && (
+					<Fragment>
+						<PanelColor title={ __( 'Button Text Color' ) } colorValue={ buttonColor } initialOpen={ false }>
+							<ColorPalette
+								label={ __( 'Button Text Color' ) }
+								value={ buttonColor }
+								onChange={ ( buttonColor ) => setAttributes( { buttonColor } ) }
+							/>
+						</PanelColor>
+						<PanelColor title={ __( 'Button Background Color' ) } colorValue={ buttonBackgroundColor } initialOpen={ false }>
+							<ColorPalette
+								label={ __( 'Button Background Color' ) }
+								value={ buttonBackgroundColor }
+								onChange={ ( buttonBackgroundColor ) => setAttributes( { buttonBackgroundColor } ) }
+							/>
+						</PanelColor>
+					</Fragment>
+				) }
 			</InspectorControls>
 		);
 	}

@@ -7,8 +7,9 @@ import './editor.scss';
 import Inspector from './inspector';
 
 const { __ } = wp.i18n;
+const { Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks, InspectorControls, ColorPalette, RichText, BlockControls, AlignmentToolbar, MediaUpload } = wp.editor;
+const { RichText, BlockControls, AlignmentToolbar, MediaUpload } = wp.editor;
 const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/vertical-feature', {
@@ -25,19 +26,19 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 			type: 'string',
 			source: 'attribute',
 			attribute: 'src',
-			selector: '.vertical-feature__image'
+			selector: '.vertical-feature__image',
 		},
 		heading: {
 			source: 'children',
-			selector: '.vertical-feature__heading'
+			selector: '.vertical-feature__heading',
 		},
 		subHeading: {
 			source: 'children',
-			selector: '.vertical-feature__subheading'
+			selector: '.vertical-feature__subheading',
 		},
 		text: {
 			source: 'children',
-			selector: '.vertical-feature__text'
+			selector: '.vertical-feature__text',
 		},
 		alignment: {
 			type: 'string',
@@ -103,52 +104,54 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 
 	edit: function( props ) {
 
-			const { heading, subHeading, text, alignment, contentWidth, contentPaddingTop, contentPaddingBottom, image, imageWidth, imagePosition, imagePaddingTop, imagePaddingBottom } = props.attributes;
-			const { className, setAttributes } = props;
-			const { headingColor, subHeadingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText, buttonURL } = props.attributes;
+		const { heading, subHeading, text, alignment, contentWidth, contentPaddingTop, contentPaddingBottom, image, imageWidth, imagePosition, imagePaddingTop, imagePaddingBottom } = props.attributes;
+		const { className, setAttributes } = props;
+		const { headingColor, subHeadingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText } = props.attributes;
 
-			const contentStyle = {
-				paddingTop: contentPaddingTop !== 0 ? contentPaddingTop + 'px' : null,
-				paddingBottom: contentPaddingBottom !== 0 ? contentPaddingBottom + 'px' : null,
-				textAlign: alignment,
-			};
+		const contentStyle = {
+			paddingTop: contentPaddingTop !== 0 ? contentPaddingTop + 'px' : null,
+			paddingBottom: contentPaddingBottom !== 0 ? contentPaddingBottom + 'px' : null,
+			textAlign: alignment,
+		};
 
-			const imageStyle = {
-				paddingTop: imagePaddingTop !== 0 ? imagePaddingTop + 'px' : null,
-				paddingBottom: imagePaddingBottom !== 0 ? imagePaddingBottom + 'px' : null,
-				width: imageWidth + 'px',
-			};
+		const imageStyle = {
+			paddingTop: imagePaddingTop !== 0 ? imagePaddingTop + 'px' : null,
+			paddingBottom: imagePaddingBottom !== 0 ? imagePaddingBottom + 'px' : null,
+			width: imageWidth + 'px',
+		};
 
-			const imageOutput = (
-				<div className="vertical-feature-image-wrapper" style={ imageStyle }>
-						<MediaUpload
-							onSelect={ ( media ) => setAttributes( { image: media.url } ) }
-							type="image"
-							value={ image }
-							render={ ( { open } ) => (
-								<Button onClick={ open }>
-									{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
-										<img
-											className={ `${ className }-image` }
-											src={ image }
-											alt="Feature Image"
-										/>
-									}
-								</Button>
-							) }
-						>
-					</MediaUpload>
-				</div>
-			);
+		const imageOutput = (
+			<div className="vertical-feature-image-wrapper" style={ imageStyle }>
+				<MediaUpload
+					onSelect={ ( media ) => setAttributes( { image: media.url } ) }
+					type="image"
+					value={ image }
+					render={ ( { open } ) => (
+						<Button onClick={ open }>
+							{ ! image ?
+								<div className="no-image"><Dashicon icon="format-image" /></div> :
+								<img
+									className={ `${ className }-image` }
+									src={ image }
+									alt="Feature Image"
+								/>
+							}
+						</Button>
+					) }
+				>
+				</MediaUpload>
+			</div>
+		);
 
-			return [
-				<Inspector { ...props } />,
+		return (
+			<Fragment>
+				<Inspector { ...props } />
 				<BlockControls key="controls">
 					<AlignmentToolbar
 						value={ alignment }
 						onChange={ ( alignment ) => setAttributes( { alignment } ) }
 					/>
-				</BlockControls>,
+				</BlockControls>
 				<div className={ className + ' image-position-' + imagePosition }>
 					{ imagePosition === 'above' && imageOutput }
 					<div className="vertical-feature-content-wrapper" style={ contentStyle }>
@@ -156,7 +159,7 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 							<RichText
 								value={ heading }
 								onChange={ ( heading ) => setAttributes( { heading } ) }
-								tagName='h2'
+								tagName="h2"
 								placeholder={ __( 'Heading' ) }
 								formattingControls={[]}
 								keepPlaceholderOnFocus={ true }
@@ -166,9 +169,9 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 							<RichText
 								value={ subHeading }
 								onChange={ ( subHeading ) => setAttributes( { subHeading } ) }
-								tagName='p'
+								tagName="p"
 								placeholder={ __( 'Sub Heading' ) }
-								formattingControls={[]}
+								formattingControls={ [] }
 								keepPlaceholderOnFocus={ true }
 								style={ { color: subHeadingColor } }
 								className="vertical-feature__subheading"
@@ -176,7 +179,7 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 							<RichText
 								value={ text }
 								onChange={ ( text ) => setAttributes( { text } ) }
-								tagName='p'
+								tagName="p"
 								placeholder={ __( 'Description' ) }
 								keepPlaceholderOnFocus={ true }
 								style={ { color: textColor } }
@@ -191,9 +194,9 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 					</div>
 					{ imagePosition === 'below' && imageOutput }
 				</div>
-			];
-
-		},
+			</Fragment>
+		);
+	},
 
 	save: function( props ) {
 
@@ -251,6 +254,5 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 				{ imagePosition === 'below' && imageOutput }
 			</div>
 		);
-
 	},
 } );

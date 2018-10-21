@@ -4,25 +4,18 @@
 const { __ } = wp.i18n;
 const { Component } = wp.element;
 const { InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, PanelColor, TextControl, SelectControl, RangeControl, ToggleControl } = wp.components;
+const { PanelBody, PanelColor, RangeControl } = wp.components;
 
 /**
  * Inspector controls
  */
 export default class Inspector extends Component {
 
-	constructor( props ) {
-		super( ...arguments );
-	}
-
 	render() {
 
-		const {
-			attributes,
-			setAttributes
-		} = this.props;
+		const { attributes, setAttributes } = this.props;
 
-		const { maxWidth, testimonialColor, testimonialSize, authorImageSize, authorColor, authorSize, marginBottom } = attributes;
+		const { maxWidth, testimonialColor, testimonialSize, authorImageSize, authorColor, authorSize } = attributes;
 
 		return (
 			<InspectorControls key="inspector">

@@ -11,16 +11,9 @@ const { PanelBody, PanelColor, TextControl, RangeControl } = wp.components;
  */
 export default class Inspector extends Component {
 
-	constructor( props ) {
-		super( ...arguments );
-	}
-
 	render() {
 
-		const {
-			attributes,
-			setAttributes
-		} = this.props;
+		const { attributes, setAttributes } = this.props;
 
 		const { headingColor, headingSize, buttonText, buttonURL, buttonColor, buttonBackgroundColor } = attributes;
 

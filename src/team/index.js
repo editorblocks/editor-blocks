@@ -33,7 +33,7 @@ registerBlockType( 'editor-blocks/team', {
 				position: { source: 'children', selector: '.team-member__position' },
 				bio: { source: 'children', selector: '.team-member__bio' },
 			},
-			default: [ [], [] ]
+			default: [ [], [] ],
 		},
 		count: {
 			type: 'number',
@@ -52,94 +52,93 @@ registerBlockType( 'editor-blocks/team', {
 
 	edit: function( props ) {
 
-			const { members, count, nameColor, positionColor, bioColor } = props.attributes;
-			const { className, setAttributes } = props;
+		const { members, count, nameColor, positionColor, bioColor } = props.attributes;
+		const { className, setAttributes } = props;
 
-			function onChangeMember( value, i, attribute ) {
-				const newMembers = members;
-				if( newMembers[i] === undefined ) {
-					newMembers[i] = {}
-				}
-				const member = newMembers[i];
-				member[attribute] = value;
-				setAttributes( { members: [ ...newMembers ] } );
+		function onChangeMember( value, i, attribute ) {
+			const newMembers = members;
+			if( newMembers[i] === undefined ) {
+				newMembers[i] = {}
 			}
+			const member = newMembers[i];
+			member[attribute] = value;
+			setAttributes( { members: [ ...newMembers ] } );
+		}
 
-			function onChangeMemberImage( value, i ) {
-				const newMembers = members;
-				if( newMembers[i] === undefined ) {
-					newMembers[i] = {}
-				}
-				const member = newMembers[i];
-				member['image'] = value.url;
-				setAttributes( { members: [ ...newMembers ] } );
+		function onChangeMemberImage( value, i ) {
+			const newMembers = members;
+			if( newMembers[i] === undefined ) {
+				newMembers[i] = {}
 			}
+			const member = newMembers[i];
+			member['image'] = value.url;
+			setAttributes( { members: [ ...newMembers ] } );
+		}
 
-			const teamClasses = className  + ' col-' + count;
+		const teamClasses = className  + ' col-' + count;
 
-			return [
-				<Inspector
-					{ ...props }
-				/>,
-				<div className={ teamClasses }>
-					{ _times( count, ( index ) => {
-						const image = _get( members, [ index, 'image' ] )
-						const memberClass = 'team-member team-member-' + index;
-							return (
-								<div className={ memberClass } key={ `member-${ index }` }>
-									<MediaUpload
-										onSelect={ ( value ) => onChangeMemberImage( value, index ) }
-										type="image"
-										value={ image }
-										render={ ( { open } ) => (
-											<Button onClick={ open }>
-												{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
-													<img
-														className={ `${ className }-image` }
-														src={ image }
-														alt="Team Member Image"
-													/>
-												}
-											</Button>
-										) }
-									>
-								</MediaUpload>
-								<RichText
-									value={ _get( members, [ index, 'name' ] ) }
-									onChange={ ( value ) => onChangeMember( value, index, 'name' ) }
-									tagName='h3'
-									placeholder={ __( 'Name' ) }
-									formattingControls={[]}
-									keepPlaceholderOnFocus={ true }
-									className="team-member__name"
-									style={ { color: nameColor } }
-								/>
-								<RichText
-									value={ _get( members, [ index, 'position' ] ) }
-									onChange={ ( value ) => onChangeMember( value, index, 'position' ) }
-									tagName='p'
-									placeholder={ __( 'Position' ) }
-									formattingControls={[]}
-									keepPlaceholderOnFocus={ true }
-									className="team-member__position"
-									style={ { color: positionColor } }
-								/>
-								<RichText
-									value={ _get( members, [ index, 'bio' ] ) }
-									onChange={ ( value ) => onChangeMember( value, index, 'bio' ) }
-									tagName='p'
-									placeholder={ __( 'Bio' ) }
-									keepPlaceholderOnFocus={ true }
-									className="team-member__bio"
-									style={ { color: bioColor } }
-								/>
-							</div>
-							);
-						} ) }
-				</div>
-			];
-
-		},
+		return [
+			<Inspector
+				{ ...props }
+			/>,
+			<div className={ teamClasses }>
+				{ _times( count, ( index ) => {
+					const image = _get( members, [ index, 'image' ] )
+					const memberClass = 'team-member team-member-' + index;
+						return (
+							<div className={ memberClass } key={ `member-${ index }` }>
+								<MediaUpload
+									onSelect={ ( value ) => onChangeMemberImage( value, index ) }
+									type="image"
+									value={ image }
+									render={ ( { open } ) => (
+										<Button onClick={ open }>
+											{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
+												<img
+													className={ `${ className }-image` }
+													src={ image }
+													alt="Team Member Image"
+												/>
+											}
+										</Button>
+									) }
+								>
+							</MediaUpload>
+							<RichText
+								value={ _get( members, [ index, 'name' ] ) }
+								onChange={ ( value ) => onChangeMember( value, index, 'name' ) }
+								tagName='h3'
+								placeholder={ __( 'Name' ) }
+								formattingControls={[]}
+								keepPlaceholderOnFocus={ true }
+								className="team-member__name"
+								style={ { color: nameColor } }
+							/>
+							<RichText
+								value={ _get( members, [ index, 'position' ] ) }
+								onChange={ ( value ) => onChangeMember( value, index, 'position' ) }
+								tagName='p'
+								placeholder={ __( 'Position' ) }
+								formattingControls={[]}
+								keepPlaceholderOnFocus={ true }
+								className="team-member__position"
+								style={ { color: positionColor } }
+							/>
+							<RichText
+								value={ _get( members, [ index, 'bio' ] ) }
+								onChange={ ( value ) => onChangeMember( value, index, 'bio' ) }
+								tagName='p'
+								placeholder={ __( 'Bio' ) }
+								keepPlaceholderOnFocus={ true }
+								className="team-member__bio"
+								style={ { color: bioColor } }
+							/>
+						</div>
+						);
+					} ) }
+			</div>
+		];
+	},
 
 	save: function( props ) {
 

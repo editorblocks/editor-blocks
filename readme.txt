@@ -53,6 +53,23 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 
 == Changelog ==
 
+= 1.0.6 =
+Pricing Table Block: fix missing button URL Setting
+Group colors using PanelColorSettings component
+
+= 1.0.5 =
+Callout Block: Fix buttonURL
+
+= 1.0.42 =
+Improve compatibility with 'Block Lite' theme.
+
+= 1.0.41 =
+Update internal version number for cache busting.
+
+= 1.0.4 =
+Wrapper Block: Fix alignfull.
+Compress dist CSS/JS.
+
 = 1.0.3 =
 Add version number to script/style enqueues.
 Wrapper Block: Add 'Full Width Background' switch.

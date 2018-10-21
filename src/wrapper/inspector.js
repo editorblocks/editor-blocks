@@ -4,7 +4,7 @@
 const { __ } = wp.i18n;
 const { Component } = wp.element;
 const { InspectorControls, ColorPalette, MediaUpload } = wp.editor;
-const { PanelBody, PanelRow, PanelColor, RangeControl, SelectControl, ToggleControl, Button, Spinner } = wp.components;
+const { PanelBody, PanelColor, RangeControl, SelectControl, ToggleControl, Button, Spinner } = wp.components;
 
 /**
  * Inspector controls
@@ -20,11 +20,11 @@ export default class Inspector extends Component {
 		const {
 			attributes,
 			setAttributes,
-			setBackgroundColor
+			setBackgroundColor,
 		} = this.props;
 
 		const { fullWidthBackground, maxWidth, position, paddingTop, paddingLeft, paddingBottom, paddingRight } = attributes;
-		const { marginTop, marginLeft, marginBottom, marginRight } = attributes;
+		const { marginTop, marginBottom } = attributes;
 		const { backgroundColor, backgroundImage, backgroundOpacity } = attributes;
 
 		return (
@@ -39,17 +39,17 @@ export default class Inspector extends Component {
 						step={ 10 }
 						allowReset={ true }
 					/>
-				{ maxWidth &&
-					<SelectControl
-						label={ __( 'Position' ) }
-						value={ position }
-						onChange={ ( position ) => setAttributes( { position } ) }
-						options={ [
-							{ value: '', label: 'Middle' },
-							{ value: 'left', label: 'Left' },
-							{ value: 'right', label: 'Right' },
-						] }
-					/> }
+					{ maxWidth &&
+						<SelectControl
+							label={ __( 'Position' ) }
+							value={ position }
+							onChange={ ( position ) => setAttributes( { position } ) }
+							options={ [
+								{ value: '', label: 'Middle' },
+								{ value: 'left', label: 'Left' },
+								{ value: 'right', label: 'Right' },
+							] }
+						/> }
 					<ToggleControl
 						label={ __( 'Full Width Background' ) }
 						checked={ fullWidthBackground }
@@ -66,22 +66,23 @@ export default class Inspector extends Component {
 							render={ ( { open } ) => (
 								<Button className="editor-post-featured-image__preview" onClick={ open }>
 									{ backgroundImage &&
-											<img src={ backgroundImage } alt={ __( 'Featured image' ) } />
+										<img src={ backgroundImage } alt={ __( 'Featured image' ) } />
 									}
 									{ ! backgroundImage && <Spinner /> }
 								</Button>
 							) }
 						/>
 					}
-					{ ! backgroundImage && <MediaUpload
-						onSelect={ ( value ) => setAttributes( { backgroundImage: value.url } ) }
-						type="image"
-						value={ backgroundImage }
-						render={ ( { open } ) => (
-							<Button className="button" onClick={ open }>
-								Open Media Library
-							</Button>
-						) }
+					{ ! backgroundImage &&
+						<MediaUpload
+							onSelect={ ( value ) => setAttributes( { backgroundImage: value.url } ) }
+							type="image"
+							value={ backgroundImage }
+							render={ ( { open } ) => (
+								<Button className="button" onClick={ open }>
+									Open Media Library
+								</Button>
+							) }
 						/>
 					}
 					{ !! backgroundImage &&
@@ -157,7 +158,6 @@ export default class Inspector extends Component {
 						max={ 250 }
 					/>
 				</PanelBody>
-
 			</InspectorControls>
 		);
 	}

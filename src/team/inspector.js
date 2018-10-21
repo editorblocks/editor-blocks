@@ -3,24 +3,17 @@
  */
 const { __ } = wp.i18n;
 const { Component } = wp.element;
-const { InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, PanelColor, RangeControl } = wp.components;
+const { InspectorControls, PanelColorSettings } = wp.editor;
+const { PanelBody, RangeControl } = wp.components;
 
 /**
  * Inspector controls
  */
 export default class Inspector extends Component {
 
-	constructor( props ) {
-		super( ...arguments );
-	}
-
 	render() {
 
-		const {
-			attributes,
-			setAttributes
-		} = this.props;
+		const { attributes, setAttributes } = this.props;
 
 		const { count, nameColor, positionColor, bioColor } = attributes;
 
@@ -32,30 +25,31 @@ export default class Inspector extends Component {
 						value={ count }
 						onChange={ ( count ) => setAttributes( { count } ) }
 						min={ 2 }
-		        max={ 4 }
+ 						max={ 4 }
 					/>
 				</PanelBody>
-				<PanelColor title={ __( 'Name Color' ) } colorValue={ nameColor } initialOpen={ false }>
-					<ColorPalette
-						label={ __( 'Name Color' ) }
-						value={ nameColor }
-						onChange={ ( nameColor ) => setAttributes( { nameColor } ) }
-					/>
-				</PanelColor>
-				<PanelColor title={ __( 'Position Color' ) } colorValue={ positionColor } initialOpen={ false }>
-					<ColorPalette
-						label={ __( 'Position Color' ) }
-						value={ positionColor }
-						onChange={ ( positionColor ) => setAttributes( { positionColor } ) }
-					/>
-				</PanelColor>
-				<PanelColor title={ __( 'Bio Color' ) } colorValue={ bioColor } initialOpen={ false }>
-					<ColorPalette
-						label={ __( 'Bio Color' ) }
-						value={ bioColor }
-						onChange={ ( bioColor ) => setAttributes( { bioColor } ) }
-					/>
-				</PanelColor>
+				<PanelColorSettings
+					title={ __( 'Color Settings' ) }
+					initialOpen={ false }
+					colorSettings={ [
+						{
+							value: nameColor,
+							onChange: ( nameColor ) => setAttributes( { nameColor } ),
+							label: __( 'Name Color' ),
+						},
+						{
+							value: positionColor,
+							onChange: ( positionColor ) => setAttributes( { positionColor } ),
+							label: __( 'Position Color' ),
+						},
+						{
+							value: bioColor,
+							onChange: ( bioColor ) => setAttributes( { bioColor } ),
+							label: __( 'Bio Color' ),
+						},
+					] }
+				>
+				</PanelColorSettings>
 			</InspectorControls>
 		);
 	}

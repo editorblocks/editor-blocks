@@ -11,10 +11,6 @@ const { PanelBody, PanelColor, RangeControl } = wp.components;
  */
 export default class Inspector extends Component {
 
-	constructor( props ) {
-		super( ...arguments );
-	}
-
 	render() {
 
 		const {

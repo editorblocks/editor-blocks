@@ -9,6 +9,7 @@ import _get from 'lodash/get';
 import _times from 'lodash/times';
 
 const { __ } = wp.i18n;
+const { Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
 const { MediaUpload } = wp.editor;
 const { Button, Dashicon } = wp.components;
@@ -30,7 +31,7 @@ registerBlockType( 'editor-blocks/brands', {
 			query: {
 				image: { source: 'attribute', selector: '.brand__image', attribute: 'src' },
 			},
-			default: [ [], [] ]
+			default: [ [], [] ],
 		},
 		count: {
 			type: 'number',
@@ -40,54 +41,53 @@ registerBlockType( 'editor-blocks/brands', {
 
 	edit: function( props ) {
 
-			const { brands, count } = props.attributes;
-			const { className, setAttributes } = props;
-			const brandClasses = className  + ' col-' + count;
+		const { brands, count } = props.attributes;
+		const { className, setAttributes } = props;
+		const brandClasses = className + ' col-' + count;
 
-			function onChangeBrandImage( value, i ) {
-				const newBrands = brands;
-				if( newBrands[i] === undefined ) {
-					newBrands[i] = {}
-				}
-				const brand = newBrands[i];
-				brand['image'] = value.url;
-				setAttributes( { brands: [ ...newBrands ] } );
+		function onChangeBrandImage( value, i ) {
+			const newBrands = brands;
+			if ( newBrands[ i ] === undefined ) {
+				newBrands[ i ] = {};
 			}
+			const brand = newBrands[ i ];
+			brand.image = value.url;
+			setAttributes( { brands: [ ...newBrands ] } );
+		}
 
-			return [
-				<Inspector
-					{ ...props }
-				/>,
+		return (
+			<Fragment>
+				<Inspector { ...props } />
 				<div className={ brandClasses }>
 					{ _times( count, ( index ) => {
 						const image = _get( brands, [ index, 'image' ] )
 						const brandClass = 'brand brand-' + index;
-							return (
-								<div className={ brandClass } key={ `brand-${ index }` }>
-									<MediaUpload
-										onSelect={ ( value ) => onChangeBrandImage( value, index ) }
-										type="image"
-										value={ image }
-										render={ ( { open } ) => (
-											<Button onClick={ open }>
-												{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
-													<img
-														className="brand__image"
-														src={ image }
-														alt="Brand Image"
-													/>
-												}
-											</Button>
-										) }
-									>
+						return (
+							<div className={ brandClass } key={ `brand-${ index }` }>
+								<MediaUpload
+									onSelect={ ( value ) => onChangeBrandImage( value, index ) }
+									type="image"
+									value={ image }
+									render={ ( { open } ) => (
+										<Button onClick={ open }>
+											{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
+												<img
+													className="brand__image"
+													src={ image }
+													alt="Brand Image"
+												/>
+											}
+										</Button>
+									) }
+								>
 								</MediaUpload>
 							</div>
-							);
-						} ) }
+						);
+					} ) }
 				</div>
-			];
-
-		},
+			</Fragment>
+		);
+	},
 
 	save: function( props ) {
 
@@ -110,10 +110,8 @@ registerBlockType( 'editor-blocks/brands', {
 							}
 						</div>
 					);
-
 				} ) }
 			</div>
 		);
-
 	},
 } );

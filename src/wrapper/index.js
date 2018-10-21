@@ -8,6 +8,7 @@ import Inspector from './inspector';
 import classnames from 'classnames';
 
 const { __ } = wp.i18n;
+const { Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks } = wp.editor;
 
@@ -65,8 +66,8 @@ const attributes = {
 	backgroundOpacity: {
 		type: 'number',
 		default: 0,
-	}
-}
+	},
+};
 
 registerBlockType( 'editor-blocks/wrapper', {
 	title: __( 'Wrapper (EB)' ),
@@ -85,48 +86,8 @@ registerBlockType( 'editor-blocks/wrapper', {
 
 	edit: function( props ) {
 
-			const { maxWidth, align, fullWidthBackground, position, paddingTop, paddingLeft, paddingBottom, paddingRight } = props.attributes;
-			const { marginTop, marginBottom } = props.attributes;
-			const { backgroundColor, backgroundImage, backgroundOpacity } = props.attributes;
-			const { className } = props;
-
-			const wrapperStyle = {
-				paddingTop: paddingTop !== 0 ? paddingTop + 'px' : null,
-				paddingRight: paddingRight !== 0 ? paddingRight + 'px' : null,
-				paddingBottom: paddingBottom !== 0 ? paddingBottom + 'px' : null,
-				paddingLeft: paddingLeft !== 0 ? paddingLeft + 'px' : null,
-				marginTop: marginTop !== 0 ? marginTop + 'px' : null,
-				marginBottom: marginBottom !== 0 ? marginBottom + 'px' : null,
-				backgroundColor: backgroundColor,
-				backgroundImage: backgroundImage && 'url(' + backgroundImage + ')',
-			};
-
-			const classes = classnames(
-				className,
-				dimRatioToClass( backgroundOpacity ),
-				{
-					'has-background-dim': backgroundOpacity !== 0,
-				},
-				position,
-				{ [`align${ align }`]: align && fullWidthBackground },
-			);
-
-			return [
-				<Inspector { ...props } />,
-				<div style={ wrapperStyle } className={ classes }>
-					<div className='wrapper-inner'>
-						<div className='wrapper-inner-blocks' style={ { maxWidth: maxWidth && maxWidth + 'px' } }>
-							<InnerBlocks />
-						</div>
-					</div>
-				</div>
-			];
-		},
-
-	save: function( props ) {
-
-		const { fullWidthBackground, maxWidth, position, align, paddingTop, paddingLeft, paddingBottom, paddingRight } = props.attributes;
-		const { marginTop, marginBottom  } = props.attributes;
+		const { maxWidth, align, fullWidthBackground, position, paddingTop, paddingLeft, paddingBottom, paddingRight } = props.attributes;
+		const { marginTop, marginBottom } = props.attributes;
 		const { backgroundColor, backgroundImage, backgroundOpacity } = props.attributes;
 		const { className } = props;
 
@@ -143,7 +104,49 @@ registerBlockType( 'editor-blocks/wrapper', {
 
 		const classes = classnames(
 			className,
-			{ [`align${ align }`]: align && fullWidthBackground },
+			dimRatioToClass( backgroundOpacity ),
+			{
+				'has-background-dim': backgroundOpacity !== 0,
+			},
+			position,
+			{ [ `align${ align }` ]: align && fullWidthBackground },
+		);
+
+		return (
+			<Fragment>
+				<Inspector { ...props } />
+				<div style={ wrapperStyle } className={ classes }>
+					<div className="wrapper-inner">
+						<div className="wrapper-inner-blocks" style={ { maxWidth: maxWidth && maxWidth + 'px' } }>
+							<InnerBlocks />
+						</div>
+					</div>
+				</div>
+			</Fragment>
+		);
+	},
+
+	save: function( props ) {
+
+		const { fullWidthBackground, maxWidth, position, align, paddingTop, paddingLeft, paddingBottom, paddingRight } = props.attributes;
+		const { marginTop, marginBottom } = props.attributes;
+		const { backgroundColor, backgroundImage, backgroundOpacity } = props.attributes;
+		const { className } = props;
+
+		const wrapperStyle = {
+			paddingTop: paddingTop !== 0 ? paddingTop + 'px' : null,
+			paddingRight: paddingRight !== 0 ? paddingRight + 'px' : null,
+			paddingBottom: paddingBottom !== 0 ? paddingBottom + 'px' : null,
+			paddingLeft: paddingLeft !== 0 ? paddingLeft + 'px' : null,
+			marginTop: marginTop !== 0 ? marginTop + 'px' : null,
+			marginBottom: marginBottom !== 0 ? marginBottom + 'px' : null,
+			backgroundColor: backgroundColor,
+			backgroundImage: backgroundImage && 'url(' + backgroundImage + ')',
+		};
+
+		const classes = classnames(
+			className,
+			{ [ `align${ align }` ]: align && fullWidthBackground },
 			dimRatioToClass( backgroundOpacity ),
 			{
 				'has-background-dim': backgroundOpacity !== 0,
@@ -153,8 +156,8 @@ registerBlockType( 'editor-blocks/wrapper', {
 
 		return (
 			<div style={ wrapperStyle } className={ classes }>
-				<div className='wrapper-inner'>
-					<div className='wrapper-inner-blocks' style={ { maxWidth: maxWidth && maxWidth + 'px' } }>
+				<div className="wrapper-inner">
+					<div className="wrapper-inner-blocks" style={ { maxWidth: maxWidth && maxWidth + 'px' } }>
 						<InnerBlocks.Content />
 					</div>
 				</div>
@@ -164,46 +167,46 @@ registerBlockType( 'editor-blocks/wrapper', {
 
 	deprecated: [
 		{
-				attributes,
+			attributes,
 
-				save: function( props ) {
+			save: function( props ) {
 
-					const { fullWidthBackground, maxWidth, position, align, paddingTop, paddingLeft, paddingBottom, paddingRight } = props.attributes;
-					const { marginTop, marginBottom  } = props.attributes;
-					const { backgroundColor, backgroundImage, backgroundOpacity } = props.attributes;
-					const { className } = props;
+				const { fullWidthBackground, maxWidth, position, align, paddingTop, paddingLeft, paddingBottom, paddingRight } = props.attributes;
+				const { marginTop, marginBottom } = props.attributes;
+				const { backgroundColor, backgroundImage, backgroundOpacity } = props.attributes;
+				const { className } = props;
 
-					const wrapperStyle = {
-						paddingTop: paddingTop !== 0 ? paddingTop + 'px' : null,
-						paddingRight: paddingRight !== 0 ? paddingRight + 'px' : null,
-						paddingBottom: paddingBottom !== 0 ? paddingBottom + 'px' : null,
-						paddingLeft: paddingLeft !== 0 ? paddingLeft + 'px' : null,
-						marginTop: marginTop !== 0 ? marginTop + 'px' : null,
-						marginBottom: marginBottom !== 0 ? marginBottom + 'px' : null,
-						backgroundColor: backgroundColor,
-						backgroundImage: backgroundImage && 'url(' + backgroundImage + ')',
-					};
+				const wrapperStyle = {
+					paddingTop: paddingTop !== 0 ? paddingTop + 'px' : null,
+					paddingRight: paddingRight !== 0 ? paddingRight + 'px' : null,
+					paddingBottom: paddingBottom !== 0 ? paddingBottom + 'px' : null,
+					paddingLeft: paddingLeft !== 0 ? paddingLeft + 'px' : null,
+					marginTop: marginTop !== 0 ? marginTop + 'px' : null,
+					marginBottom: marginBottom !== 0 ? marginBottom + 'px' : null,
+					backgroundColor: backgroundColor,
+					backgroundImage: backgroundImage && 'url(' + backgroundImage + ')',
+				};
 
-					const classes = classnames(
-						className,
-						{ [`align${ align }`]: align && fullWidthBackground },
-						dimRatioToClass( backgroundOpacity ),
-						{
-							'has-background-dim': backgroundOpacity !== 0,
-						},
-						position
-					);
+				const classes = classnames(
+					className,
+					{ [ `align${ align }` ]: align && fullWidthBackground },
+					dimRatioToClass( backgroundOpacity ),
+					{
+						'has-background-dim': backgroundOpacity !== 0,
+					},
+					position
+				);
 
-					return (
-						<div style={ wrapperStyle } className={ classes }>
-							<div className='wrapper-inner' style={ { maxWidth: maxWidth && maxWidth + 'px' } }>
-								<InnerBlocks.Content />
-							</div>
+				return (
+					<div style={ wrapperStyle } className={ classes }>
+						<div className="wrapper-inner" style={ { maxWidth: maxWidth && maxWidth + 'px' } }>
+							<InnerBlocks.Content />
 						</div>
-					);
-				},
-		}
-]
+					</div>
+				);
+			},
+		},
+	],
 } );
 
 function dimRatioToClass( ratio ) {

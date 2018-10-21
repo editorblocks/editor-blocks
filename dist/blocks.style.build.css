@@ -257,6 +257,10 @@
 
 .wp-block-editor-blocks-intro .inner {
   display: inline-block; }
+.wp-block-editor-blocks-pricing-table * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
 .wp-block-editor-blocks-pricing-table .pricing-table__image {
   width: 50px;
   margin-bottom: 1em; }
@@ -512,7 +516,8 @@
   margin-right: auto; }
 
 .wp-block-editor-blocks-wrapper.alignfull {
-  max-width: 100%; }
+  margin-bottom: 0;
+  max-width: none; }
 
 .wp-block-editor-blocks-wrapper .wrapper-inner {
   max-width: 1040px;
@@ -550,7 +555,8 @@
   left: 0;
   right: 0;
   top: 0;
-  background-color: #000; }
+  background-color: #000;
+  opacity: 0; }
 
 .wp-block-editor-blocks-wrapper.has-background-dim-10:before {
   opacity: .1; }

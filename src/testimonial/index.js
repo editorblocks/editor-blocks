@@ -27,11 +27,11 @@ registerBlockType( 'editor-blocks/testimonial', {
 		},
 		testimonial: {
 			source: 'children',
-			selector: '.testimonial__text'
+			selector: '.testimonial__text',
 		},
 		author: {
 			source: 'children',
-			selector: '.testimonial__author'
+			selector: '.testimonial__author',
 		},
 		alignment: {
 			type: 'string',
@@ -40,7 +40,7 @@ registerBlockType( 'editor-blocks/testimonial', {
 		authorImage: {
 			source: 'attribute',
 			selector: '.testimonial__image',
-			attribute: 'src'
+			attribute: 'src',
 		},
 		authorImageSize: {
 			type: 'number',
@@ -61,64 +61,61 @@ registerBlockType( 'editor-blocks/testimonial', {
 
 	edit: function( props ) {
 
-			const { maxWidth, authorImage, testimonial, author, alignment } = props.attributes;
-			const { className, setAttributes } = props;
-			const { authorImageSize, testimonialColor, testimonialSize, authorColor, authorSize } = props.attributes;
+		const { maxWidth, authorImage, testimonial, author, alignment } = props.attributes;
+		const { className, setAttributes } = props;
+		const { authorImageSize, testimonialColor, testimonialSize, authorColor, authorSize } = props.attributes;
 
-			return [
-				<Inspector
-					{ ...props }
-				/>,
-				<BlockControls key="controls">
-					<AlignmentToolbar
-						value={ alignment }
-						onChange={ ( alignment ) => setAttributes( { alignment } ) }
+		return [
+			<Inspector { ...props } />,
+			<BlockControls key="controls">
+				<AlignmentToolbar
+					value={ alignment }
+					onChange={ ( alignment ) => setAttributes( { alignment } ) }
+				/>
+			</BlockControls>,
+			<div className={ className } style={ { textAlign: alignment } } >
+				<div className="inner" style={ { maxWidth: maxWidth && maxWidth + 'px' } } >
+					<MediaUpload
+						onSelect={ ( value ) => setAttributes( { authorImage: value.url } ) }
+						type="image"
+						value={ authorImage }
+						render={ ( { open } ) => (
+							<Button onClick={ open }>
+								{ ! authorImage ? <div className="no-image"><Dashicon icon="format-image" /></div> :
+									<img
+										className={ `${ className }-image` }
+										src={ authorImage }
+										alt="Testimonial Author Image"
+										className="testimonial__image"
+										style={ { maxWidth: authorImageSize && authorImageSize + 'px' } }
+									/>
+								}
+							</Button>
+						) }
+					>
+					</MediaUpload>
+					<RichText
+						value={ testimonial }
+						onChange={ ( testimonial ) => setAttributes( { testimonial } ) }
+						tagName="blockquote"
+						placeholder={ __( 'Testimonial' ) }
+						keepPlaceholderOnFocus={ true }
+						className="testimonial__text"
+						style={ { color: testimonialColor, fontSize: testimonialSize && testimonialSize + 'px' } }
 					/>
-				</BlockControls>,
-					<div className={ className } style={ { textAlign: alignment } } >
-						<div class="inner" style={ { maxWidth: maxWidth && maxWidth + 'px' } } >
-							<MediaUpload
-								onSelect={ ( value ) => setAttributes( { authorImage: value.url } ) }
-								type="image"
-								value={ authorImage }
-								render={ ( { open } ) => (
-									<Button onClick={ open }>
-										{ ! authorImage ? <div className="no-image"><Dashicon icon="format-image" /></div> :
-											<img
-												className={ `${ className }-image` }
-												src={ authorImage }
-												alt="Testimonial Author Image"
-												className="testimonial__image"
-												style={ { maxWidth: authorImageSize && authorImageSize + 'px' } }
-											/>
-										}
-									</Button>
-								) }
-							>
-							</MediaUpload>
-							<RichText
-								value={ testimonial }
-								onChange={ ( testimonial ) => setAttributes( { testimonial } ) }
-								tagName='blockquote'
-								placeholder={ __( 'Testimonial' ) }
-								keepPlaceholderOnFocus={ true }
-								className="testimonial__text"
-								style={ { color: testimonialColor, fontSize: testimonialSize && testimonialSize + 'px' } }
-							/>
-							<RichText
-								value={ author }
-								onChange={ ( author ) => setAttributes( { author } ) }
-								tagName='span'
-								placeholder={ __( 'Joe Blogs - Author' ) }
-								keepPlaceholderOnFocus={ true }
-								className="testimonial__author"
-								style={ { color: authorColor, fontSize: authorSize && authorSize + 'px' } }
-							/>
-						</div>
-					</div>
-			];
-
-		},
+					<RichText
+						value={ author }
+						onChange={ ( author ) => setAttributes( { author } ) }
+						tagName="span"
+						placeholder={ __( 'Joe Blogs - Author' ) }
+						keepPlaceholderOnFocus={ true }
+						className="testimonial__author"
+						style={ { color: authorColor, fontSize: authorSize && authorSize + 'px' } }
+					/>
+				</div>
+			</div>
+		];
+	},
 
 	save: function( props ) {
 
@@ -127,31 +124,31 @@ registerBlockType( 'editor-blocks/testimonial', {
 		const { className } = props;
 
 		return (
-				<div style={ { textAlign: alignment } } >
-					<div class="inner" style={ { maxWidth: maxWidth && maxWidth + 'px' } } >
-						{ authorImage &&
-								<img
-									className='editor-blocks-testimonial-author-image'
-									src={ authorImage }
-									alt="Testimonial Author Image"
-									style={ { maxWidth: authorImageSize && authorImageSize + 'px' } }
-									className="testimonial__image"
-								/>
-						}
-						<RichText.Content
-							tagName="blockquote"
-							style={ { color: testimonialColor, fontSize: testimonialSize && testimonialSize + 'px' } }
-							value={ testimonial }
-							className="testimonial__text"
+			<div style={ { textAlign: alignment } } >
+				<div className="inner" style={ { maxWidth: maxWidth && maxWidth + 'px' } } >
+					{ authorImage &&
+						<img
+							className='editor-blocks-testimonial-author-image'
+							src={ authorImage }
+							alt="Testimonial Author Image"
+							style={ { maxWidth: authorImageSize && authorImageSize + 'px' } }
+							className="testimonial__image"
 						/>
-						<RichText.Content
-							tagName="span"
-							style={ { color: authorColor, fontSize: authorSize && authorSize + 'px' } }
-							value={ author }
-							className="testimonial__author"
-						/>
-					</div>
+					}
+					<RichText.Content
+						tagName="blockquote"
+						style={ { color: testimonialColor, fontSize: testimonialSize && testimonialSize + 'px' } }
+						value={ testimonial }
+						className="testimonial__text"
+					/>
+					<RichText.Content
+						tagName="span"
+						style={ { color: authorColor, fontSize: authorSize && authorSize + 'px' } }
+						value={ author }
+						className="testimonial__author"
+					/>
 				</div>
+			</div>
 		);
 
 	},

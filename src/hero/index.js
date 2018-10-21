@@ -7,8 +7,9 @@ import './editor.scss';
 import Inspector from './inspector';
 
 const { __ } = wp.i18n;
+const { Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks, InspectorControls, ColorPalette, RichText, BlockControls, AlignmentToolbar } = wp.editor;
+const { RichText, BlockControls, AlignmentToolbar } = wp.editor;
 
 registerBlockType( 'editor-blocks/hero', {
 	title: __( 'Hero (EB)' ),
@@ -22,11 +23,11 @@ registerBlockType( 'editor-blocks/hero', {
 	attributes: {
 		heading: {
 			source: 'children',
-			selector: '.hero__heading'
+			selector: '.hero__heading',
 		},
 		text: {
 			source: 'children',
-			selector: '.hero__text'
+			selector: '.hero__text',
 		},
 		alignment: {
 			type: 'string',
@@ -69,31 +70,32 @@ registerBlockType( 'editor-blocks/hero', {
 
 	edit: function( props ) {
 
-			const { heading, text, alignment, width, position } = props.attributes;
-			const { className, setAttributes, setBackgroundColor } = props;
-			const { headingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText, buttonURL } = props.attributes;
+		const { heading, text, alignment, width, position } = props.attributes;
+		const { className, setAttributes } = props;
+		const { headingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText } = props.attributes;
 
-			const heroStyle = {
-				textAlign: alignment,
-				maxWidth: width + 'px',
-			};
+		const heroStyle = {
+			textAlign: alignment,
+			maxWidth: width + 'px',
+		};
 
-			return [
-			<Inspector { ...props } />,
-			<BlockControls key="controls">
-				<AlignmentToolbar
-					value={ alignment }
-					onChange={ ( alignment ) => setAttributes( { alignment } ) }
-				/>
-			</BlockControls>,
+		return (
+			<Fragment>
+				<Inspector { ...props } />
+				<BlockControls key="controls">
+					<AlignmentToolbar
+						value={ alignment }
+						onChange={ ( alignment ) => setAttributes( { alignment } ) }
+					/>
+				</BlockControls>
 				<div className={ className + ' ' + position }>
 					<div className="inner" style={ heroStyle }>
 						<RichText
 							value={ heading }
 							onChange={ ( heading ) => setAttributes( { heading } ) }
-							tagName='h2'
+							tagName="h2"
 							placeholder={ __( 'Hero Heading' ) }
-							formattingControls={[]}
+							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: headingColor } }
 							className="hero__heading"
@@ -101,28 +103,30 @@ registerBlockType( 'editor-blocks/hero', {
 						<RichText
 							value={ text }
 							onChange={ ( text ) => setAttributes( { text } ) }
-							tagName='p'
+							tagName="p"
 							placeholder={ __( 'Hero Text' ) }
-							formattingControls={[]}
+							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: textColor } }
 							className="hero__text"
 						/>
 						{ showButton &&
 							<div className="button-container">
-								<a style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } } className="hero__button" href="#">{ buttonText }</a>
+								<a
+									style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } }
+									className="hero__button" href="#">{ buttonText }
+								</a>
 							</div>
 						}
 					</div>
 				</div>
-			];
-
-		},
+			</Fragment>
+		);
+	},
 
 	save: function( props ) {
 
 		const { heading, text, alignment, position, width } = props.attributes;
-		const { className, setAttributes, setBackgroundColor } = props;
 		const { headingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText, buttonURL } = props.attributes;
 
 		const heroStyle = {
@@ -153,6 +157,5 @@ registerBlockType( 'editor-blocks/hero', {
 				</div>
 			</div>
 		);
-
 	},
 } );

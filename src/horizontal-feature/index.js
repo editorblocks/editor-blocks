@@ -7,6 +7,8 @@ import './editor.scss';
 import Inspector from './inspector';
 
 const { __ } = wp.i18n;
+const { Fragment } = wp.element;
+
 const { registerBlockType } = wp.blocks;
 const { RichText, BlockControls, AlignmentToolbar, MediaUpload } = wp.editor;
 const { Button, Dashicon } = wp.components;
@@ -29,15 +31,15 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 		},
 		heading: {
 			source: 'children',
-			selector: '.horizontal-feature__heading'
+			selector: '.horizontal-feature__heading',
 		},
 		subHeading: {
 			source: 'children',
-			selector: '.horizontal-feature__subheading'
+			selector: '.horizontal-feature__subheading',
 		},
 		text: {
 			source: 'children',
-			selector: '.horizontal-feature__text'
+			selector: '.horizontal-feature__text',
 		},
 		alignment: {
 			type: 'string',
@@ -96,37 +98,38 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 
 	edit: function( props ) {
 
-			const { heading, subHeading, text, alignment, contentWidth, contentPaddingTop, image, imageWidth, imagePosition, imagePaddingTop } = props.attributes;
-			const { className, setAttributes } = props;
-			const { headingColor, subHeadingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText, buttonURL } = props.attributes;
+		const { heading, subHeading, text, alignment, contentWidth, contentPaddingTop, image, imageWidth, imagePosition, imagePaddingTop } = props.attributes;
+		const { className, setAttributes } = props;
+		const { headingColor, subHeadingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText } = props.attributes;
 
-			const contentStyle = {
-				width: contentWidth + '%',
-				paddingTop: contentPaddingTop !== 0 ? contentPaddingTop + 'px' : null,
-				textAlign: alignment,
-			};
+		const contentStyle = {
+			width: contentWidth + '%',
+			paddingTop: contentPaddingTop !== 0 ? contentPaddingTop + 'px' : null,
+			textAlign: alignment,
+		};
 
-			const imageStyle = {
-				width: imageWidth + '%',
-				paddingTop: imagePaddingTop !== 0 ? imagePaddingTop + 'px' : null,
-			};
+		const imageStyle = {
+			width: imageWidth + '%',
+			paddingTop: imagePaddingTop !== 0 ? imagePaddingTop + 'px' : null,
+		};
 
-			return [
-				<Inspector { ...props } />,
+		return (
+			<Fragment>
+				<Inspector { ...props } />
 				<BlockControls key="controls">
 					<AlignmentToolbar
 						value={ alignment }
 						onChange={ ( alignment ) => setAttributes( { alignment } ) }
 					/>
-				</BlockControls>,
+				</BlockControls>
 				<div className={ className + ' image-position-' + imagePosition }>
 					<div className="horizontal-feature-content-wrapper" style={ contentStyle }>
 						<RichText
 							value={ heading }
 							onChange={ ( heading ) => setAttributes( { heading } ) }
-							tagName='h2'
+							tagName="h2"
 							placeholder={ __( 'Heading' ) }
-							formattingControls={[]}
+							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: headingColor } }
 							className="horizontal-feature__heading"
@@ -134,9 +137,9 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 						<RichText
 							value={ subHeading }
 							onChange={ ( subHeading ) => setAttributes( { subHeading } ) }
-							tagName='p'
+							tagName="p"
 							placeholder={ __( 'Sub Heading' ) }
-							formattingControls={[]}
+							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: subHeadingColor } }
 							className="horizontal-feature__subheading"
@@ -144,7 +147,7 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 						<RichText
 							value={ text }
 							onChange={ ( text ) => setAttributes( { text } ) }
-							tagName='p'
+							tagName="p"
 							placeholder={ __( 'Description' ) }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: textColor } }
@@ -157,28 +160,28 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 						}
 					</div>
 					<div className="horizontal-feature-image-wrapper" style={ imageStyle }>
-							<MediaUpload
-								onSelect={ ( media ) => setAttributes( { image: media.url } ) }
-								type="image"
-								value={ image }
-								render={ ( { open } ) => (
-									<Button onClick={ open }>
-										{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
-											<img
-												className={ `${ className }-image` }
-												src={ image }
-												alt="Feature Image"
-											/>
-										}
-									</Button>
-								) }
-							>
+						<MediaUpload
+							onSelect={ ( media ) => setAttributes( { image: media.url } ) }
+							type="image"
+							value={ image }
+							render={ ( { open } ) => (
+								<Button onClick={ open }>
+									{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
+										<img
+											className={ `${ className }-image` }
+											src={ image }
+											alt="Feature Image"
+										/>
+									}
+								</Button>
+							) }
+						>
 						</MediaUpload>
 					</div>
 				</div>
-			];
-
-		},
+			</Fragment>
+		);
+	},
 
 	save: function( props ) {
 
@@ -228,6 +231,5 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 				</div>
 			</div>
 		);
-
 	},
 } );

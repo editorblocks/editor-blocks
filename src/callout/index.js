@@ -7,8 +7,9 @@ import './editor.scss';
 import Inspector from './inspector';
 
 const { __ } = wp.i18n;
+const { Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
-const { RichText, BlockControls, AlignmentToolbar } = wp.editor;
+const { RichText } = wp.editor;
 
 registerBlockType( 'editor-blocks/callout', {
 	title: __( 'Callout (EB)' ),
@@ -22,7 +23,7 @@ registerBlockType( 'editor-blocks/callout', {
 	attributes: {
 		heading: {
 			source: 'children',
-			selector: 'h2'
+			selector: 'h2',
 		},
 		headingColor: {
 			type: 'string',
@@ -50,28 +51,32 @@ registerBlockType( 'editor-blocks/callout', {
 
 	edit: function( props ) {
 
-			const { heading, headingSize, headingColor, buttonText, buttonURL, buttonColor, buttonBackgroundColor } = props.attributes;
-			const { className, setAttributes } = props;
+		const { heading, headingSize, headingColor, buttonText, buttonColor, buttonBackgroundColor } = props.attributes;
+		const { className, setAttributes } = props;
 
-			return [
-				<Inspector { ...props } />,
+		return (
+			<Fragment>
+				<Inspector { ...props } />
 				<div className={ className } >
 					<div className="button-container">
-						<a style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } } className="callout__button" href="#">{ buttonText }</a>
+						<a
+							style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } }
+							className="callout__button" href="#">{ buttonText }
+						</a>
 					</div>
 					<RichText
 						value={ heading }
 						onChange={ ( heading ) => setAttributes( { heading } ) }
-						tagName='h2'
+						tagName="h2"
 						placeholder={ __( 'Callout Text' ) }
 						keepPlaceholderOnFocus={ true }
 						style={ { color: headingColor, fontSize: headingSize && headingSize + 'px' } }
 						className="callout__text"
 					/>
 				</div>
-			];
-
-		},
+			</Fragment>
+		);
+	},
 
 	save: function( props ) {
 
@@ -79,9 +84,9 @@ registerBlockType( 'editor-blocks/callout', {
 		const { className } = props;
 
 		return (
-			<div className={className}>
+			<div className={ className }>
 				<div className="button-container">
-					<a style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } } className="callout__button" href="#">{ buttonText }</a>
+					<a style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } } className="callout__button" href={ buttonURL }>{ buttonText }</a>
 				</div>
 				<RichText.Content
 					tagName="h2"
@@ -91,6 +96,5 @@ registerBlockType( 'editor-blocks/callout', {
 				/>
 			</div>
 		);
-
 	},
 } );

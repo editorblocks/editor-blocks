@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EB_BLOCKS_VERSION', '1.0.3' );
+define( 'EB_BLOCKS_VERSION', '1.0.6' );
 
 /**
  * Enqueue Gutenberg block CSS for both frontend + backend.

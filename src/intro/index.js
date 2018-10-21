@@ -26,11 +26,11 @@ registerBlockType( 'editor-blocks/intro', {
 		},
 		heading: {
 			source: 'children',
-			selector: '.intro__heading'
+			selector: '.intro__heading',
 		},
 		subheading: {
 			source: 'children',
-			selector: '.intro__subheading'
+			selector: '.intro__subheading',
 		},
 		alignment: {
 			type: 'string',
@@ -51,43 +51,42 @@ registerBlockType( 'editor-blocks/intro', {
 
 	edit: function( props ) {
 
-			const { maxWidth, heading, subheading, alignment } = props.attributes;
-			const { className, setAttributes } = props;
-			const { headingColor, headingSize, subheadingColor, subheadingSize } = props.attributes;
+		const { maxWidth, heading, subheading, alignment } = props.attributes;
+		const { className, setAttributes } = props;
+		const { headingColor, headingSize, subheadingColor, subheadingSize } = props.attributes;
 
-			return [
-				<Inspector { ...props } />,
-				<BlockControls key="controls">
-					<AlignmentToolbar
-						value={ alignment }
-						onChange={ ( alignment ) => setAttributes( { alignment } ) }
+		return [
+			<Inspector { ...props } />,
+			<BlockControls key="controls">
+				<AlignmentToolbar
+					value={ alignment }
+					onChange={ ( alignment ) => setAttributes( { alignment } ) }
+				/>
+			</BlockControls>,
+			<div className={ className } style={ { textAlign: alignment } } >
+				<div className="inner" style={ { maxWidth: maxWidth + 'px' } } >
+					<RichText
+						value={ heading }
+						onChange={ ( heading ) => setAttributes( { heading } ) }
+						tagName="h2"
+						placeholder={ __( 'Intro Heading' ) }
+						keepPlaceholderOnFocus={ true }
+						style={ { color: headingColor, fontSize: headingSize && headingSize + 'px' } }
+						className="intro__heading"
 					/>
-				</BlockControls>,
-					<div className={ className } style={ { textAlign: alignment } } >
-						<div class="inner" style={ { maxWidth: maxWidth + 'px' } } >
-							<RichText
-								value={ heading }
-								onChange={ ( heading ) => setAttributes( { heading } ) }
-								tagName='h2'
-								placeholder={ __( 'Intro Heading' ) }
-								keepPlaceholderOnFocus={ true }
-								style={ { color: headingColor, fontSize: headingSize && headingSize + 'px' } }
-								className="intro__heading"
-							/>
-							<RichText
-								value={ subheading }
-								onChange={ ( subheading ) => setAttributes( { subheading } ) }
-								tagName='p'
-								placeholder={ __( 'Subheading' ) }
-								keepPlaceholderOnFocus={ true }
-								style={ { color: subheadingColor, fontSize: subheadingSize && subheadingSize + 'px' } }
-								className="intro__subheading"
-							/>
-						</div>
-					</div>
-			];
-
-		},
+					<RichText
+						value={ subheading }
+						onChange={ ( subheading ) => setAttributes( { subheading } ) }
+						tagName="p"
+						placeholder={ __( 'Subheading' ) }
+						keepPlaceholderOnFocus={ true }
+						style={ { color: subheadingColor, fontSize: subheadingSize && subheadingSize + 'px' } }
+						className="intro__subheading"
+					/>
+				</div>
+			</div>
+		];
+	},
 
 	save: function( props ) {
 
@@ -95,23 +94,22 @@ registerBlockType( 'editor-blocks/intro', {
 		const { headingColor, headingSize, subheadingColor, subheadingSize } = props.attributes;
 
 		return (
-				<div style={ { textAlign: alignment } } >
-					<div class="inner" style={ { maxWidth: maxWidth + 'px' } } >
-						<RichText.Content
-							tagName="h2"
-							style={ { color: headingColor, fontSize: headingSize && headingSize + 'px' } }
-							value={ heading }
-							className="intro__heading"
-						/>
-						<RichText.Content
-							tagName="p"
-							style={ { color: subheadingColor, fontSize: subheadingSize && subheadingSize + 'px' } }
-							value={ subheading }
-							className="intro__subheading"
-						/>
-					</div>
+			<div style={ { textAlign: alignment } } >
+				<div className="inner" style={ { maxWidth: maxWidth + 'px' } } >
+					<RichText.Content
+						tagName="h2"
+						style={ { color: headingColor, fontSize: headingSize && headingSize + 'px' } }
+						value={ heading }
+						className="intro__heading"
+					/>
+					<RichText.Content
+						tagName="p"
+						style={ { color: subheadingColor, fontSize: subheadingSize && subheadingSize + 'px' } }
+						value={ subheading }
+						className="intro__subheading"
+					/>
 				</div>
+			</div>
 		);
-
 	},
 } );

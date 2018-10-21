@@ -11,18 +11,11 @@ const { PanelBody, RangeControl } = wp.components;
  */
 export default class Inspector extends Component {
 
-	constructor( props ) {
-		super( ...arguments );
-	}
-
 	render() {
 
-		const {
-			attributes,
-			setAttributes
-		} = this.props;
+		const { attributes, setAttributes } = this.props;
 
-		const { count, columns } = attributes;
+		const { count } = attributes;
 
 		return (
 			<InspectorControls key="inspector">
