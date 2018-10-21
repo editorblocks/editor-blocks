@@ -11,9 +11,12 @@
   margin-right: 5%;
   width: 47.5%; }
 
+.brand__image {
+  vertical-align: bottom; }
+
 /*--------------------------------------------------------------
- # 2 Columns
- --------------------------------------------------------------*/
+# 2 Columns
+--------------------------------------------------------------*/
 .wp-block-editor-blocks-brands.col-2 .brand {
   width: 40%;
   margin-right: 10%; }
@@ -22,8 +25,8 @@
   margin-right: 0; }
 
 /*--------------------------------------------------------------
- # 3 Columns
- --------------------------------------------------------------*/
+# 3 Columns
+--------------------------------------------------------------*/
 .wp-block-editor-blocks-brands.col-3 .brand {
   width: 30%;
   margin-right: 5%; }
@@ -32,8 +35,8 @@
   margin-right: 0; }
 
 /*--------------------------------------------------------------
- # 4 Columns
- --------------------------------------------------------------*/
+# 4 Columns
+--------------------------------------------------------------*/
 .wp-block-editor-blocks-brands.col-4 .brand {
   width: 22%;
   margin-right: 4%; }
@@ -42,8 +45,8 @@
   margin-right: 0; }
 
 /*--------------------------------------------------------------
- # 5 Columns
- --------------------------------------------------------------*/
+# 5 Columns
+--------------------------------------------------------------*/
 .wp-block-editor-blocks-brands.col-5 .brand {
   width: 18%;
   margin-right: 2.5%; }
@@ -52,8 +55,8 @@
   margin-right: 0; }
 
 /*--------------------------------------------------------------
- # 6 Columns
- --------------------------------------------------------------*/
+# 6 Columns
+--------------------------------------------------------------*/
 .wp-block-editor-blocks-brands.col-6 .brand {
   width: 15%;
   margin-right: 2%; }
@@ -263,7 +266,8 @@
 
 .wp-block-editor-blocks-pricing-table .pricing-table__image {
   width: 50px;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  vertical-align: bottom; }
 
 .wp-block-editor-blocks-pricing-table .pricing-table__features {
   padding: 0;
@@ -393,7 +397,8 @@
 
 .wp-block-editor-blocks-team .team-member__image {
   width: auto;
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  vertical-align: bottom; }
 
 .wp-block-editor-blocks-team .team-member__position {
   text-transform: uppercase;
@@ -460,7 +465,8 @@
   margin-bottom: 25px;
   border-radius: 500px;
   max-width: 100px;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: bottom; }
 .wp-block-editor-blocks-vertical-feature .vertical-feature__heading {
   margin-top: 0; }
 
@@ -487,7 +493,8 @@
 
 .wp-block-editor-blocks-vertical-feature .vertical-feature-content__inner,
 .wp-block-editor-blocks-vertical-feature .vertical-feature__image {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: bottom; }
 
 .wp-block-editor-blocks-vertical-feature .vertical-feature__subheading {
   text-transform: uppercase;
