@@ -33,7 +33,7 @@ registerBlockType( 'editor-blocks/features', {
 				heading: { source: 'children', selector: '.feature__heading' },
 				text: { source: 'children', selector: '.feature__text' },
 			},
-			default: [ [], [] ],
+			default: [],
 		},
 		count: {
 			type: 'number',
@@ -52,29 +52,27 @@ registerBlockType( 'editor-blocks/features', {
 
 	edit: function( props ) {
 
-		const { features, count, alignment } = props.attributes;
-		const { className, setAttributes } = props;
-		const { headingColor, textColor } = props.attributes;
-		const featureClasses = className  + ' col-' + count;
+		const { attributes, setAttributes, className } = props;
+		const featureClasses = className + ' col-' + attributes.count;
 
 		function onChangeFeature( value, i, attribute ) {
+
+			const features = attributes.features;
 			const newFeatures = features;
-			if ( newFeatures[ i ] === undefined ) {
-				newFeatures[ i ] = {};
-			}
-			const feature = newFeatures[ i ];
-			feature[ attribute ] = value;
+			newFeatures[ i ] = Object.assign( {}, features[ i ] );
+			newFeatures[ i ][ attribute ] = value;
 			setAttributes( { features: [ ...newFeatures ] } );
+
 		}
 
 		function onChangeFeatureImage( value, i ) {
+
+			const features = attributes.features;
 			const newFeatures = features;
-			if ( newFeatures[ i ] === undefined ) {
-				newFeatures[ i ] = {};
-			}
-			const feature = newFeatures[ i ];
-			feature.image = value.url;
+			newFeatures[ i ] = Object.assign( {}, features[ i ] );
+			newFeatures[ i ].image = value;
 			setAttributes( { features: [ ...newFeatures ] } );
+
 		}
 
 		return (
@@ -82,13 +80,14 @@ registerBlockType( 'editor-blocks/features', {
 				<Inspector { ...props } />
 				<BlockControls key="controls">
 					<AlignmentToolbar
-						value={ alignment }
+						value={ attributes.alignment }
 						onChange={ ( alignment ) => setAttributes( { alignment } ) }
 					/>
 				</BlockControls>
-				<div style={ { textAlign: alignment } } className={ featureClasses }>
-					{ _times( count, ( index ) => {
-						const image = _get( features, [ index, 'image' ] )
+				<div style={ { textAlign: attributes.alignment } } className={ featureClasses }>
+					{ _times( attributes.count, ( index ) => {
+
+						const image = _get( attributes.features, [ index, 'image' ] );
 						const featureClass = 'feature feature-' + index;
 						return (
 							<div className={ featureClass } key={ `feature-${ index }` }>
@@ -98,11 +97,12 @@ registerBlockType( 'editor-blocks/features', {
 									value={ image }
 									render={ ( { open } ) => (
 										<Button onClick={ open }>
-											{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
+											{ ! image ?
+												<div className="no-image"><Dashicon icon="format-image" /></div> :
 												<img
-													class="feature__image"
+													className="feature__image"
 													src={ image }
-													alt="Feature Image"
+													alt="Feature"
 												/>
 											}
 										</Button>
@@ -110,67 +110,71 @@ registerBlockType( 'editor-blocks/features', {
 								>
 								</MediaUpload>
 								<RichText
-									value={ _get( features, [ index, 'heading' ] ) }
+									value={ _get( attributes.features, [ index, 'heading' ] ) }
 									onChange={ ( value ) => onChangeFeature( value, index, 'heading' ) }
 									tagName="h3"
 									placeholder={ __( 'Feature Heading' ) }
 									keepPlaceholderOnFocus={ true }
-									style={ { color: headingColor } }
+									style={ { color: attributes.headingColor } }
 									className="feature__heading"
 								/>
 								<RichText
-									value={ _get( features, [ index, 'text' ] ) }
+									value={ _get( attributes.features, [ index, 'text' ] ) }
 									onChange={ ( value ) => onChangeFeature( value, index, 'text' ) }
 									tagName="p"
 									placeholder={ __( 'Feature Description' ) }
 									keepPlaceholderOnFocus={ true }
-									style={ { color: textColor } }
+									style={ { color: attributes.textColor } }
 									className="feature__text"
 								/>
 							</div>
 						);
+
 					} ) }
 				</div>
 			</Fragment>
 		);
+
 	},
 
 	save: function( props ) {
 
-		const { features, count, alignment } = props.attributes;
-		const { headingColor, textColor } = props.attributes;
-		const featureClasses = 'col-' + count;
+		const { attributes } = props;
+		const featureClasses = 'col-' + attributes.count;
 
 		return (
-			<div className={ featureClasses } style={ { textAlign: alignment } }>
-				{ _times( count, ( index ) => {
-					const image = _get( features, [ index, 'image' ] );
+			<div className={ featureClasses } style={ { textAlign: attributes.alignment } }>
+				{ _times( attributes.count, ( index ) => {
+
+					const image = _get( attributes.features, [ index, 'image' ] );
 					const featureClass = 'feature feature-' + index;
 					return (
 						<div className={ featureClass } key={ `feature-${ index }` }>
 							{ image &&
 								<img
-									className='feature__image'
+									className="feature__image"
 									src={ image }
 									alt="Feature Image"
 								/>
 							}
 							<RichText.Content
 								tagName="h3"
-								style={ { color: headingColor } }
-								value={ _get( features, [ index, 'heading' ] ) }
+								style={ { color: attributes.headingColor } }
+								value={ _get( attributes.features, [ index, 'heading' ] ) }
 								className="feature__heading"
 							/>
 							<RichText.Content
 								tagName="p"
-								style={ { color: textColor } }
-								value={ _get( features, [ index, 'text' ] ) }
+								style={ { color: attributes.textColor } }
+								value={ _get( attributes.features, [ index, 'text' ] ) }
 								className="feature__text"
 							/>
 						</div>
 					);
+
 				} ) }
 			</div>
 		);
+
 	},
 } );

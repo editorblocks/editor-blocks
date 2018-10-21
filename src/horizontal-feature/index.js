@@ -98,19 +98,17 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 
 	edit: function( props ) {
 
-		const { heading, subHeading, text, alignment, contentWidth, contentPaddingTop, image, imageWidth, imagePosition, imagePaddingTop } = props.attributes;
-		const { className, setAttributes } = props;
-		const { headingColor, subHeadingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText } = props.attributes;
+		const { attributes, setAttributes, className } = props;
 
 		const contentStyle = {
-			width: contentWidth + '%',
-			paddingTop: contentPaddingTop !== 0 ? contentPaddingTop + 'px' : null,
-			textAlign: alignment,
+			width: attributes.contentWidth + '%',
+			paddingTop: attributes.contentPaddingTop !== 0 ? attributes.contentPaddingTop + 'px' : null,
+			textAlign: attributes.alignment,
 		};
 
 		const imageStyle = {
-			width: imageWidth + '%',
-			paddingTop: imagePaddingTop !== 0 ? imagePaddingTop + 'px' : null,
+			width: attributes.imageWidth + '%',
+			paddingTop: attributes.imagePaddingTop !== 0 ? attributes.imagePaddingTop + 'px' : null,
 		};
 
 		return (
@@ -118,44 +116,45 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 				<Inspector { ...props } />
 				<BlockControls key="controls">
 					<AlignmentToolbar
-						value={ alignment }
+						value={ attributes.alignment }
 						onChange={ ( alignment ) => setAttributes( { alignment } ) }
 					/>
 				</BlockControls>
-				<div className={ className + ' image-position-' + imagePosition }>
+				<div className={ className + ' image-position-' + attributes.imagePosition }>
 					<div className="horizontal-feature-content-wrapper" style={ contentStyle }>
 						<RichText
-							value={ heading }
+							value={ attributes.heading }
 							onChange={ ( heading ) => setAttributes( { heading } ) }
 							tagName="h2"
 							placeholder={ __( 'Heading' ) }
 							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
-							style={ { color: headingColor } }
+							style={ { color: attributes.headingColor } }
 							className="horizontal-feature__heading"
 						/>
 						<RichText
-							value={ subHeading }
+							value={ attributes.subHeading }
 							onChange={ ( subHeading ) => setAttributes( { subHeading } ) }
 							tagName="p"
 							placeholder={ __( 'Sub Heading' ) }
 							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
-							style={ { color: subHeadingColor } }
+							style={ { color: attributes.subHeadingColor } }
 							className="horizontal-feature__subheading"
 						/>
 						<RichText
-							value={ text }
+							value={ attributes.text }
 							onChange={ ( text ) => setAttributes( { text } ) }
 							tagName="p"
 							placeholder={ __( 'Description' ) }
 							keepPlaceholderOnFocus={ true }
-							style={ { color: textColor } }
+							style={ { color: attributes.textColor } }
 							className="horizontal-feature__text"
 						/>
-						{ showButton &&
+						{ attributes.showButton &&
 							<div className="button-container">
-								<a style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } } className="horizontal-feature__button" href="#">{ buttonText }</a>
+								{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
+								<a style={ { backgroundColor: attributes.buttonBackgroundColor, color: attributes.buttonColor } } className="horizontal-feature__button" href="#">{ attributes.buttonText }</a>
 							</div>
 						}
 					</div>
@@ -163,14 +162,15 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 						<MediaUpload
 							onSelect={ ( media ) => setAttributes( { image: media.url } ) }
 							type="image"
-							value={ image }
+							value={ attributes.image }
 							render={ ( { open } ) => (
 								<Button onClick={ open }>
-									{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
+									{ ! attributes.image ?
+										<div className="no-image"><Dashicon icon="format-image" /></div> :
 										<img
 											className={ `${ className }-image` }
-											src={ image }
-											alt="Feature Image"
+											src={ attributes.image }
+											alt="Feature"
 										/>
 									}
 								</Button>
@@ -181,55 +181,57 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 				</div>
 			</Fragment>
 		);
+
 	},
 
 	save: function( props ) {
 
-		const { image, heading, subHeading, text, alignment, contentWidth, contentPaddingTop, imageWidth, imagePosition, imagePaddingTop } = props.attributes;
-		const { headingColor, subHeadingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText, buttonURL } = props.attributes;
+		const { attributes } = props;
 
 		const contentStyle = {
-			width: contentWidth + '%',
-			paddingTop: contentPaddingTop !== 0 ? contentPaddingTop + 'px' : null,
-			textAlign: alignment,
+			width: attributes.contentWidth + '%',
+			paddingTop: attributes.contentPaddingTop !== 0 ? attributes.contentPaddingTop + 'px' : null,
+			textAlign: attributes.alignment,
 		};
 
 		const imageStyle = {
-			width: imageWidth + '%',
-			paddingTop: imagePaddingTop !== 0 ? imagePaddingTop + 'px' : null,
+			width: attributes.imageWidth + '%',
+			paddingTop: attributes.imagePaddingTop !== 0 ? attributes.imagePaddingTop + 'px' : null,
 		};
 
 		return (
-			<div className={ 'image-position-' + imagePosition }>
+			<div className={ 'image-position-' + attributes.imagePosition }>
 				<div className="horizontal-feature-content-wrapper" style={ contentStyle }>
 					<RichText.Content
 						tagName="h2"
 						className="horizontal-feature__heading"
-						style={ { color: headingColor } }
-						value={ heading }
+						style={ { color: attributes.headingColor } }
+						value={ attributes.heading }
 					/>
 					<RichText.Content
 						tagName="p"
 						className="horizontal-feature__subheading"
-						style={ { color: subHeadingColor } }
-						value={ subHeading }
+						style={ { color: attributes.subHeadingColor } }
+						value={ attributes.subHeading }
 					/>
 					<RichText.Content
 						tagName="p"
 						className="horizontal-feature__text"
-						style={ { color: textColor } }
-						value={ text }
+						style={ { color: attributes.textColor } }
+						value={ attributes.text }
 					/>
-					{ showButton &&
+					{ attributes.showButton &&
 						<div className="button-container">
-							<a style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } } className="horizontal-feature__button" href={ buttonURL }>{ buttonText }</a>
+							<a style={ { backgroundColor: attributes.buttonBackgroundColor, color: attributes.buttonColor } } className="horizontal-feature__button" href={ attributes.buttonURL }>{ attributes.buttonText }</a>
 						</div>
 					}
 				</div>
 				<div className="horizontal-feature-image-wrapper" style={ imageStyle }>
-					<img className="horizontal-feature__image" src={ image } />
+					<img className="horizontal-feature__image" src={ attributes.image } />
 				</div>
 			</div>
 		);
+
 	},
+
 } );

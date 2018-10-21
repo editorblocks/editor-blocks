@@ -70,13 +70,11 @@ registerBlockType( 'editor-blocks/hero', {
 
 	edit: function( props ) {
 
-		const { heading, text, alignment, width, position } = props.attributes;
-		const { className, setAttributes } = props;
-		const { headingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText } = props.attributes;
+		const { attributes, setAttributes, className } = props;
 
 		const heroStyle = {
-			textAlign: alignment,
-			maxWidth: width + 'px',
+			textAlign: attributes.alignment,
+			maxWidth: attributes.width + 'px',
 		};
 
 		return (
@@ -84,78 +82,78 @@ registerBlockType( 'editor-blocks/hero', {
 				<Inspector { ...props } />
 				<BlockControls key="controls">
 					<AlignmentToolbar
-						value={ alignment }
+						value={ attributes.alignment }
 						onChange={ ( alignment ) => setAttributes( { alignment } ) }
 					/>
 				</BlockControls>
-				<div className={ className + ' ' + position }>
+				<div className={ className + ' ' + attributes.position }>
 					<div className="inner" style={ heroStyle }>
 						<RichText
-							value={ heading }
+							value={ attributes.heading }
 							onChange={ ( heading ) => setAttributes( { heading } ) }
 							tagName="h2"
 							placeholder={ __( 'Hero Heading' ) }
 							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
-							style={ { color: headingColor } }
+							style={ { color: attributes.headingColor } }
 							className="hero__heading"
 						/>
 						<RichText
-							value={ text }
+							value={ attributes.text }
 							onChange={ ( text ) => setAttributes( { text } ) }
 							tagName="p"
 							placeholder={ __( 'Hero Text' ) }
 							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
-							style={ { color: textColor } }
+							style={ { color: attributes.textColor } }
 							className="hero__text"
 						/>
-						{ showButton &&
+						{ attributes.showButton &&
 							<div className="button-container">
-								<a
-									style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } }
-									className="hero__button" href="#">{ buttonText }
-								</a>
+								{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
+								<a style={ { backgroundColor: attributes.buttonBackgroundColor, color: attributes.buttonColor } } className="hero__button" href="#">{ attributes.buttonText }</a>
 							</div>
 						}
 					</div>
 				</div>
 			</Fragment>
 		);
+
 	},
 
 	save: function( props ) {
 
-		const { heading, text, alignment, position, width } = props.attributes;
-		const { headingColor, textColor, showButton, buttonColor, buttonBackgroundColor, buttonText, buttonURL } = props.attributes;
+		const { attributes } = props;
 
 		const heroStyle = {
-			textAlign: alignment,
-			maxWidth: width + 'px',
+			textAlign: attributes.alignment,
+			maxWidth: attributes.width + 'px',
 		};
 
 		return (
-			<div className={ position }>
+			<div className={ attributes.position }>
 				<div className="inner" style={ heroStyle }>
 					<RichText.Content
 						tagName="h2"
-						style={ { color: headingColor } }
-						value={ heading }
+						style={ { color: attributes.headingColor } }
+						value={ attributes.heading }
 						className="hero__heading"
 					/>
 					<RichText.Content
 						tagName="p"
-						style={ { color: textColor } }
-						value={ text }
+						style={ { color: attributes.textColor } }
+						value={ attributes.text }
 						className="hero__text"
 					/>
-					{ showButton &&
+					{ attributes.showButton &&
 						<div className="button-container">
-							<a style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } } className="hero__button" href={ buttonURL }>{ buttonText }</a>
+							<a style={ { backgroundColor: attributes.buttonBackgroundColor, color: attributes.buttonColor } } className="hero__button" href={ attributes.buttonURL }>{ attributes.buttonText }</a>
 						</div>
 					}
 				</div>
 			</div>
 		);
+
 	},
+
 } );

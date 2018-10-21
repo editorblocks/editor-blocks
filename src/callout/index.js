@@ -51,50 +51,49 @@ registerBlockType( 'editor-blocks/callout', {
 
 	edit: function( props ) {
 
-		const { heading, headingSize, headingColor, buttonText, buttonColor, buttonBackgroundColor } = props.attributes;
-		const { className, setAttributes } = props;
+		const { attributes, setAttributes, className } = props;
 
 		return (
 			<Fragment>
 				<Inspector { ...props } />
 				<div className={ className } >
 					<div className="button-container">
-						<a
-							style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } }
-							className="callout__button" href="#">{ buttonText }
-						</a>
+						{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
+						<a style={ { backgroundColor: attributes.buttonBackgroundColor, color: attributes.buttonColor } } className="callout__button" href="#">{ attributes.buttonText } </a>
 					</div>
 					<RichText
-						value={ heading }
+						value={ attributes.heading }
 						onChange={ ( heading ) => setAttributes( { heading } ) }
 						tagName="h2"
 						placeholder={ __( 'Callout Text' ) }
 						keepPlaceholderOnFocus={ true }
-						style={ { color: headingColor, fontSize: headingSize && headingSize + 'px' } }
+						style={ { color: attributes.headingColor, fontSize: attributes.headingSize && attributes.headingSize + 'px' } }
 						className="callout__text"
 					/>
 				</div>
 			</Fragment>
 		);
+
 	},
 
 	save: function( props ) {
 
-		const { heading, headingSize, headingColor, buttonText, buttonURL, buttonColor, buttonBackgroundColor } = props.attributes;
-		const { className } = props;
+		const { attributes, className } = props;
+		// TODO check className is needed.
 
 		return (
 			<div className={ className }>
 				<div className="button-container">
-					<a style={ { backgroundColor: buttonBackgroundColor, color: buttonColor } } className="callout__button" href={ buttonURL }>{ buttonText }</a>
+					<a style={ { backgroundColor: attributes.buttonBackgroundColor, color: attributes.buttonColor } } className="callout__button" href={ attributes.buttonURL }>{ attributes.buttonText }</a>
 				</div>
 				<RichText.Content
 					tagName="h2"
-					style={ { color: headingColor, fontSize: headingSize && headingSize + 'px' } }
-					value={ heading }
+					style={ { color: attributes.headingColor, fontSize: attributes.headingSize && attributes.headingSize + 'px' } }
+					value={ attributes.heading }
 					className="callout__text"
 				/>
 			</div>
 		);
+
 	},
 } );

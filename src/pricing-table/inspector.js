@@ -14,19 +14,19 @@ import _get from 'lodash/get';
 export default class Inspector extends Component {
 
 	onChangeButtonURL = ( index, value ) => {
-		const newColumns = this.props.attributes.columns;
-		if ( newColumns[ index ] === undefined ) {
-			newColumns[ index ] = {};
-		}
+
+		const columns = this.props.attributes.columns;
+		const newColumns = columns;
+		newColumns[ index ] = Object.assign( {}, columns[ index ] );
 		const column = newColumns[ index ];
 		column.buttonURL = value;
 		this.props.setAttributes( { columns: [ ...newColumns ] } );
+
 	}
 
 	render() {
 
 		const { attributes, setAttributes } = this.props;
-		const { count, columnBackgroundColor, headingColor, descriptionColor, priceColor, featuresColor, buttonBackgroundColor, buttonColor, columns } = attributes;
 
 		const ONE_TO_TEN = [ 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten' ];
 
@@ -35,21 +35,23 @@ export default class Inspector extends Component {
 				<PanelBody initialOpen={ true } title={ __( 'Feature Settings' ) }>
 					<RangeControl
 						label={ __( 'Columns' ) }
-						value={ count }
+						value={ attributes.count }
 						onChange={ ( count ) => setAttributes( { count } ) }
 						min={ 1 }
-		        max={ 5 }
+						max={ 5 }
 					/>
 				</PanelBody>
 				<PanelBody initialOpen={ true } title={ __( 'Button Settings' ) }>
-					{ _times( count, ( index ) => {
+					{ _times( attributes.count, ( index ) => {
+
 						return (
 							<TextControl
 								label={ __( 'Button ' + ONE_TO_TEN[ index ] + ' URL' ) }
-								value={ _get( columns, [ index, 'buttonURL' ] ) }
+								value={ _get( attributes.columns, [ index, 'buttonURL' ] ) }
 								onChange={ ( value ) => this.onChangeButtonURL( index, value ) }
 							/>
 						);
+
 					} ) }
 				</PanelBody>
 				<PanelColorSettings
@@ -57,37 +59,37 @@ export default class Inspector extends Component {
 					initialOpen={ false }
 					colorSettings={ [
 						{
-							value: columnBackgroundColor,
+							value: attributes.columnBackgroundColor,
 							onChange: ( columnBackgroundColor ) => setAttributes( { columnBackgroundColor } ),
 							label: __( 'Column Background Color' ),
 						},
 						{
-							value: headingColor,
+							value: attributes.headingColor,
 							onChange: ( headingColor ) => setAttributes( { headingColor } ),
 							label: __( 'Heading Color' ),
 						},
 						{
-							value: descriptionColor,
+							value: attributes.descriptionColor,
 							onChange: ( descriptionColor ) => setAttributes( { descriptionColor } ),
 							label: __( 'Description Color' ),
 						},
 						{
-							value: priceColor,
+							value: attributes.priceColor,
 							onChange: ( priceColor ) => setAttributes( { priceColor } ),
 							label: __( 'Price Color' ),
 						},
 						{
-							value: featuresColor,
+							value: attributes.featuresColor,
 							onChange: ( featuresColor ) => setAttributes( { featuresColor } ),
 							label: __( 'Features Color' ),
 						},
 						{
-							value: buttonColor,
+							value: attributes.buttonColor,
 							onChange: ( buttonColor ) => setAttributes( { buttonColor } ),
 							label: __( 'Button Color' ),
 						},
 						{
-							value: buttonBackgroundColor,
+							value: attributes.buttonBackgroundColor,
 							onChange: ( buttonBackgroundColor ) => setAttributes( { buttonBackgroundColor } ),
 							label: __( 'Button Background Color' ),
 						},
@@ -96,5 +98,7 @@ export default class Inspector extends Component {
 				</PanelColorSettings>
 			</InspectorControls>
 		);
+
 	}
+
 }

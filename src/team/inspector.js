@@ -15,17 +15,15 @@ export default class Inspector extends Component {
 
 		const { attributes, setAttributes } = this.props;
 
-		const { count, nameColor, positionColor, bioColor } = attributes;
-
 		return (
 			<InspectorControls key="inspector">
 				<PanelBody initialOpen={ true } title={ __( 'Team Settings' ) }>
 					<RangeControl
 						label={ __( 'Members' ) }
-						value={ count }
+						value={ attributes.count }
 						onChange={ ( count ) => setAttributes( { count } ) }
 						min={ 2 }
- 						max={ 4 }
+						max={ 4 }
 					/>
 				</PanelBody>
 				<PanelColorSettings
@@ -33,17 +31,17 @@ export default class Inspector extends Component {
 					initialOpen={ false }
 					colorSettings={ [
 						{
-							value: nameColor,
+							value: attributes.nameColor,
 							onChange: ( nameColor ) => setAttributes( { nameColor } ),
 							label: __( 'Name Color' ),
 						},
 						{
-							value: positionColor,
+							value: attributes.positionColor,
 							onChange: ( positionColor ) => setAttributes( { positionColor } ),
 							label: __( 'Position Color' ),
 						},
 						{
-							value: bioColor,
+							value: attributes.bioColor,
 							onChange: ( bioColor ) => setAttributes( { bioColor } ),
 							label: __( 'Bio Color' ),
 						},
@@ -52,5 +50,7 @@ export default class Inspector extends Component {
 				</PanelColorSettings>
 			</InspectorControls>
 		);
+
 	}
+
 }

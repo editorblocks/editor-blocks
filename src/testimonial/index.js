@@ -7,6 +7,7 @@ import './editor.scss';
 import Inspector from './inspector';
 
 const { __ } = wp.i18n;
+const { Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
 const { RichText, BlockControls, AlignmentToolbar, MediaUpload } = wp.editor;
 const { Button, Dashicon } = wp.components;
@@ -61,90 +62,88 @@ registerBlockType( 'editor-blocks/testimonial', {
 
 	edit: function( props ) {
 
-		const { maxWidth, authorImage, testimonial, author, alignment } = props.attributes;
-		const { className, setAttributes } = props;
-		const { authorImageSize, testimonialColor, testimonialSize, authorColor, authorSize } = props.attributes;
+		const { attributes, setAttributes, className } = props;
 
-		return [
-			<Inspector { ...props } />,
-			<BlockControls key="controls">
-				<AlignmentToolbar
-					value={ alignment }
-					onChange={ ( alignment ) => setAttributes( { alignment } ) }
-				/>
-			</BlockControls>,
-			<div className={ className } style={ { textAlign: alignment } } >
-				<div className="inner" style={ { maxWidth: maxWidth && maxWidth + 'px' } } >
-					<MediaUpload
-						onSelect={ ( value ) => setAttributes( { authorImage: value.url } ) }
-						type="image"
-						value={ authorImage }
-						render={ ( { open } ) => (
-							<Button onClick={ open }>
-								{ ! authorImage ? <div className="no-image"><Dashicon icon="format-image" /></div> :
-									<img
-										className={ `${ className }-image` }
-										src={ authorImage }
-										alt="Testimonial Author Image"
-										className="testimonial__image"
-										style={ { maxWidth: authorImageSize && authorImageSize + 'px' } }
-									/>
-								}
-							</Button>
-						) }
-					>
-					</MediaUpload>
-					<RichText
-						value={ testimonial }
-						onChange={ ( testimonial ) => setAttributes( { testimonial } ) }
-						tagName="blockquote"
-						placeholder={ __( 'Testimonial' ) }
-						keepPlaceholderOnFocus={ true }
-						className="testimonial__text"
-						style={ { color: testimonialColor, fontSize: testimonialSize && testimonialSize + 'px' } }
+		return (
+			<Fragment>
+				<Inspector { ...props } />
+				<BlockControls key="controls">
+					<AlignmentToolbar
+						value={ attributes.alignment }
+						onChange={ ( alignment ) => setAttributes( { alignment } ) }
 					/>
-					<RichText
-						value={ author }
-						onChange={ ( author ) => setAttributes( { author } ) }
-						tagName="span"
-						placeholder={ __( 'Joe Blogs - Author' ) }
-						keepPlaceholderOnFocus={ true }
-						className="testimonial__author"
-						style={ { color: authorColor, fontSize: authorSize && authorSize + 'px' } }
-					/>
+				</BlockControls>
+				<div className={ attributes.className } style={ { textAlign: attributes.alignment } } >
+					<div className="inner" style={ { maxWidth: attributes.maxWidth && attributes.maxWidth + 'px' } } >
+						<MediaUpload
+							onSelect={ ( value ) => setAttributes( { authorImage: value.url } ) }
+							type="image"
+							value={ attributes.authorImage }
+							render={ ( { open } ) => (
+								<Button onClick={ open }>
+									{ ! attributes.authorImage ?
+										<div className="no-image"><Dashicon icon="format-image" /></div> :
+										<img
+											className={ `${ className }-image` }
+											src={ attributes.authorImage }
+											alt="Testimonial Author"
+											style={ { maxWidth: attributes.authorImageSize && attributes.authorImageSize + 'px' } }
+										/>
+									}
+								</Button>
+							) }
+						>
+						</MediaUpload>
+						<RichText
+							value={ attributes.testimonial }
+							onChange={ ( testimonial ) => setAttributes( { testimonial } ) }
+							tagName="blockquote"
+							placeholder={ __( 'Testimonial' ) }
+							keepPlaceholderOnFocus={ true }
+							className="testimonial__text"
+							style={ { color: attributes.testimonialColor, fontSize: attributes.testimonialSize && attributes.testimonialSize + 'px' } }
+						/>
+						<RichText
+							value={ attributes.author }
+							onChange={ ( author ) => setAttributes( { author } ) }
+							tagName="span"
+							placeholder={ __( 'Joe Blogs - Author' ) }
+							keepPlaceholderOnFocus={ true }
+							className="testimonial__author"
+							style={ { color: attributes.authorColor, fontSize: attributes.authorSize && attributes.authorSize + 'px' } }
+						/>
+					</div>
 				</div>
-			</div>
-		];
+			</Fragment>
+		);
+
 	},
 
 	save: function( props ) {
 
-		const { maxWidth, testimonial, author, alignment } = props.attributes;
-		const { testimonialColor, testimonialSize, authorImageSize, authorColor, authorSize, authorImage } = props.attributes;
-		const { className } = props;
+		const { attributes } = props;
 
 		return (
-			<div style={ { textAlign: alignment } } >
-				<div className="inner" style={ { maxWidth: maxWidth && maxWidth + 'px' } } >
-					{ authorImage &&
+			<div style={ { textAlign: attributes.alignment } } >
+				<div className="inner" style={ { maxWidth: attributes.maxWidth && attributes.maxWidth + 'px' } } >
+					{ attributes.authorImage &&
 						<img
-							className='editor-blocks-testimonial-author-image'
-							src={ authorImage }
-							alt="Testimonial Author Image"
-							style={ { maxWidth: authorImageSize && authorImageSize + 'px' } }
+							src={ attributes.authorImage }
+							style={ { maxWidth: attributes.authorImageSize && attributes.authorImageSize + 'px' } }
 							className="testimonial__image"
+							alt="Testimonial Author Image"
 						/>
 					}
 					<RichText.Content
 						tagName="blockquote"
-						style={ { color: testimonialColor, fontSize: testimonialSize && testimonialSize + 'px' } }
-						value={ testimonial }
+						style={ { color: attributes.testimonialColor, fontSize: attributes.testimonialSize && attributes.testimonialSize + 'px' } }
+						value={ attributes.testimonial }
 						className="testimonial__text"
 					/>
 					<RichText.Content
 						tagName="span"
-						style={ { color: authorColor, fontSize: authorSize && authorSize + 'px' } }
-						value={ author }
+						style={ { color: attributes.authorColor, fontSize: attributes.authorSize && attributes.authorSize + 'px' } }
+						value={ attributes.author }
 						className="testimonial__author"
 					/>
 				</div>

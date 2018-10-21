@@ -15,34 +15,34 @@ export default class Inspector extends Component {
 
 		const { attributes, setAttributes } = this.props;
 
-		const { count, textColor, headingColor } = attributes;
-
 		return (
 			<InspectorControls key="inspector">
 				<PanelBody initialOpen={ true } title={ __( 'Feature Settings' ) }>
 					<RangeControl
 						label={ __( 'Columns' ) }
-						value={ count }
+						value={ attributes.count }
 						onChange={ ( count ) => setAttributes( { count } ) }
 						min={ 2 }
-		        max={ 6 }
+						max={ 6 }
 					/>
 				</PanelBody>
-				<PanelColor title={ __( 'Heading Color' ) } colorValue={ headingColor } initialOpen={ true }>
+				<PanelColor title={ __( 'Heading Color' ) } colorValue={ attributes.headingColor } initialOpen={ true }>
 					<ColorPalette
 						label={ __( 'Heading Color' ) }
-						value={ headingColor }
+						value={ attributes.headingColor }
 						onChange={ ( headingColor ) => setAttributes( { headingColor } ) }
 					/>
 				</PanelColor>
-				<PanelColor title={ __( 'Text Color' ) } colorValue={ textColor } initialOpen={ true }>
+				<PanelColor title={ __( 'Text Color' ) } colorValue={ attributes.textColor } initialOpen={ true }>
 					<ColorPalette
 						label={ __( 'Text Color' ) }
-						value={ textColor }
+						value={ attributes.textColor }
 						onChange={ ( textColor ) => setAttributes( { textColor } ) }
 					/>
 				</PanelColor>
 			</InspectorControls>
 		);
+
 	}
+
 }

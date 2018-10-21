@@ -21,7 +21,7 @@ registerBlockType( 'editor-blocks/brands', {
 	keywords: [
 		__( 'Brands' ),
 		__( 'Editor Blocks' ),
-		__( 'EB' ),
+		__( 'Logos' ),
 	],
 	attributes: {
 		brands: {
@@ -31,7 +31,7 @@ registerBlockType( 'editor-blocks/brands', {
 			query: {
 				image: { source: 'attribute', selector: '.brand__image', attribute: 'src' },
 			},
-			default: [ [], [] ],
+			default: [],
 		},
 		count: {
 			type: 'number',
@@ -41,26 +41,26 @@ registerBlockType( 'editor-blocks/brands', {
 
 	edit: function( props ) {
 
-		const { brands, count } = props.attributes;
-		const { className, setAttributes } = props;
-		const brandClasses = className + ' col-' + count;
+		const { attributes, setAttributes, className } = props;
+		const brandClasses = className + ' col-' + attributes.count;
 
 		function onChangeBrandImage( value, i ) {
+
+			const brands = attributes.brands;
 			const newBrands = brands;
-			if ( newBrands[ i ] === undefined ) {
-				newBrands[ i ] = {};
-			}
-			const brand = newBrands[ i ];
-			brand.image = value.url;
+			newBrands[ i ] = Object.assign( {}, brands[ i ] );
+			newBrands[ i ].image = value.url;
 			setAttributes( { brands: [ ...newBrands ] } );
+
 		}
 
 		return (
 			<Fragment>
 				<Inspector { ...props } />
 				<div className={ brandClasses }>
-					{ _times( count, ( index ) => {
-						const image = _get( brands, [ index, 'image' ] )
+					{ _times( attributes.count, ( index ) => {
+
+						const image = _get( attributes.brands, [ index, 'image' ] );
 						const brandClass = 'brand brand-' + index;
 						return (
 							<div className={ brandClass } key={ `brand-${ index }` }>
@@ -70,11 +70,12 @@ registerBlockType( 'editor-blocks/brands', {
 									value={ image }
 									render={ ( { open } ) => (
 										<Button onClick={ open }>
-											{ ! image ? <div className="no-image"><Dashicon icon="format-image" /></div> :
+											{ ! image ?
+												<div className="no-image"><Dashicon icon="format-image" /></div> :
 												<img
 													className="brand__image"
 													src={ image }
-													alt="Brand Image"
+													alt="Brand"
 												/>
 											}
 										</Button>
@@ -83,35 +84,40 @@ registerBlockType( 'editor-blocks/brands', {
 								</MediaUpload>
 							</div>
 						);
+
 					} ) }
 				</div>
 			</Fragment>
 		);
+
 	},
 
 	save: function( props ) {
 
-		const { brands, count } = props.attributes;
-		const brandClasses = 'col-' + count;
+		const { attributes } = props;
+		const brandClasses = 'col-' + attributes.count;
 
 		return (
 			<div className={ brandClasses }>
-				{ _times( count, ( index ) => {
-					const image = _get( brands, [ index, 'image' ] );
+				{ _times( attributes.count, ( index ) => {
+
+					const image = _get( attributes.brands, [ index, 'image' ] );
 					const brandClass = 'brand brand-' + index;
 					return (
 						<div className={ brandClass } key={ `brand-${ index }` }>
 							{ image &&
-									<img
-										className='brand__image'
-										src={ image }
-										alt="Brand Image"
-									/>
+								<img
+									className="brand__image"
+									src={ image }
+									alt="Brand"
+								/>
 							}
 						</div>
 					);
+
 				} ) }
 			</div>
 		);
+
 	},
 } );

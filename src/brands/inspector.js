@@ -15,20 +15,20 @@ export default class Inspector extends Component {
 
 		const { attributes, setAttributes } = this.props;
 
-		const { count } = attributes;
-
 		return (
 			<InspectorControls key="inspector">
 				<PanelBody initialOpen={ true } title={ __( 'Brands Settings' ) }>
 					<RangeControl
 						label={ __( 'Brands' ) }
-						value={ count }
+						value={ attributes.count }
 						onChange={ ( count ) => setAttributes( { count } ) }
 						min={ 2 }
-		        max={ 6 }
+						max={ 6 }
 					/>
 				</PanelBody>
 			</InspectorControls>
 		);
+
 	}
+
 }

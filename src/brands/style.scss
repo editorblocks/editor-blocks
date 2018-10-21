@@ -1,80 +1,84 @@
- .wp-block-editor-blocks-brands {
-	 text-align: center
- }
+.wp-block-editor-blocks-brands {
+	text-align: center
+}
 
- .wp-block-editor-blocks-brands:after {
- 	display: block;
-   content: "";
-   clear: both;
- }
+.wp-block-editor-blocks-brands:after {
+	display: block;
+	content: "";
+	clear: both;
+}
 
- .wp-block-editor-blocks-brands .brand {
- 	float: left;
- 	margin-right: 5%;
- 	width: 47.5%;
- }
+.wp-block-editor-blocks-brands .brand {
+float: left;
+	margin-right: 5%;
+	width: 47.5%;
+}
 
- /*--------------------------------------------------------------
- # 2 Columns
- --------------------------------------------------------------*/
+.brand__image {
+	vertical-align: bottom;
+}
 
- .wp-block-editor-blocks-brands.col-2 .brand {
- 	width: 40%;
- 	margin-right: 10%;
- }
+/*--------------------------------------------------------------
+# 2 Columns
+--------------------------------------------------------------*/
 
- .wp-block-editor-blocks-brands.col-2 .brand-1 {
- 	margin-right: 0
- }
+.wp-block-editor-blocks-brands.col-2 .brand {
+	width: 40%;
+	margin-right: 10%;
+}
 
- /*--------------------------------------------------------------
- # 3 Columns
- --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-2 .brand-1 {
+	margin-right: 0
+}
 
- .wp-block-editor-blocks-brands.col-3 .brand {
- 	width: 30%;
- 	margin-right: 5%;
- }
+/*--------------------------------------------------------------
+# 3 Columns
+--------------------------------------------------------------*/
 
- .wp-block-editor-blocks-brands.col-3 .brand-2 {
- 	margin-right: 0
- }
+.wp-block-editor-blocks-brands.col-3 .brand {
+	width: 30%;
+	margin-right: 5%;
+}
 
- /*--------------------------------------------------------------
- # 4 Columns
- --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-3 .brand-2 {
+	margin-right: 0
+}
 
- .wp-block-editor-blocks-brands.col-4 .brand {
- 	width: 22%;
- 	margin-right: 4%;
- }
+/*--------------------------------------------------------------
+# 4 Columns
+--------------------------------------------------------------*/
 
- .wp-block-editor-blocks-brands.col-4 .brand-3 {
- 	margin-right: 0
- }
+.wp-block-editor-blocks-brands.col-4 .brand {
+	width: 22%;
+	margin-right: 4%;
+}
 
- /*--------------------------------------------------------------
- # 5 Columns
- --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-4 .brand-3 {
+	margin-right: 0
+}
 
- .wp-block-editor-blocks-brands.col-5 .brand {
- 	width: 18%;
- 	margin-right: 2.5%;
- }
+/*--------------------------------------------------------------
+# 5 Columns
+--------------------------------------------------------------*/
 
- .wp-block-editor-blocks-brands.col-5 .brand-4 {
- 	margin-right: 0
- }
+.wp-block-editor-blocks-brands.col-5 .brand {
+	width: 18%;
+	margin-right: 2.5%;
+}
 
- /*--------------------------------------------------------------
- # 6 Columns
- --------------------------------------------------------------*/
+.wp-block-editor-blocks-brands.col-5 .brand-4 {
+	margin-right: 0
+}
 
- .wp-block-editor-blocks-brands.col-6 .brand {
- 	width: 15%;
- 	margin-right: 2%;
- }
+/*--------------------------------------------------------------
+# 6 Columns
+--------------------------------------------------------------*/
 
- .wp-block-editor-blocks-brands.col-6 .brand-5 {
- 	margin-right: 0
- }
+.wp-block-editor-blocks-brands.col-6 .brand {
+	width: 15%;
+	margin-right: 2%;
+}
+
+.wp-block-editor-blocks-brands.col-6 .brand-5 {
+	margin-right: 0
+}

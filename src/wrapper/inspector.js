@@ -11,27 +11,15 @@ const { PanelBody, PanelColor, RangeControl, SelectControl, ToggleControl, Butto
  */
 export default class Inspector extends Component {
 
-	constructor( props ) {
-		super( ...arguments );
-	}
-
 	render() {
 
-		const {
-			attributes,
-			setAttributes,
-			setBackgroundColor,
-		} = this.props;
-
-		const { fullWidthBackground, maxWidth, position, paddingTop, paddingLeft, paddingBottom, paddingRight } = attributes;
-		const { marginTop, marginBottom } = attributes;
-		const { backgroundColor, backgroundImage, backgroundOpacity } = attributes;
+		const { attributes, setAttributes, setBackgroundColor } = this.props;
 
 		return (
 			<InspectorControls key="inspector">
 				<PanelBody title={ __( 'Inner Width' ) } >
 					<RangeControl
-						value={ maxWidth }
+						value={ attributes.maxWidth }
 						label={ __( 'Inner Width (px)' ) }
 						onChange={ ( maxWidth ) => setAttributes( { maxWidth } ) }
 						min={ 0 }
@@ -39,10 +27,10 @@ export default class Inspector extends Component {
 						step={ 10 }
 						allowReset={ true }
 					/>
-					{ maxWidth &&
+					{ attributes.maxWidth &&
 						<SelectControl
 							label={ __( 'Position' ) }
-							value={ position }
+							value={ attributes.position }
 							onChange={ ( position ) => setAttributes( { position } ) }
 							options={ [
 								{ value: '', label: 'Middle' },
@@ -52,12 +40,12 @@ export default class Inspector extends Component {
 						/> }
 					<ToggleControl
 						label={ __( 'Full Width Background' ) }
-						checked={ fullWidthBackground }
-						onChange={ () => setAttributes( { fullWidthBackground: ! fullWidthBackground } ) }
+						checked={ attributes.fullWidthBackground }
+						onChange={ () => setAttributes( { fullWidthBackground: ! attributes.fullWidthBackground } ) }
 					/>
 				</PanelBody>
 				<PanelBody title={ __( 'Background Image' ) } >
-					{ !! backgroundImage &&
+					{ !! attributes.backgroundImage &&
 						<MediaUpload
 							title={ __( 'Set featured image' ) }
 							onSelect={ ( value ) => setAttributes( { backgroundImage: value.url } ) }
@@ -65,19 +53,19 @@ export default class Inspector extends Component {
 							modalClass="editor-post-featured-image__media-modal"
 							render={ ( { open } ) => (
 								<Button className="editor-post-featured-image__preview" onClick={ open }>
-									{ backgroundImage &&
-										<img src={ backgroundImage } alt={ __( 'Featured image' ) } />
+									{ attributes.backgroundImage &&
+										<img src={ attributes.backgroundImage } alt={ __( 'Featured image' ) } />
 									}
-									{ ! backgroundImage && <Spinner /> }
+									{ ! attributes.backgroundImage && <Spinner /> }
 								</Button>
 							) }
 						/>
 					}
-					{ ! backgroundImage &&
+					{ ! attributes.backgroundImage &&
 						<MediaUpload
 							onSelect={ ( value ) => setAttributes( { backgroundImage: value.url } ) }
 							type="image"
-							value={ backgroundImage }
+							value={ attributes.backgroundImage }
 							render={ ( { open } ) => (
 								<Button className="button" onClick={ open }>
 									Open Media Library
@@ -85,7 +73,7 @@ export default class Inspector extends Component {
 							) }
 						/>
 					}
-					{ !! backgroundImage &&
+					{ !! attributes.backgroundImage &&
 						<Button onClick={ () => setAttributes( { backgroundImage: undefined } ) } isLink isDestructive>
 							Remove Image
 						</Button>
@@ -93,7 +81,7 @@ export default class Inspector extends Component {
 				</PanelBody>
 				<PanelBody title={ __( 'Background Opacity' ) } >
 					<RangeControl
-						value={ backgroundOpacity }
+						value={ attributes.backgroundOpacity }
 						label={ __( 'Background Opacity (%)' ) }
 						onChange={ ( backgroundOpacity ) => setAttributes( { backgroundOpacity } ) }
 						min={ 0 }
@@ -102,40 +90,40 @@ export default class Inspector extends Component {
 					/>
 				</PanelBody>
 				<PanelColor
-					colorValue={ backgroundColor }
+					colorValue={ attributes.backgroundColor }
 					initialOpen={ true }
 					title={ __( 'Background Color' ) }
 					onChange={ setBackgroundColor }
 				>
 					<ColorPalette
-						value={ backgroundColor }
+						value={ attributes.backgroundColor }
 						onChange={ ( colorValue ) => setAttributes( { backgroundColor: colorValue } ) }
 					/>
 				</PanelColor>
 				<PanelBody initialOpen={ true } title={ __( 'Padding' ) }>
 					<RangeControl
-						value={ paddingTop }
+						value={ attributes.paddingTop }
 						label={ __( 'Padding Top' ) }
 						onChange={ ( paddingTop ) => setAttributes( { paddingTop } ) }
 						min={ 0 }
 						max={ 250 }
 					/>
 					<RangeControl
-						value={ paddingRight }
+						value={ attributes.paddingRight }
 						label={ __( 'Padding Right' ) }
 						onChange={ ( paddingRight ) => setAttributes( { paddingRight } ) }
 						min={ 0 }
 						max={ 250 }
 					/>
 					<RangeControl
-						value={ paddingBottom }
+						value={ attributes.paddingBottom }
 						label={ __( 'Padding Bottom' ) }
 						onChange={ ( paddingBottom ) => setAttributes( { paddingBottom } ) }
 						min={ 0 }
 						max={ 250 }
 					/>
 					<RangeControl
-						value={ paddingLeft }
+						value={ attributes.paddingLeft }
 						label={ __( 'Padding Left' ) }
 						onChange={ ( paddingLeft ) => setAttributes( { paddingLeft } ) }
 						min={ 0 }
@@ -144,14 +132,14 @@ export default class Inspector extends Component {
 				</PanelBody>
 				<PanelBody initialOpen={ true } title={ __( 'Margin' ) }>
 					<RangeControl
-						value={ marginTop }
+						value={ attributes.marginTop }
 						label={ __( 'Margin Top' ) }
 						onChange={ ( marginTop ) => setAttributes( { marginTop } ) }
 						min={ 0 }
 						max={ 250 }
 					/>
 					<RangeControl
-						value={ marginBottom }
+						value={ attributes.marginBottom }
 						label={ __( 'Margin Bottom' ) }
 						onChange={ ( marginBottom ) => setAttributes( { marginBottom } ) }
 						min={ 0 }
@@ -160,5 +148,7 @@ export default class Inspector extends Component {
 				</PanelBody>
 			</InspectorControls>
 		);
+
 	}
+
 }
