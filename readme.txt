@@ -53,6 +53,9 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 
 == Changelog ==
 
+= 1.0.7 =
+Refactor code to be easier to read
+
 = 1.0.6 =
 Pricing Table Block: fix missing button URL Setting
 Group colors using PanelColorSettings component
