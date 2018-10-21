@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EB_BLOCKS_VERSION', '1.0.6' );
+define( 'EB_BLOCKS_VERSION', '1.0.7' );
 
 /**
  * Enqueue Gutenberg block CSS for both frontend + backend.
@@ -51,7 +51,7 @@ function editor_blocks_backend_assets() {
 
 	// Styles.
 	wp_enqueue_style(
-		'my_block-cgb-block-editor-css', // Handle.
+		'editor-blocks-block-editor-css', // Handle.
 		plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ),
 		array( 'wp-edit-blocks' ),
 		EB_BLOCKS_VERSION
