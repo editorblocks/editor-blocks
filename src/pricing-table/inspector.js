@@ -13,10 +13,10 @@ import _get from 'lodash/get';
  */
 export default class Inspector extends Component {
 
-	onChangeButtonURL = ( index, value ) => {
+	onChangeButtonURL( index, value ) {
 
 		const columns = this.props.attributes.columns;
-		const newColumns = columns;
+		const newColumns = columns.slice();
 		newColumns[ index ] = Object.assign( {}, columns[ index ] );
 		const column = newColumns[ index ];
 		column.buttonURL = value;

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EB_BLOCKS_VERSION', '1.0.7' );
+define( 'EDITOR_BLOCKS_VERSION', '1.0.7' );
 
 /**
  * Enqueue Gutenberg block CSS for both frontend + backend.
@@ -23,10 +23,10 @@ define( 'EB_BLOCKS_VERSION', '1.0.7' );
  */
 function editor_blocks_assets() {
 	wp_enqueue_style(
-		'editor-blocks-style-css',
+		'eb-style-css',
 		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ),
 		array( 'wp-blocks' ),
-		EB_BLOCKS_VERSION
+		EDITOR_BLOCKS_VERSION
 	);
 }
 
@@ -43,18 +43,18 @@ add_action( 'enqueue_block_assets', 'editor_blocks_assets' );
  */
 function editor_blocks_backend_assets() {
 	wp_enqueue_script(
-		'editor-blocks-block-js',
+		'eb-block-js',
 		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ),
 		array( 'wp-blocks', 'wp-i18n', 'wp-element' ),
-		EB_BLOCKS_VERSION
+		EDITOR_BLOCKS_VERSION
 	);
 
 	// Styles.
 	wp_enqueue_style(
-		'editor-blocks-block-editor-css', // Handle.
+		'eb-block-editor-css', // Handle.
 		plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ),
 		array( 'wp-edit-blocks' ),
-		EB_BLOCKS_VERSION
+		EDITOR_BLOCKS_VERSION
 	);
 }
 

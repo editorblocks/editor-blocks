@@ -58,7 +58,7 @@ registerBlockType( 'editor-blocks/features', {
 		function onChangeFeature( value, i, attribute ) {
 
 			const features = attributes.features;
-			const newFeatures = features;
+			const newFeatures = features.slice();
 			newFeatures[ i ] = Object.assign( {}, features[ i ] );
 			newFeatures[ i ][ attribute ] = value;
 			setAttributes( { features: [ ...newFeatures ] } );
@@ -68,7 +68,7 @@ registerBlockType( 'editor-blocks/features', {
 		function onChangeFeatureImage( value, i ) {
 
 			const features = attributes.features;
-			const newFeatures = features;
+			const newFeatures = features.slice();
 			newFeatures[ i ] = Object.assign( {}, features[ i ] );
 			newFeatures[ i ].image = value;
 			setAttributes( { features: [ ...newFeatures ] } );

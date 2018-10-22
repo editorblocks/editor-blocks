@@ -58,7 +58,7 @@ registerBlockType( 'editor-blocks/team', {
 		function onChangeMember( value, i, attribute ) {
 
 			const members = attributes.members;
-			const newMembers = members;
+			const newMembers = members.slice();
 			newMembers[ i ] = Object.assign( {}, members[ i ] );
 			newMembers[ i ][ attribute ] = value;
 			console.log( newMembers );

@@ -29,7 +29,7 @@ registerBlockType( 'editor-blocks/brands', {
 			selector: '.brand',
 			source: 'query',
 			query: {
-				image: { source: 'attribute', selector: '.brand__image', attribute: 'src' },
+				image: { source: 'attribute', attribute: 'src', selector: '.brand__image' },
 			},
 			default: [],
 		},
@@ -47,7 +47,7 @@ registerBlockType( 'editor-blocks/brands', {
 		function onChangeBrandImage( value, i ) {
 
 			const brands = attributes.brands;
-			const newBrands = brands;
+			const newBrands = brands.slice();
 			newBrands[ i ] = Object.assign( {}, brands[ i ] );
 			newBrands[ i ].image = value.url;
 			setAttributes( { brands: [ ...newBrands ] } );
@@ -109,7 +109,7 @@ registerBlockType( 'editor-blocks/brands', {
 								<img
 									className="brand__image"
 									src={ image }
-									alt="Brand"
+									alt="Brand Image"
 								/>
 							}
 						</div>
