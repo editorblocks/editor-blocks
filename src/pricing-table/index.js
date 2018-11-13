@@ -92,7 +92,7 @@ registerBlockType( 'editor-blocks/pricing-table', {
 			const columns = attributes.columns;
 			const newColumns = columns;
 			newColumns[ i ] = Object.assign( {}, columns[ i ] );
-			newColumns[ i ].image = value;
+			newColumns[ i ].image = value.url;
 			setAttributes( { columns: [ ...newColumns ] } );
 
 		}

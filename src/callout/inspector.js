@@ -3,8 +3,8 @@
  */
 const { __ } = wp.i18n;
 const { Component } = wp.element;
-const { InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, PanelColor, TextControl, RangeControl } = wp.components;
+const { InspectorControls, PanelColorSettings } = wp.editor;
+const { PanelBody, TextControl, RangeControl } = wp.components;
 
 /**
  * Inspector controls
@@ -38,27 +38,27 @@ export default class Inspector extends Component {
 						onChange={ ( buttonURL ) => setAttributes( { buttonURL } ) }
 					/>
 				</PanelBody>
-				<PanelColor title={ __( 'Text Color' ) } colorValue={ attributes.headingColor } initialOpen={ true }>
-					<ColorPalette
-						label={ __( 'Color' ) }
-						value={ attributes.headingColor }
-						onChange={ ( headingColor ) => setAttributes( { headingColor } ) }
-					/>
-				</PanelColor>
-				<PanelColor title={ __( 'Button Text Color' ) } colorValue={ attributes.buttonColor } initialOpen={ false }>
-					<ColorPalette
-						label={ __( 'Text Color' ) }
-						value={ attributes.buttonColor }
-						onChange={ ( buttonColor ) => setAttributes( { buttonColor } ) }
-					/>
-				</PanelColor>
-				<PanelColor title={ __( 'Button Background Color' ) } colorValue={ attributes.buttonBackgroundColor } initialOpen={ false }>
-					<ColorPalette
-						label={ __( 'Background Color' ) }
-						value={ attributes.buttonBackgroundColor }
-						onChange={ ( buttonBackgroundColor ) => setAttributes( { buttonBackgroundColor } ) }
-					/>
-				</PanelColor>
+				<PanelColorSettings
+					title={ __( 'Color Settings' ) }
+					colorSettings={ [
+						{
+							value: attributes.headingColor,
+							onChange: ( headingColor ) => setAttributes( { headingColor } ),
+							label: __( 'Text Color' ),
+						},
+						{
+							value: attributes.buttonColor,
+							onChange: ( buttonColor ) => setAttributes( { buttonColor } ),
+							label: __( 'Button Text Color' ),
+						},
+						{
+							value: attributes.buttonBackgroundColor,
+							onChange: ( buttonBackgroundColor ) => setAttributes( { buttonBackgroundColor } ),
+							label: __( 'Button Background Color' ),
+						},
+					] }
+				>
+				</PanelColorSettings>
 			</InspectorControls>
 		);
 

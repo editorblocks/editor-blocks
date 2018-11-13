@@ -3,8 +3,8 @@
  */
 const { __ } = wp.i18n;
 const { Component } = wp.element;
-const { InspectorControls, ColorPalette, MediaUpload } = wp.editor;
-const { PanelBody, PanelColor, RangeControl, SelectControl, ToggleControl, Button, Spinner } = wp.components;
+const { InspectorControls, PanelColorSettings, MediaUpload } = wp.editor;
+const { PanelBody, RangeControl, SelectControl, ToggleControl, Button, Spinner } = wp.components;
 
 /**
  * Inspector controls
@@ -89,17 +89,17 @@ export default class Inspector extends Component {
 						step={ 10 }
 					/>
 				</PanelBody>
-				<PanelColor
-					colorValue={ attributes.backgroundColor }
-					initialOpen={ true }
-					title={ __( 'Background Color' ) }
-					onChange={ setBackgroundColor }
+				<PanelColorSettings
+					title={ __( 'Color Settings' ) }
+					colorSettings={ [
+						{
+							value: attributes.backgroundColor,
+							onChange: ( backgroundColor ) => setAttributes( { backgroundColor } ),
+							label: __( 'Background Color' ),
+						},
+					] }
 				>
-					<ColorPalette
-						value={ attributes.backgroundColor }
-						onChange={ ( colorValue ) => setAttributes( { backgroundColor: colorValue } ) }
-					/>
-				</PanelColor>
+				</PanelColorSettings>
 				<PanelBody initialOpen={ true } title={ __( 'Padding' ) }>
 					<RangeControl
 						value={ attributes.paddingTop }

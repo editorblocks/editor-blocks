@@ -12,8 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EDITOR_BLOCKS_VERSION', '1.0.7' );
-
 /**
  * Enqueue Gutenberg block CSS for both frontend + backend.
  *

@@ -53,8 +53,15 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 
 == Changelog ==
 
-= 1.0.7 =
+= 1.1.2 =
+Fix deprecated 'PanelColor'
+
+= 1.1.1 =
+Fix problem with floats: https://github.com/WordPress/gutenberg/pull/11357#issuecomment-436529844
+
+= 1.1.0 =
 Refactor code to be easier to read
+Fix:https://wordpress.org/support/topic/when-adding-two-or-more-brands-eb-the-images-are-the-same-in-all-of-them/
 
 = 1.0.6 =
 Pricing Table Block: fix missing button URL Setting

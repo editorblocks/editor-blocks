@@ -3,8 +3,8 @@
  */
 const { __ } = wp.i18n;
 const { Component } = wp.element;
-const { InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, PanelColor, RangeControl } = wp.components;
+const { InspectorControls, PanelColorSettings } = wp.editor;
+const { PanelBody, RangeControl } = wp.components;
 
 /**
  * Inspector controls
@@ -32,26 +32,12 @@ export default class Inspector extends Component {
 						min={ 10 }
 						max={ 300 }
 					/>
-				</PanelBody>
-				<PanelColor title={ __( 'Testimonial' ) } colorValue={ attributes.testimonialColor } initialOpen={ true }>
-					<ColorPalette
-						label={ __( 'Color' ) }
-						value={ attributes.testimonialColor }
-						onChange={ ( testimonialColor ) => setAttributes( { testimonialColor } ) }
-					/>
 					<RangeControl
 						label={ __( 'Font Size (px)' ) }
 						value={ attributes.testimonialSize }
 						onChange={ ( testimonialSize ) => setAttributes( { testimonialSize } ) }
 						min={ 10 }
 						max={ 50 }
-					/>
-				</PanelColor>
-				<PanelColor title={ __( 'Author Attribution' ) } colorValue={ attributes.authorColor } initialOpen={ true }>
-					<ColorPalette
-						label={ __( 'Text Color' ) }
-						value={ attributes.authorColor }
-						onChange={ ( authorColor ) => setAttributes( { authorColor } ) }
 					/>
 					<RangeControl
 						label={ __( 'Font Size (px)' ) }
@@ -60,7 +46,23 @@ export default class Inspector extends Component {
 						min={ 10 }
 						max={ 30 }
 					/>
-				</PanelColor>
+				</PanelBody>
+				<PanelColorSettings
+					title={ __( 'Color Settings' ) }
+					colorSettings={ [
+						{
+							value: attributes.testimonialColor,
+							onChange: ( testimonialColor ) => setAttributes( { testimonialColor } ),
+							label: __( 'Testimonial Color' ),
+						},
+						{
+							value: attributes.authorColor,
+							onChange: ( authorColor ) => setAttributes( { authorColor } ),
+							label: __( 'Author Color' ),
+						},
+					] }
+				>
+				</PanelColorSettings>
 			</InspectorControls>
 		);
 

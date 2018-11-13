@@ -3,8 +3,8 @@
  */
 const { __ } = wp.i18n;
 const { Component } = wp.element;
-const { InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, PanelColor, RangeControl } = wp.components;
+const { InspectorControls, PanelColorSettings } = wp.editor;
+const { PanelBody, RangeControl } = wp.components;
 
 /**
  * Inspector controls
@@ -17,20 +17,13 @@ export default class Inspector extends Component {
 
 		return (
 			<InspectorControls key="inspector">
-				<PanelBody initialOpen={ true } title={ __( 'Positioning' ) }>
+				<PanelBody initialOpen={ true } title={ __( 'Sizing' ) }>
 					<RangeControl
 						label={ __( 'Max Width (px)' ) }
 						value={ attributes.maxWidth }
 						onChange={ ( maxWidth ) => setAttributes( { maxWidth } ) }
 						min={ 100 }
 						max={ 1040 }
-					/>
-				</PanelBody>
-				<PanelColor title={ __( 'Heading' ) } colorValue={ attributes.headingColor } initialOpen={ true }>
-					<ColorPalette
-						label={ __( 'Color' ) }
-						value={ attributes.headingColor }
-						onChange={ ( headingColor ) => setAttributes( { headingColor } ) }
 					/>
 					<RangeControl
 						label={ __( 'Font Size' ) }
@@ -39,13 +32,6 @@ export default class Inspector extends Component {
 						min={ 2 }
 						max={ 100 }
 					/>
-				</PanelColor>
-				<PanelColor title={ __( 'Subheading' ) } colorValue={ attributes.subheadingColor } initialOpen={ true }>
-					<ColorPalette
-						label={ __( 'Text Color' ) }
-						value={ attributes.subheadingColor }
-						onChange={ ( subheadingColor ) => setAttributes( { subheadingColor } ) }
-					/>
 					<RangeControl
 						label={ __( 'Font Size' ) }
 						value={ attributes.subheadingSize }
@@ -53,7 +39,23 @@ export default class Inspector extends Component {
 						min={ 2 }
 						max={ 100 }
 					/>
-				</PanelColor>
+				</PanelBody>
+				<PanelColorSettings
+					title={ __( 'Color Settings' ) }
+					colorSettings={ [
+						{
+							value: attributes.headingColor,
+							onChange: ( headingColor ) => setAttributes( { headingColor } ),
+							label: __( 'Heading Color' ),
+						},
+						{
+							value: attributes.subheadingColor,
+							onChange: ( subheadingColor ) => setAttributes( { subheadingColor } ),
+							label: __( 'Text Color' ),
+						},
+					] }
+				>
+				</PanelColorSettings>
 			</InspectorControls>
 		);
 

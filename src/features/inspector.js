@@ -3,8 +3,8 @@
  */
 const { __ } = wp.i18n;
 const { Component } = wp.element;
-const { InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, PanelColor, RangeControl } = wp.components;
+const { InspectorControls, PanelColorSettings } = wp.editor;
+const { PanelBody, RangeControl } = wp.components;
 
 /**
  * Inspector controls
@@ -26,20 +26,22 @@ export default class Inspector extends Component {
 						max={ 6 }
 					/>
 				</PanelBody>
-				<PanelColor title={ __( 'Heading Color' ) } colorValue={ attributes.headingColor } initialOpen={ true }>
-					<ColorPalette
-						label={ __( 'Heading Color' ) }
-						value={ attributes.headingColor }
-						onChange={ ( headingColor ) => setAttributes( { headingColor } ) }
-					/>
-				</PanelColor>
-				<PanelColor title={ __( 'Text Color' ) } colorValue={ attributes.textColor } initialOpen={ true }>
-					<ColorPalette
-						label={ __( 'Text Color' ) }
-						value={ attributes.textColor }
-						onChange={ ( textColor ) => setAttributes( { textColor } ) }
-					/>
-				</PanelColor>
+				<PanelColorSettings
+					title={ __( 'Color Settings' ) }
+					colorSettings={ [
+						{
+							value: attributes.headingColor,
+							onChange: ( headingColor ) => setAttributes( { headingColor } ),
+							label: __( 'Heading Color' ),
+						},
+						{
+							value: attributes.textColor,
+							onChange: ( textColor ) => setAttributes( { textColor } ),
+							label: __( 'Text Color' ),
+						},
+					] }
+				>
+				</PanelColorSettings>
 			</InspectorControls>
 		);
 
