@@ -15,11 +15,6 @@
 .wp-block-editor-blocks-hero .hero__heading,
 .wp-block-editor-blocks-hero .hero__text {
   margin-bottom: 1em; }
-
-.editor-block-list__block-edit:after {
-  display: block;
-  content: "";
-  clear: both; }
 .wp-block-editor-blocks-horizontal-feature h2,
 .wp-block-editor-blocks-horizontal-feature p {
   margin-bottom: 1em; }
