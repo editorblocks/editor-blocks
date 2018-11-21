@@ -53,6 +53,9 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 
 == Changelog ==
 
+= 1.1.3 =
+Fix missing dependencies in Gutenberg v4.5
+
 = 1.1.2 =
 Fix deprecated 'PanelColor'
 

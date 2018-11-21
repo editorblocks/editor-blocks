@@ -43,7 +43,7 @@ function editor_blocks_backend_assets() {
 	wp_enqueue_script(
 		'eb-block-js',
 		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ),
-		array( 'wp-blocks', 'wp-i18n', 'wp-element' ),
+		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' ),
 		EDITOR_BLOCKS_VERSION
 	);
 
