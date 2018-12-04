@@ -5,7 +5,7 @@
  * Description: A unique collection of Gutenberg blocks.
  * Author: editorblocks
  * Author URI: https://editorblockswp.com
- * Version: 1.1.3
+ * Version: 1.1.4
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EDITOR_BLOCKS_VERSION', '1.1.3' );
+define( 'EDITOR_BLOCKS_VERSION', '1.1.4' );
 
 /**
  * Add a redirection check on activation.
@@ -59,3 +59,4 @@ add_filter( 'block_categories', function( $categories, $post ) {
  */
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/welcome.php';
+require_once plugin_dir_path( __FILE__ ) . 'admin/class-editor-blocks-notice.php';

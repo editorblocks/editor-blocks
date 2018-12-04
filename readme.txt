@@ -13,6 +13,8 @@ A unique collection of Gutenberg blocks.
 
 == Description ==
 
+> **You Might Also Like:** Our latest plugin allows you to remove blocks you don't need from the editor: [Disable Gutenberg Blocks](https://wordpress.org/plugins/disable-gutenberg-blocks).
+
 A unique collection of Gutenberg blocks.
 
 * Wrapper Block - [Block Demo](https://editorblockswp.com/gutenberg-wrapper-block/)
@@ -52,6 +54,9 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 3. Team Members Gutenberg Block
 
 == Changelog ==
+
+= 1.1.4 =
+Fix missing image in 'Features' block
 
 = 1.1.3 =
 Fix missing dependencies in Gutenberg v4.5

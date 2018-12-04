@@ -70,7 +70,7 @@ registerBlockType( 'editor-blocks/features', {
 			const features = attributes.features;
 			const newFeatures = features.slice();
 			newFeatures[ i ] = Object.assign( {}, features[ i ] );
-			newFeatures[ i ].image = value;
+			newFeatures[ i ].image = value.url;
 			setAttributes( { features: [ ...newFeatures ] } );
 
 		}
