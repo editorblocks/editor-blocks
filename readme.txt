@@ -3,7 +3,7 @@ Contributors: dannycooper, editorblocks, gutenbergblocks
 Donate link: http://editorblockswp.com
 Tags: gutenberg, blocks, gutenberg blocks, page builder, editor blocks
 Requires at least: 4.9
-Tested up to: 4.9.8
+Tested up to: 5.0
 Requires PHP: 5.4
 Stable tag: trunk
 License: GPLv2 or later
@@ -54,6 +54,14 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 3. Team Members Gutenberg Block
 
 == Changelog ==
+
+= 1.1.6 =
+Improve i18n support
+Add 'Author Profile' Block
+Remove DGB notice if already active
+
+= 1.1.5 =
+Improve 5.0 compatibility
 
 = 1.1.4 =
 Fix missing image in 'Features' block

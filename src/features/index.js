@@ -15,13 +15,13 @@ const { MediaUpload, RichText, BlockControls, AlignmentToolbar } = wp.editor;
 const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/features', {
-	title: __( 'Features (EB)' ),
+	title: __( 'Features (EB)', 'editor-blocks' ),
 	icon: 'editor-ul',
 	category: 'editor-blocks',
 	keywords: [
-		__( 'Features' ),
-		__( 'Editor Blocks' ),
-		__( 'EB' ),
+		__( 'Features', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
+		__( 'EB', 'editor-blocks' ),
 	],
 	attributes: {
 		features: {
@@ -102,7 +102,7 @@ registerBlockType( 'editor-blocks/features', {
 												<img
 													className="feature__image"
 													src={ image }
-													alt="Feature"
+													alt={ __( 'Feature', 'editor-blocks' ) }
 												/>
 											}
 										</Button>
@@ -113,7 +113,7 @@ registerBlockType( 'editor-blocks/features', {
 									value={ _get( attributes.features, [ index, 'heading' ] ) }
 									onChange={ ( value ) => onChangeFeature( value, index, 'heading' ) }
 									tagName="h3"
-									placeholder={ __( 'Feature Heading' ) }
+									placeholder={ __( 'Feature Heading', 'editor-blocks' ) }
 									keepPlaceholderOnFocus={ true }
 									style={ { color: attributes.headingColor } }
 									className="feature__heading"
@@ -122,7 +122,7 @@ registerBlockType( 'editor-blocks/features', {
 									value={ _get( attributes.features, [ index, 'text' ] ) }
 									onChange={ ( value ) => onChangeFeature( value, index, 'text' ) }
 									tagName="p"
-									placeholder={ __( 'Feature Description' ) }
+									placeholder={ __( 'Feature Description', 'editor-blocks' ) }
 									keepPlaceholderOnFocus={ true }
 									style={ { color: attributes.textColor } }
 									className="feature__text"

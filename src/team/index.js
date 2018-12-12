@@ -15,13 +15,13 @@ const { MediaUpload, RichText } = wp.editor;
 const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/team', {
-	title: __( 'Team (EB)' ),
+	title: __( 'Team (EB)', 'editor-blocks' ),
 	icon: 'groups',
 	category: 'editor-blocks',
 	keywords: [
-		__( 'Features' ),
-		__( 'Editor Blocks' ),
-		__( 'EB' ),
+		__( 'Features', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
+		__( 'EB', 'editor-blocks' ),
 	],
 	attributes: {
 		members: {
@@ -111,7 +111,7 @@ registerBlockType( 'editor-blocks/team', {
 									value={ _get( attributes.members, [ index, 'name' ] ) }
 									onChange={ ( value ) => onChangeMember( value, index, 'name' ) }
 									tagName="h3"
-									placeholder={ __( 'Name' ) }
+									placeholder={ __( 'Name', 'editor-blocks' ) }
 									formattingControls={ [] }
 									keepPlaceholderOnFocus={ true }
 									className="team-member__name"
@@ -121,7 +121,7 @@ registerBlockType( 'editor-blocks/team', {
 									value={ _get( attributes.members, [ index, 'position' ] ) }
 									onChange={ ( value ) => onChangeMember( value, index, 'position' ) }
 									tagName="p"
-									placeholder={ __( 'Position' ) }
+									placeholder={ __( 'Position', 'editor-blocks' ) }
 									formattingControls={ [] }
 									keepPlaceholderOnFocus={ true }
 									className="team-member__position"
@@ -131,7 +131,7 @@ registerBlockType( 'editor-blocks/team', {
 									value={ _get( attributes.members, [ index, 'bio' ] ) }
 									onChange={ ( value ) => onChangeMember( value, index, 'bio' ) }
 									tagName="p"
-									placeholder={ __( 'Bio' ) }
+									placeholder={ __( 'Bio', 'editor-blocks' ) }
 									keepPlaceholderOnFocus={ true }
 									className="team-member__bio"
 									style={ { color: attributes.bioColor } }

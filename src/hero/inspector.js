@@ -17,57 +17,57 @@ export default class Inspector extends Component {
 
 		return (
 			<InspectorControls key="inspector">
-				<PanelBody initialOpen={ true } title={ __( 'Positioning' ) }>
+				<PanelBody initialOpen={ true } title={ __( 'Positioning', 'editor-blocks' ) }>
 					<RangeControl
-						label={ __( 'Width (px)' ) }
+						label={ __( 'Width (px)', 'editor-blocks' ) }
 						value={ attributes.width }
 						onChange={ ( width ) => setAttributes( { width } ) }
 						min={ 0 }
 						max={ 1000 }
 					/>
 					<SelectControl
-						label={ __( 'Position' ) }
+						label={ __( 'Position', 'editor-blocks' ) }
 						value={ attributes.position }
 						onChange={ ( position ) => setAttributes( { position } ) }
 						options={ [
-							{ value: 'left', label: 'Left' },
-							{ value: 'center', label: 'Center' },
-							{ value: 'right', label: 'Right' },
+							{ value: 'left', label: __( 'Left', 'editor-blocks' ) },
+							{ value: 'center', label: __( 'Center', 'editor-blocks' ) },
+							{ value: 'right', label: __( 'Right', 'editor-blocks' ) },
 						] }
 					/>
 				</PanelBody>
 				<PanelColorSettings
-					title={ __( 'Color Settings' ) }
+					title={ __( 'Color Settings', 'editor-blocks' ) }
 					colorSettings={ [
 						{
 							value: attributes.headingColor,
 							onChange: ( headingColor ) => setAttributes( { headingColor } ),
-							label: __( 'Heading Color' ),
+							label: __( 'Heading Color', 'editor-blocks' ),
 						},
 						{
 							value: attributes.textColor,
 							onChange: ( textColor ) => setAttributes( { textColor } ),
-							label: __( 'Text Color' ),
+							label: __( 'Text Color', 'editor-blocks' ),
 						},
 					] }
 				>
 				</PanelColorSettings>
-				<PanelBody initialOpen={ false } title={ __( 'Button Settings' ) }>
+				<PanelBody initialOpen={ false } title={ __( 'Button Settings', 'editor-blocks' ) }>
 					<ToggleControl
-						label={ __( 'Show Button' ) }
+						label={ __( 'Show Button', 'editor-blocks' ) }
 						checked={ !! attributes.showButton }
-						help={ ( checked ) => checked ? __( 'Button is visible.' ) : __( 'Button is not visible.' ) }
+						help={ ( checked ) => checked ? __( 'Button is visible.', 'editor-blocks' ) : __( 'Button is not visible.', 'editor-blocks' ) }
 						onChange={ ( showButton ) => setAttributes( { showButton } ) }
 					/>
 					{ attributes.showButton && (
 						<Fragment>
 							<TextControl
-								label={ __( 'Button Text' ) }
+								label={ __( 'Button Text', 'editor-blocks' ) }
 								value={ attributes.buttonText }
 								onChange={ ( buttonText ) => setAttributes( { buttonText } ) }
 							/>
 							<TextControl
-								label={ __( 'Button URL' ) }
+								label={ __( 'Button URL', 'editor-blocks' ) }
 								value={ attributes.buttonURL }
 								onChange={ ( buttonURL ) => setAttributes( { buttonURL } ) }
 							/>
@@ -75,19 +75,19 @@ export default class Inspector extends Component {
 					) }
 				</PanelBody>
 				<PanelColorSettings
-					title={ __( 'Button Color Settings' ) }
+					title={ __( 'Button Color Settings', 'editor-blocks' ) }
 					initialOpen={ false }
 					colorSettings={ [
 						{
 							value: attributes.buttonColor,
 							onChange: ( buttonColor ) => setAttributes( { buttonColor } ),
-							label: __( 'Button Text Color' ),
+							label: __( 'Button Text Color', 'editor-blocks' ),
 							initialOpen: false,
 						},
 						{
 							value: attributes.buttonBackgroundColor,
 							onChange: ( buttonBackgroundColor ) => setAttributes( { buttonBackgroundColor } ),
-							label: __( 'Button Background Color' ),
+							label: __( 'Button Background Color', 'editor-blocks' ),
 						},
 					] }
 				>

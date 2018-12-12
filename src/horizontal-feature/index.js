@@ -14,13 +14,13 @@ const { RichText, BlockControls, AlignmentToolbar, MediaUpload } = wp.editor;
 const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/horizontal-feature', {
-	title: __( 'Horizontal Feature (EB)' ),
+	title: __( 'Horizontal Feature (EB)', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'arrow-right-alt',
 	keywords: [
-		__( 'Feature' ),
-		__( 'Editor Blocks' ),
-		__( 'Feature' ),
+		__( 'Feature', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
+		__( 'Feature', 'editor-blocks' ),
 	],
 	attributes: {
 		image: {
@@ -88,7 +88,7 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 		},
 		buttonText: {
 			type: 'string',
-			default: 'Click Here',
+			default: __( 'Click Here', 'editor-blocks' ),
 		},
 		buttonURL: {
 			type: 'string',
@@ -126,7 +126,7 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 							value={ attributes.heading }
 							onChange={ ( heading ) => setAttributes( { heading } ) }
 							tagName="h2"
-							placeholder={ __( 'Heading' ) }
+							placeholder={ __( 'Heading', 'editor-blocks' ) }
 							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: attributes.headingColor } }
@@ -136,7 +136,7 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 							value={ attributes.subHeading }
 							onChange={ ( subHeading ) => setAttributes( { subHeading } ) }
 							tagName="p"
-							placeholder={ __( 'Sub Heading' ) }
+							placeholder={ __( 'Sub Heading', 'editor-blocks' ) }
 							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: attributes.subHeadingColor } }
@@ -146,7 +146,7 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 							value={ attributes.text }
 							onChange={ ( text ) => setAttributes( { text } ) }
 							tagName="p"
-							placeholder={ __( 'Description' ) }
+							placeholder={ __( 'Description', 'editor-blocks' ) }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: attributes.textColor } }
 							className="horizontal-feature__text"
@@ -170,7 +170,7 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 										<img
 											className={ `${ className }-image` }
 											src={ attributes.image }
-											alt="Feature"
+											alt={ __( 'Feature', 'editor-blocks' ) }
 										/>
 									}
 								</Button>

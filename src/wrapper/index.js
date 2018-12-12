@@ -70,13 +70,13 @@ const blockAttributes = {
 };
 
 registerBlockType( 'editor-blocks/wrapper', {
-	title: __( 'Wrapper (EB)' ),
+	title: __( 'Wrapper (EB)', 'editor-blocks' ),
 	icon: 'editor-contract',
 	category: 'editor-blocks',
 	keywords: [
-		__( 'wrapper' ),
-		__( 'Editor Blocks' ),
-		__( 'EB' ),
+		__( 'wrapper', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
+		__( 'EB', 'editor-blocks' ),
 	],
 	attributes: blockAttributes,
 

@@ -17,30 +17,30 @@ export default class Inspector extends Component {
 
 		return (
 			<InspectorControls>
-				<PanelBody initialOpen={ true } title={ __( 'General' ) }>
+				<PanelBody initialOpen={ true } title={ __( 'General', 'editor-blocks' ) }>
 					<RangeControl
-						label={ __( 'Max Width (px)' ) }
+						label={ __( 'Max Width (px)', 'editor-blocks' ) }
 						value={ attributes.maxWidth }
 						onChange={ ( maxWidth ) => setAttributes( { maxWidth } ) }
 						min={ 100 }
 						max={ 1040 }
 					/>
 					<RangeControl
-						label={ __( 'Image Size (px)' ) }
+						label={ __( 'Image Size (px)', 'editor-blocks' ) }
 						value={ attributes.authorImageSize }
 						onChange={ ( authorImageSize ) => setAttributes( { authorImageSize } ) }
 						min={ 10 }
 						max={ 300 }
 					/>
 					<RangeControl
-						label={ __( 'Font Size (px)' ) }
+						label={ __( 'Font Size (px)', 'editor-blocks' ) }
 						value={ attributes.testimonialSize }
 						onChange={ ( testimonialSize ) => setAttributes( { testimonialSize } ) }
 						min={ 10 }
 						max={ 50 }
 					/>
 					<RangeControl
-						label={ __( 'Font Size (px)' ) }
+						label={ __( 'Font Size (px)', 'editor-blocks' ) }
 						value={ attributes.authorSize }
 						onChange={ ( authorSize ) => setAttributes( { authorSize } ) }
 						min={ 10 }
@@ -48,17 +48,17 @@ export default class Inspector extends Component {
 					/>
 				</PanelBody>
 				<PanelColorSettings
-					title={ __( 'Color Settings' ) }
+					title={ __( 'Color Settings', 'editor-blocks' ) }
 					colorSettings={ [
 						{
 							value: attributes.testimonialColor,
 							onChange: ( testimonialColor ) => setAttributes( { testimonialColor } ),
-							label: __( 'Testimonial Color' ),
+							label: __( 'Testimonial Color', 'editor-blocks' ),
 						},
 						{
 							value: attributes.authorColor,
 							onChange: ( authorColor ) => setAttributes( { authorColor } ),
-							label: __( 'Author Color' ),
+							label: __( 'Author Color', 'editor-blocks' ),
 						},
 					] }
 				>

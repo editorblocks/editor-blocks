@@ -70,6 +70,9 @@ if ( ! class_exists( 'Editor_Blocks_Notice' ) ) :
 			if ( get_option( 'dismissed-' . $this->slug, false ) ) {
 				return;
 			}
+			if ( is_plugin_active( 'disable-gutenberg-blocks/class-disable-gutenberg-blocks.php' ) ) {
+				return;
+			}
 			?>
 
 			<div class="notice notice-<?php echo esc_attr( $this->type ); ?> is-dismissible notice-dismiss-dc"  data-notice="<?php echo esc_attr( $this->slug ); ?>">

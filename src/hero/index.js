@@ -12,13 +12,13 @@ const { registerBlockType } = wp.blocks;
 const { RichText, BlockControls, AlignmentToolbar } = wp.editor;
 
 registerBlockType( 'editor-blocks/hero', {
-	title: __( 'Hero (EB)' ),
+	title: __( 'Hero (EB)', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'format-image',
 	keywords: [
-		__( 'Hero' ),
-		__( 'Editor Blocks' ),
-		__( 'EB' ),
+		__( 'Hero', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
+		__( 'EB', 'editor-blocks' ),
 	],
 	attributes: {
 		heading: {
@@ -60,7 +60,7 @@ registerBlockType( 'editor-blocks/hero', {
 		},
 		buttonText: {
 			type: 'string',
-			default: 'Click Here',
+			default: __( 'Click Here', 'editor-blocks' ),
 		},
 		buttonURL: {
 			type: 'string',
@@ -92,7 +92,7 @@ registerBlockType( 'editor-blocks/hero', {
 							value={ attributes.heading }
 							onChange={ ( heading ) => setAttributes( { heading } ) }
 							tagName="h2"
-							placeholder={ __( 'Hero Heading' ) }
+							placeholder={ __( 'Hero Heading', 'editor-blocks' ) }
 							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: attributes.headingColor } }
@@ -102,7 +102,7 @@ registerBlockType( 'editor-blocks/hero', {
 							value={ attributes.text }
 							onChange={ ( text ) => setAttributes( { text } ) }
 							tagName="p"
-							placeholder={ __( 'Hero Text' ) }
+							placeholder={ __( 'Hero Text', 'editor-blocks' ) }
 							formattingControls={ [] }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: attributes.textColor } }

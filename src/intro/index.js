@@ -12,13 +12,13 @@ const { Fragment } = wp.element;
 const { RichText, BlockControls, AlignmentToolbar } = wp.editor;
 
 registerBlockType( 'editor-blocks/intro', {
-	title: __( 'Intro (EB)' ),
+	title: __( 'Intro (EB)', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'editor-textcolor',
 	keywords: [
-		__( 'Intro' ),
-		__( 'Heading' ),
-		__( 'Subheading' ),
+		__( 'Intro', 'editor-blocks' ),
+		__( 'Heading', 'editor-blocks' ),
+		__( 'Subheading', 'editor-blocks' ),
 	],
 	attributes: {
 		maxWidth: {
@@ -69,7 +69,7 @@ registerBlockType( 'editor-blocks/intro', {
 							value={ attributes.heading }
 							onChange={ ( heading ) => setAttributes( { heading } ) }
 							tagName="h2"
-							placeholder={ __( 'Intro Heading' ) }
+							placeholder={ __( 'Intro Heading', 'editor-blocks' ) }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: attributes.headingColor, fontSize: attributes.headingSize && attributes.headingSize + 'px' } }
 							className="intro__heading"
@@ -78,7 +78,7 @@ registerBlockType( 'editor-blocks/intro', {
 							value={ attributes.subheading }
 							onChange={ ( subheading ) => setAttributes( { subheading } ) }
 							tagName="p"
-							placeholder={ __( 'Subheading' ) }
+							placeholder={ __( 'Subheading', 'editor-blocks' ) }
 							keepPlaceholderOnFocus={ true }
 							style={ { color: attributes.subheadingColor, fontSize: attributes.subheadingSize && attributes.subheadingSize + 'px' } }
 							className="intro__subheading"

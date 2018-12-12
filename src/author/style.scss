@@ -1,0 +1,30 @@
+.author-profile {
+	padding: 25px;
+	border: 1px solid #e5e5e5;
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.author-profile:after {
+	display: block;
+  content: "";
+  clear: both;
+}
+
+.author-profile__image {
+	float: left;
+	width: 121px;
+}
+
+.author-profile__content {
+	float: left;
+	width: 80%;
+	width: calc(100% - 121px);
+}
+
+.author-profile__name {
+	margin-top: 0
+}
+
+.author-profile__description {
+	margin-bottom: 0
+}

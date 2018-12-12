@@ -15,13 +15,13 @@ const { MediaUpload } = wp.editor;
 const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/brands', {
-	title: __( 'Brands (EB)' ),
+	title: __( 'Brands (EB)', 'editor-blocks' ),
 	icon: 'awards',
 	category: 'editor-blocks',
 	keywords: [
-		__( 'Brands' ),
-		__( 'Editor Blocks' ),
-		__( 'Logos' ),
+		__( 'Brands', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
+		__( 'Logos', 'editor-blocks' ),
 	],
 	attributes: {
 		brands: {

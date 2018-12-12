@@ -12,13 +12,13 @@ const { registerBlockType } = wp.blocks;
 const { RichText } = wp.editor;
 
 registerBlockType( 'editor-blocks/callout', {
-	title: __( 'Callout (EB)' ),
+	title: __( 'Callout (EB)', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'megaphone',
 	keywords: [
-		__( 'Callout' ),
-		__( 'Button' ),
-		__( 'Subheading' ),
+		__( 'Callout', 'editor-blocks' ),
+		__( 'Button', 'editor-blocks' ),
+		__( 'Subheading', 'editor-blocks' ),
 	],
 	attributes: {
 		heading: {
@@ -33,7 +33,7 @@ registerBlockType( 'editor-blocks/callout', {
 		},
 		buttonText: {
 			type: 'string',
-			default: 'Click Here',
+			default: __( 'Click Here', 'editor-blocks' ),
 		},
 		buttonURL: {
 			type: 'string',
@@ -65,7 +65,7 @@ registerBlockType( 'editor-blocks/callout', {
 						value={ attributes.heading }
 						onChange={ ( heading ) => setAttributes( { heading } ) }
 						tagName="h2"
-						placeholder={ __( 'Callout Text' ) }
+						placeholder={ __( 'Callout Text', 'editor-blocks' ) }
 						keepPlaceholderOnFocus={ true }
 						style={ { color: attributes.headingColor, fontSize: attributes.headingSize && attributes.headingSize + 'px' } }
 						className="callout__text"

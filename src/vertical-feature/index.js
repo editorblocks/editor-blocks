@@ -13,13 +13,13 @@ const { RichText, BlockControls, AlignmentToolbar, MediaUpload } = wp.editor;
 const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/vertical-feature', {
-	title: __( 'Vertical Feature (EB)' ),
+	title: __( 'Vertical Feature (EB)', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'arrow-down-alt',
 	keywords: [
-		__( 'Feature' ),
-		__( 'Editor Blocks' ),
-		__( 'Feature' ),
+		__( 'Feature', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
+		__( 'Feature', 'editor-blocks' ),
 	],
 	attributes: {
 		image: {
@@ -158,7 +158,7 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 								value={ attributes.heading }
 								onChange={ ( heading ) => setAttributes( { heading } ) }
 								tagName="h2"
-								placeholder={ __( 'Heading' ) }
+								placeholder={ __( 'Heading', 'editor-blocks' ) }
 								formattingControls={ [] }
 								keepPlaceholderOnFocus={ true }
 								style={ { color: attributes.headingColor } }
@@ -168,7 +168,7 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 								value={ attributes.subHeading }
 								onChange={ ( subHeading ) => setAttributes( { subHeading } ) }
 								tagName="p"
-								placeholder={ __( 'Sub Heading' ) }
+								placeholder={ __( 'Sub Heading', 'editor-blocks' ) }
 								formattingControls={ [] }
 								keepPlaceholderOnFocus={ true }
 								style={ { color: attributes.subHeadingColor } }
@@ -178,7 +178,7 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 								value={ attributes.text }
 								onChange={ ( text ) => setAttributes( { text } ) }
 								tagName="p"
-								placeholder={ __( 'Description' ) }
+								placeholder={ __( 'Description', 'editor-blocks' ) }
 								keepPlaceholderOnFocus={ true }
 								style={ { color: attributes.textColor } }
 								className="vertical-feature__text"

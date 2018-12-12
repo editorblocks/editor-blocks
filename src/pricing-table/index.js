@@ -15,13 +15,13 @@ const { MediaUpload, RichText, BlockControls, AlignmentToolbar } = wp.editor;
 const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/pricing-table', {
-	title: __( 'Pricing Table (EB)' ),
+	title: __( 'Pricing Table (EB)', 'editor-blocks' ),
 	icon: 'cart',
 	category: 'editor-blocks',
 	keywords: [
-		__( 'Pricing Table' ),
-		__( 'Editor Blocks' ),
-		__( 'EB' ),
+		__( 'Pricing Table', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
+		__( 'EB', 'editor-blocks' ),
 	],
 	attributes: {
 		columns: {
@@ -124,7 +124,7 @@ registerBlockType( 'editor-blocks/pricing-table', {
 												<img
 													className="pricing-table__image"
 													src={ image }
-													alt="Column"
+													alt={ __( 'Column', 'editor-blocks' ) }
 												/>
 											}
 										</Button>
@@ -135,7 +135,7 @@ registerBlockType( 'editor-blocks/pricing-table', {
 									value={ _get( attributes.columns, [ index, 'heading' ] ) }
 									onChange={ ( value ) => onChangeColumn( value, index, 'heading' ) }
 									tagName="h3"
-									placeholder={ __( 'Heading' ) }
+									placeholder={ __( 'Heading', 'editor-blocks' ) }
 									keepPlaceholderOnFocus={ true }
 									style={ { color: attributes.headingColor } }
 									className="pricing-table__heading"
@@ -144,7 +144,7 @@ registerBlockType( 'editor-blocks/pricing-table', {
 									value={ _get( attributes.columns, [ index, 'description' ] ) }
 									onChange={ ( value ) => onChangeColumn( value, index, 'description' ) }
 									tagName="p"
-									placeholder={ __( 'Description' ) }
+									placeholder={ __( 'Description', 'editor-blocks' ) }
 									keepPlaceholderOnFocus={ true }
 									style={ { color: attributes.descriptionColor } }
 									className="pricing-table__description"
@@ -153,7 +153,7 @@ registerBlockType( 'editor-blocks/pricing-table', {
 									value={ _get( attributes.columns, [ index, 'price' ] ) }
 									onChange={ ( value ) => onChangeColumn( value, index, 'price' ) }
 									tagName="p"
-									placeholder={ __( '$49.99' ) }
+									placeholder={ __( '$49.99', 'editor-blocks' ) }
 									formattingControls={ [] }
 									keepPlaceholderOnFocus={ true }
 									style={ { color: attributes.priceColor } }
@@ -164,7 +164,7 @@ registerBlockType( 'editor-blocks/pricing-table', {
 									onChange={ ( value ) => onChangeColumn( value, index, 'features' ) }
 									tagName="ul"
 									multiline="li"
-									placeholder={ __( 'Feature One' ) }
+									placeholder={ __( 'Feature One', 'editor-blocks' ) }
 									formattingControls={ [] }
 									keepPlaceholderOnFocus={ true }
 									style={ { color: attributes.featuresColor } }
@@ -176,7 +176,6 @@ registerBlockType( 'editor-blocks/pricing-table', {
 										onChange={ ( value ) => onChangeColumn( value, index, 'buttonText' ) }
 										tagName="a"
 										formattingControls={ [] }
-										placeholder={ __( 'Feature One' ) }
 										keepPlaceholderOnFocus={ true }
 										style={ { backgroundColor: attributes.buttonBackgroundColor, color: attributes.buttonColor } }
 										className="pricing-table__button"

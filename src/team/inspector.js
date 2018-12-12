@@ -17,9 +17,9 @@ export default class Inspector extends Component {
 
 		return (
 			<InspectorControls key="inspector">
-				<PanelBody initialOpen={ true } title={ __( 'Team Settings' ) }>
+				<PanelBody initialOpen={ true } title={ __( 'Team Settings', 'editor-blocks' ) }>
 					<RangeControl
-						label={ __( 'Members' ) }
+						label={ __( 'Members', 'editor-blocks' ) }
 						value={ attributes.count }
 						onChange={ ( count ) => setAttributes( { count } ) }
 						min={ 2 }
@@ -27,23 +27,23 @@ export default class Inspector extends Component {
 					/>
 				</PanelBody>
 				<PanelColorSettings
-					title={ __( 'Color Settings' ) }
+					title={ __( 'Color Settings', 'editor-blocks' ) }
 					initialOpen={ false }
 					colorSettings={ [
 						{
 							value: attributes.nameColor,
 							onChange: ( nameColor ) => setAttributes( { nameColor } ),
-							label: __( 'Name Color' ),
+							label: __( 'Name Color', 'editor-blocks' ),
 						},
 						{
 							value: attributes.positionColor,
 							onChange: ( positionColor ) => setAttributes( { positionColor } ),
-							label: __( 'Position Color' ),
+							label: __( 'Position Color', 'editor-blocks' ),
 						},
 						{
 							value: attributes.bioColor,
 							onChange: ( bioColor ) => setAttributes( { bioColor } ),
-							label: __( 'Bio Color' ),
+							label: __( 'Bio Color', 'editor-blocks' ),
 						},
 					] }
 				>

@@ -17,9 +17,9 @@ export default class Inspector extends Component {
 
 		return (
 			<InspectorControls key="inspector">
-				<PanelBody initialOpen={ true } title={ __( 'Brands Settings' ) }>
+				<PanelBody initialOpen={ true } title={ __( 'Brands Settings', 'editor-blocks' ) }>
 					<RangeControl
-						label={ __( 'Brands' ) }
+						label={ __( 'Brands', 'editor-blocks' ) }
 						value={ attributes.count }
 						onChange={ ( count ) => setAttributes( { count } ) }
 						min={ 2 }

@@ -13,13 +13,13 @@ const { RichText, BlockControls, AlignmentToolbar, MediaUpload } = wp.editor;
 const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/testimonial', {
-	title: __( 'Testimonial (EB)' ),
+	title: __( 'Testimonial (EB)', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'format-quote',
 	keywords: [
-		__( 'Testimonial' ),
-		__( 'Review' ),
-		__( 'Editor Blocks' ),
+		__( 'Testimonial', 'editor-blocks' ),
+		__( 'Review', 'editor-blocks' ),
+		__( 'Editor Blocks', 'editor-blocks' ),
 	],
 	attributes: {
 		maxWidth: {
@@ -86,7 +86,7 @@ registerBlockType( 'editor-blocks/testimonial', {
 										<img
 											className={ `${ className }-image` }
 											src={ attributes.authorImage }
-											alt="Testimonial Author"
+											alt={ __( 'Testimonial Author', 'editor-blocks' ) }
 											style={ { maxWidth: attributes.authorImageSize && attributes.authorImageSize + 'px' } }
 										/>
 									}
@@ -98,7 +98,7 @@ registerBlockType( 'editor-blocks/testimonial', {
 							value={ attributes.testimonial }
 							onChange={ ( testimonial ) => setAttributes( { testimonial } ) }
 							tagName="blockquote"
-							placeholder={ __( 'Testimonial' ) }
+							placeholder={ __( 'Testimonial', 'editor-blocks' ) }
 							keepPlaceholderOnFocus={ true }
 							className="testimonial__text"
 							style={ { color: attributes.testimonialColor, fontSize: attributes.testimonialSize && attributes.testimonialSize + 'px' } }
@@ -107,7 +107,7 @@ registerBlockType( 'editor-blocks/testimonial', {
 							value={ attributes.author }
 							onChange={ ( author ) => setAttributes( { author } ) }
 							tagName="span"
-							placeholder={ __( 'Joe Blogs - Author' ) }
+							placeholder={ __( 'Joe Blogs - Author', 'editor-blocks' ) }
 							keepPlaceholderOnFocus={ true }
 							className="testimonial__author"
 							style={ { color: attributes.authorColor, fontSize: attributes.authorSize && attributes.authorSize + 'px' } }

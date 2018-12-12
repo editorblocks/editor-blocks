@@ -5,7 +5,7 @@
  * Description: A unique collection of Gutenberg blocks.
  * Author: editorblocks
  * Author URI: https://editorblockswp.com
- * Version: 1.1.4
+ * Version: 1.1.6
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EDITOR_BLOCKS_VERSION', '1.1.4' );
+define( 'EDITOR_BLOCKS_VERSION', '1.1.6' );
 
 /**
  * Add a redirection check on activation.
@@ -42,21 +42,27 @@ function editor_blocks_redirect() {
 add_action( 'admin_init', 'editor_blocks_redirect' );
 
 // Add custom block category.
-add_filter( 'block_categories', function( $categories, $post ) {
-	return array_merge(
-		$categories,
-		array(
+add_filter(
+	'block_categories',
+	function( $categories, $post ) {
+		return array_merge(
+			$categories,
 			array(
-				'slug'  => 'editor-blocks',
-				'title' => __( 'Editor Blocks', 'editor-blocks' ),
-			),
-		)
-	);
-}, 10, 2 );
+				array(
+					'slug'  => 'editor-blocks',
+					'title' => __( 'Editor Blocks', 'editor-blocks' ),
+				),
+			)
+		);
+	},
+	10,
+	2
+);
 
 /**
  * Block Initializer.
  */
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
+require_once plugin_dir_path( __FILE__ ) . 'src/author/index.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/welcome.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/class-editor-blocks-notice.php';

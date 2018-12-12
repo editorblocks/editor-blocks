@@ -5,6 +5,7 @@
  * Webpack is compiling as the input file.
  */
 
+import './author/index.js';
 import './brands/index.js';
 import './callout/index.js';
 import './features/index.js';

@@ -23,7 +23,7 @@ function editor_blocks_assets() {
 	wp_enqueue_style(
 		'eb-style-css',
 		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ),
-		array( 'wp-blocks' ),
+		array(),
 		EDITOR_BLOCKS_VERSION
 	);
 }
