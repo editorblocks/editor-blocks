@@ -12,7 +12,6 @@ const { PanelBody, RangeControl } = wp.components;
 export default class Inspector extends Component {
 
 	render() {
-
 		const { attributes, setAttributes } = this.props;
 
 		return (
@@ -50,7 +49,6 @@ export default class Inspector extends Component {
 				</PanelColorSettings>
 			</InspectorControls>
 		);
-
 	}
 
 }

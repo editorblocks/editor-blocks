@@ -12,7 +12,6 @@ const { PanelBody, TextControl, SelectControl, RangeControl, ToggleControl } = w
 export default class Inspector extends Component {
 
 	render() {
-
 		const { attributes, setAttributes } = this.props;
 
 		return (
@@ -95,7 +94,6 @@ export default class Inspector extends Component {
 
 			</InspectorControls>
 		);
-
 	}
 
 }

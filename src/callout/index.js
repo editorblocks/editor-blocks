@@ -51,7 +51,6 @@ registerBlockType( 'editor-blocks/callout', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 
 		return (
@@ -74,11 +73,9 @@ registerBlockType( 'editor-blocks/callout', {
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes, className } = props;
 		// TODO check className is needed.
 
@@ -95,6 +92,5 @@ registerBlockType( 'editor-blocks/callout', {
 				/>
 			</div>
 		);
-
 	},
 } );

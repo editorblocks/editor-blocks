@@ -98,7 +98,6 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 
 		const contentStyle = {
@@ -182,11 +181,9 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 
 		const contentStyle = {
@@ -232,7 +229,6 @@ registerBlockType( 'editor-blocks/horizontal-feature', {
 				</div>
 			</div>
 		);
-
 	},
 
 } );

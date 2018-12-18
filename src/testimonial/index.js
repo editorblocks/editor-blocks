@@ -62,7 +62,6 @@ registerBlockType( 'editor-blocks/testimonial', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 
 		return (
@@ -117,11 +116,9 @@ registerBlockType( 'editor-blocks/testimonial', {
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 
 		return (
@@ -150,6 +147,5 @@ registerBlockType( 'editor-blocks/testimonial', {
 				</div>
 			</div>
 		);
-
 	},
 } );

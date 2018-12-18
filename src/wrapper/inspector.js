@@ -12,8 +12,7 @@ const { PanelBody, RangeControl, SelectControl, ToggleControl, Button, Spinner }
 export default class Inspector extends Component {
 
 	render() {
-
-		const { attributes, setAttributes, setBackgroundColor } = this.props;
+		const { attributes, setAttributes } = this.props;
 
 		return (
 			<InspectorControls key="inspector">
@@ -148,7 +147,6 @@ export default class Inspector extends Component {
 				</PanelBody>
 			</InspectorControls>
 		);
-
 	}
 
 }

@@ -52,7 +52,6 @@ registerBlockType( 'editor-blocks/intro', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 
 		return (
@@ -88,11 +87,9 @@ registerBlockType( 'editor-blocks/intro', {
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 
 		return (
@@ -113,7 +110,6 @@ registerBlockType( 'editor-blocks/intro', {
 				</div>
 			</div>
 		);
-
 	},
 
 } );

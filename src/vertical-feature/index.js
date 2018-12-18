@@ -104,7 +104,6 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 
 		const contentStyle = {
@@ -196,11 +195,9 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 
 		const contentStyle = {
@@ -254,7 +251,6 @@ registerBlockType( 'editor-blocks/vertical-feature', {
 				{ attributes.imagePosition === 'below' && imageOutput }
 			</div>
 		);
-
 	},
 
 } );

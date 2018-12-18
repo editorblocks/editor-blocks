@@ -70,7 +70,6 @@ registerBlockType( 'editor-blocks/hero', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 
 		const heroStyle = {
@@ -119,11 +118,9 @@ registerBlockType( 'editor-blocks/hero', {
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 
 		const heroStyle = {
@@ -154,7 +151,6 @@ registerBlockType( 'editor-blocks/hero', {
 				</div>
 			</div>
 		);
-
 	},
 
 } );

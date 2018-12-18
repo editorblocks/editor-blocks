@@ -14,18 +14,15 @@ import _get from 'lodash/get';
 export default class Inspector extends Component {
 
 	onChangeButtonURL( index, value ) {
-
 		const columns = this.props.attributes.columns;
 		const newColumns = columns.slice();
 		newColumns[ index ] = Object.assign( {}, columns[ index ] );
 		const column = newColumns[ index ];
 		column.buttonURL = value;
 		this.props.setAttributes( { columns: [ ...newColumns ] } );
-
 	}
 
 	render() {
-
 		const { attributes, setAttributes } = this.props;
 
 		const ONE_TO_TEN = [ 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten' ];
@@ -43,7 +40,6 @@ export default class Inspector extends Component {
 				</PanelBody>
 				<PanelBody initialOpen={ true } title={ __( 'Button Settings', 'editor-blocks' ) }>
 					{ _times( attributes.count, ( index ) => {
-
 						return (
 							<TextControl
 								label={ __( 'Button ' + ONE_TO_TEN[ index ] + ' URL' ) }
@@ -51,7 +47,6 @@ export default class Inspector extends Component {
 								onChange={ ( value ) => this.onChangeButtonURL( index, value ) }
 							/>
 						);
-
 					} ) }
 				</PanelBody>
 				<PanelColorSettings
@@ -98,7 +93,6 @@ export default class Inspector extends Component {
 				</PanelColorSettings>
 			</InspectorControls>
 		);
-
 	}
 
 }

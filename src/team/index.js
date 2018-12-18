@@ -53,29 +53,24 @@ registerBlockType( 'editor-blocks/team', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, className, setAttributes } = props;
 
 		function onChangeMember( value, i, attribute ) {
-
 			const members = attributes.members;
 			const newMembers = members.slice();
 			newMembers[ i ] = Object.assign( {}, members[ i ] );
 			newMembers[ i ][ attribute ] = value;
 			console.log( newMembers );
 			setAttributes( { members: [ ...newMembers ] } );
-
 		}
 
 		function onChangeMemberImage( value, i ) {
-
 			const members = attributes.members;
 			const newMembers = members;
 			newMembers[ i ] = Object.assign( {}, members[ i ] );
 			newMembers[ i ].image = value.url;
 			console.log( newMembers );
 			setAttributes( { members: [ ...newMembers ] } );
-
 		}
 
 		const teamClasses = className + ' col-' + attributes.count;
@@ -85,7 +80,6 @@ registerBlockType( 'editor-blocks/team', {
 				<Inspector { ...props } />
 				<div className={ teamClasses }>
 					{ _times( attributes.count, ( index ) => {
-
 						const image = _get( attributes.members, [ index, 'image' ] );
 						const memberClass = 'team-member team-member-' + index;
 						return (
@@ -139,16 +133,13 @@ registerBlockType( 'editor-blocks/team', {
 								/>
 							</div>
 						);
-
 					} ) }
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 
 		const teamClasses = 'col-' + attributes.count;
@@ -156,7 +147,6 @@ registerBlockType( 'editor-blocks/team', {
 		return (
 			<div className={ teamClasses }>
 				{ _times( attributes.count, ( index ) => {
-
 					const image = _get( attributes.members, [ index, 'image' ] );
 					const memberClass = 'team-member team-member-' + index;
 					return (
@@ -188,10 +178,8 @@ registerBlockType( 'editor-blocks/team', {
 							/>
 						</div>
 					);
-
 				} ) }
 			</div>
 		);
-
 	},
 } );

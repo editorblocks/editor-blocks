@@ -82,13 +82,10 @@ registerBlockType( 'editor-blocks/wrapper', {
 	attributes: blockAttributes,
 
 	getEditWrapperProps() {
-
 		return { 'data-align': 'full' };
-
 	},
 
 	edit: function( props ) {
-
 		const { attributes, className } = props;
 
 		const wrapperStyle = {
@@ -124,11 +121,9 @@ registerBlockType( 'editor-blocks/wrapper', {
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes, className } = props;
 
 		const wrapperStyle = {
@@ -161,7 +156,6 @@ registerBlockType( 'editor-blocks/wrapper', {
 				</div>
 			</div>
 		);
-
 	},
 
 	deprecated: [
@@ -169,7 +163,6 @@ registerBlockType( 'editor-blocks/wrapper', {
 			attributes: blockAttributes,
 
 			save: function( props ) {
-
 				const { attributes, className } = props;
 
 				const wrapperStyle = {
@@ -200,7 +193,6 @@ registerBlockType( 'editor-blocks/wrapper', {
 						</div>
 					</div>
 				);
-
 			},
 
 		},
@@ -209,9 +201,7 @@ registerBlockType( 'editor-blocks/wrapper', {
 } );
 
 function dimRatioToClass( ratio ) {
-
 	return ( ratio === 0 ) ?
 		null :
 		'has-background-dim-' + ( 10 * Math.round( ratio / 10 ) );
-
 }

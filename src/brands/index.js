@@ -41,18 +41,15 @@ registerBlockType( 'editor-blocks/brands', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 		const brandClasses = className + ' col-' + attributes.count;
 
 		function onChangeBrandImage( value, i ) {
-
 			const brands = attributes.brands;
 			const newBrands = brands.slice();
 			newBrands[ i ] = Object.assign( {}, brands[ i ] );
 			newBrands[ i ].image = value.url;
 			setAttributes( { brands: [ ...newBrands ] } );
-
 		}
 
 		return (
@@ -60,7 +57,6 @@ registerBlockType( 'editor-blocks/brands', {
 				<Inspector { ...props } />
 				<div className={ brandClasses }>
 					{ _times( attributes.count, ( index ) => {
-
 						const image = _get( attributes.brands, [ index, 'image' ] );
 						const brandClass = 'brand brand-' + index;
 						return (
@@ -85,23 +81,19 @@ registerBlockType( 'editor-blocks/brands', {
 								</MediaUpload>
 							</div>
 						);
-
 					} ) }
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 		const brandClasses = 'col-' + attributes.count;
 
 		return (
 			<div className={ brandClasses }>
 				{ _times( attributes.count, ( index ) => {
-
 					const image = _get( attributes.brands, [ index, 'image' ] );
 					const brandClass = 'brand brand-' + index;
 					return (
@@ -115,10 +107,8 @@ registerBlockType( 'editor-blocks/brands', {
 							}
 						</div>
 					);
-
 				} ) }
 			</div>
 		);
-
 	},
 } );

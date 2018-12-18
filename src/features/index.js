@@ -52,28 +52,23 @@ registerBlockType( 'editor-blocks/features', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 		const featureClasses = className + ' col-' + attributes.count;
 
 		function onChangeFeature( value, i, attribute ) {
-
 			const features = attributes.features;
 			const newFeatures = features.slice();
 			newFeatures[ i ] = Object.assign( {}, features[ i ] );
 			newFeatures[ i ][ attribute ] = value;
 			setAttributes( { features: [ ...newFeatures ] } );
-
 		}
 
 		function onChangeFeatureImage( value, i ) {
-
 			const features = attributes.features;
 			const newFeatures = features.slice();
 			newFeatures[ i ] = Object.assign( {}, features[ i ] );
 			newFeatures[ i ].image = value.url;
 			setAttributes( { features: [ ...newFeatures ] } );
-
 		}
 
 		return (
@@ -87,7 +82,6 @@ registerBlockType( 'editor-blocks/features', {
 				</BlockControls>
 				<div style={ { textAlign: attributes.alignment } } className={ featureClasses }>
 					{ _times( attributes.count, ( index ) => {
-
 						const image = _get( attributes.features, [ index, 'image' ] );
 						const featureClass = 'feature feature-' + index;
 						return (
@@ -130,23 +124,19 @@ registerBlockType( 'editor-blocks/features', {
 								/>
 							</div>
 						);
-
 					} ) }
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 		const featureClasses = 'col-' + attributes.count;
 
 		return (
 			<div className={ featureClasses } style={ { textAlign: attributes.alignment } }>
 				{ _times( attributes.count, ( index ) => {
-
 					const image = _get( attributes.features, [ index, 'image' ] );
 					const featureClass = 'feature feature-' + index;
 					return (
@@ -172,10 +162,8 @@ registerBlockType( 'editor-blocks/features', {
 							/>
 						</div>
 					);
-
 				} ) }
 			</div>
 		);
-
 	},
 } );

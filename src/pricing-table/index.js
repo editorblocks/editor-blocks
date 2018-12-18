@@ -74,28 +74,23 @@ registerBlockType( 'editor-blocks/pricing-table', {
 	},
 
 	edit: function( props ) {
-
 		const { attributes, setAttributes, className } = props;
 		const columnClasses = className + ' col-' + attributes.count;
 
 		function onChangeColumn( value, i, attribute ) {
-
 			const columns = attributes.columns;
 			const newColumns = columns;
 			newColumns[ i ] = Object.assign( {}, columns[ i ] );
 			newColumns[ i ][ attribute ] = value;
 			setAttributes( { columns: [ ...newColumns ] } );
-
 		}
 
 		function onChangeColumnImage( value, i ) {
-
 			const columns = attributes.columns;
 			const newColumns = columns;
 			newColumns[ i ] = Object.assign( {}, columns[ i ] );
 			newColumns[ i ].image = value.url;
 			setAttributes( { columns: [ ...newColumns ] } );
-
 		}
 
 		return (
@@ -109,7 +104,6 @@ registerBlockType( 'editor-blocks/pricing-table', {
 				</BlockControls>
 				<div style={ { textAlign: attributes.alignment } } className={ columnClasses }>
 					{ _times( attributes.count, ( index ) => {
-
 						const image = _get( attributes.columns, [ index, 'image' ] );
 						const columnClass = 'column column-' + index;
 						return (
@@ -184,23 +178,19 @@ registerBlockType( 'editor-blocks/pricing-table', {
 								</div>
 							</div>
 						);
-
 					} ) }
 				</div>
 			</Fragment>
 		);
-
 	},
 
 	save: function( props ) {
-
 		const { attributes } = props;
 		const columnClasses = 'col-' + attributes.count;
 
 		return (
 			<div className={ columnClasses } style={ { textAlign: attributes.alignment } }>
 				{ _times( attributes.count, ( index ) => {
-
 					const image = _get( attributes.columns, [ index, 'image' ] );
 					const columnClass = 'column column-' + index;
 					return (
@@ -247,12 +237,10 @@ registerBlockType( 'editor-blocks/pricing-table', {
 							</div>
 						</div>
 					);
-
 				} ) }
 
 			</div>
 		);
-
 	},
 
 } );
