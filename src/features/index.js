@@ -16,6 +16,7 @@ const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/features', {
 	title: __( 'Features (EB)', 'editor-blocks' ),
+	description: __( 'Display an organised feature list in columns. Accompany each feature with an image or icon.', 'editor-blocks' ),
 	icon: 'editor-ul',
 	category: 'editor-blocks',
 	keywords: [

@@ -13,22 +13,44 @@ A unique collection of Gutenberg blocks.
 
 == Description ==
 
-> **You Might Also Like:** Our latest plugin allows you to remove blocks you don't need from the editor: [Disable Gutenberg Blocks](https://wordpress.org/plugins/disable-gutenberg-blocks).
+> **You might also like:** Our latest plugin allows you to remove blocks you don't need from the editor: [Disable Gutenberg Blocks](https://wordpress.org/plugins/disable-gutenberg-blocks).
 
-A unique collection of Gutenberg blocks.
+A unique collection of Gutenberg blocks. Here's an example of a full page created with Editor Blocks - [Editor Blocks Demo](https://editorblockswp.com/demo/)
 
-* Wrapper Block - [Block Demo](https://editorblockswp.com/gutenberg-wrapper-block/)
-* Pricing Table Block - [Block Demo](https://editorblockswp.com/gutenberg-pricing-table-block/)
-* Team Members Block - [Block Demo](https://editorblockswp.com/gutenberg-team-members-block/)
-* Hero Block - [Block Demo](https://editorblockswp.com/gutenberg-hero-block/)
-* Testimonial Block - [Block Demo](https://editorblockswp.com/gutenberg-testimonial-block/)
-* Callout Block - [Block Demo](https://editorblockswp.com/gutenberg-callout-block/)
-* Brands Block - [Block Demo](https://editorblockswp.com/gutenberg-brands-block/)
-* Features Block - [Block Demo](https://editorblockswp.com/gutenberg-features-block/)
-* Horizontal Feature Block - [Block Demo](https://editorblockswp.com/gutenberg-horizontal-feature-block/)
-* Vertical Feature Block - [Block Demo](https://editorblockswp.com/gutenberg-vertical-feature-block/)
+## The Blocks
 
-Here's an example of a full page created with Editor Blocks - [Editor Blocks Demo](https://editorblockswp.com/demo/)
+#### [Wrapper Block](https://editorblockswp.com/gutenberg-wrapper-block/)
+Add a background image or color to any block, as well as padding and margins.
+
+####[Hero Block](https://editorblockswp.com/gutenberg-hero-block/)
+Pair this block with the wrapper block to create stunning hero areas.
+
+#### [Pricing Table Block](https://editorblockswp.com/gutenberg-pricing-table-block/)
+Beautiful 2, 3, 4 or 5 column pricing tables
+
+####[Author Profile Block](https://editorblockswp.com/gutenberg-author-profile-block/)
+Display a WordPress user's profile dynamically using this block.
+
+####[Team Members Block](https://editorblockswp.com/gutenberg-team-members-block/)
+Display a list of team members in a multi-column layout.
+
+####[Testimonial Block](https://editorblockswp.com/gutenberg-testimonial-block/)
+Showcase your client testimonials with this beautiful block.
+
+####[Callout Block](https://editorblockswp.com/gutenberg-callout-block/)
+Draw your visitors attention to your high-value pages or newsletter using an inline callout.
+
+####[Brands Block](https://editorblockswp.com/gutenberg-brands-block/)
+Display a collection of logos in a row. Perfect for highlighting your partners or clients.
+
+####[Features Block](https://editorblockswp.com/gutenberg-features-block/)
+Display an organised feature list in columns. Accompany each feature with an image or icon.
+
+####[Horizontal Feature Block](https://editorblockswp.com/gutenberg-horizontal-feature-block/)
+Highlight a key feature of your product or service using this horizontal display.
+
+####[Vertical Feature Block](https://editorblockswp.com/gutenberg-vertical-feature-block/)
+Highlight a key feature of your product or service using this vertical display.
 
 == Installation ==
 
@@ -54,6 +76,9 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 3. Team Members Gutenberg Block
 
 == Changelog ==
+
+= 1.1.7 =
+Improve 'Author Block' UI
 
 = 1.1.6 =
 Improve i18n support
@@ -114,5 +139,18 @@ Initial release.
 == Design Considerations ==
 
 Editor Blocks look better with a wide layout, we recommend using a 'Full Width' page template if your theme has one. We've also built a (free) companion theme you can use:
+
 [Editor Blocks Theme](http://wordpress.org/themes/editor-blocks)
 [Editor Blocks Theme Setup](http://editorblockswp.com/theme-setup)
+
+## Source Code and Contributions ##
+
+The entire source code of this plugin can be found on GitHub:
+
+[Editor Blocks GitHub](https://github.com/editorblocks/editor-blocks)
+
+There are various ways you can contribute:
+
+1. Raise an [Issue](https://github.com/editorblocks/editor-blocks/issues/new) on GitHub
+2. Send a [Pull Request](https://github.com/editorblocks/editor-blocks/pulls) with your bug fixes and/or new features
+3. Provide a [Translation](https://translate.wordpress.org/projects/wp-plugins/editor-blocks)

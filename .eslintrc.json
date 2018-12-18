@@ -147,7 +147,7 @@
 		"no-var": "error",
 		"no-whitespace-before-property": "error",
 		"object-curly-spacing": ["error", "always"],
-		"padded-blocks": ["error", "always"],
+		"padded-blocks": ["error", { "classes": "always", "blocks": "never" }],
 		"prefer-const": "error",
 		"quote-props": ["error", "as-needed"],
 		"react/display-name": "off",

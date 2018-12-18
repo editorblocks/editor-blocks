@@ -14,6 +14,7 @@ const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/testimonial', {
 	title: __( 'Testimonial (EB)', 'editor-blocks' ),
+	description: __( 'Showcase your client testimonials with this beautiful block.', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'format-quote',
 	keywords: [

@@ -16,6 +16,7 @@ const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/pricing-table', {
 	title: __( 'Pricing Table (EB)', 'editor-blocks' ),
+	description: __( 'Beautiful 2, 3, 4 or 5 column pricing tables', 'editor-blocks' ),
 	icon: 'cart',
 	category: 'editor-blocks',
 	keywords: [

@@ -14,6 +14,7 @@ const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/vertical-feature', {
 	title: __( 'Vertical Feature (EB)', 'editor-blocks' ),
+	description: __( 'Highlight a key feature of your product or service using this vertical display.', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'arrow-down-alt',
 	keywords: [

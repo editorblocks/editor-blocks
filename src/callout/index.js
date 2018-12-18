@@ -13,6 +13,7 @@ const { RichText } = wp.editor;
 
 registerBlockType( 'editor-blocks/callout', {
 	title: __( 'Callout (EB)', 'editor-blocks' ),
+	description: __( 'Draw your visitors attention to your high-value pages or newsletter using an inline callout.', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'megaphone',
 	keywords: [

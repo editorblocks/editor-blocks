@@ -16,6 +16,7 @@ const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/brands', {
 	title: __( 'Brands (EB)', 'editor-blocks' ),
+	description: __( 'Display a collection of logos in a row. Perfect for highlighting your partners or clients.', 'editor-blocks' ),
 	icon: 'awards',
 	category: 'editor-blocks',
 	keywords: [

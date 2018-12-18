@@ -13,6 +13,7 @@ const { RichText, BlockControls, AlignmentToolbar } = wp.editor;
 
 registerBlockType( 'editor-blocks/intro', {
 	title: __( 'Intro (EB)', 'editor-blocks' ),
+	description: __( 'Introduce your content with a heading and subheading.', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'editor-textcolor',
 	keywords: [

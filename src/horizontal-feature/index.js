@@ -15,6 +15,7 @@ const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/horizontal-feature', {
 	title: __( 'Horizontal Feature (EB)', 'editor-blocks' ),
+	description: __( 'Highlight a key feature of your product or service using this horizontal display.', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'arrow-right-alt',
 	keywords: [

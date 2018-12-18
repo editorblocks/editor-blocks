@@ -16,6 +16,7 @@ const { Button, Dashicon } = wp.components;
 
 registerBlockType( 'editor-blocks/team', {
 	title: __( 'Team (EB)', 'editor-blocks' ),
+	description: __( 'Display a list of team members in a multi-column layout.', 'editor-blocks' ),
 	icon: 'groups',
 	category: 'editor-blocks',
 	keywords: [

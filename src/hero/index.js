@@ -13,6 +13,7 @@ const { RichText, BlockControls, AlignmentToolbar } = wp.editor;
 
 registerBlockType( 'editor-blocks/hero', {
 	title: __( 'Hero (EB)', 'editor-blocks' ),
+	description: __( 'Pair this block with the wrapper block to create stunning hero areas.', 'editor-blocks' ),
 	category: 'editor-blocks',
 	icon: 'format-image',
 	keywords: [

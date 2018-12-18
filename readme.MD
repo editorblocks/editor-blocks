@@ -18,8 +18,8 @@ Here's an example of a full page created with Editor Blocks - [Editor Blocks Dem
 ## Design Considerations ##
 
 Editor Blocks look better with a wide layout, we recommend using a 'Full Width' page template if your theme has one. We've also built a (free) companion theme you can use:
-[Editor Blocks Theme](http://wordpress.org/themes/editor-blocks)
-[Editor Blocks Theme Setup](http://editorblockswp.com/theme-setup)
+* [Editor Blocks Theme](http://wordpress.org/themes/editor-blocks)
+* [Editor Blocks Theme Setup](http://editorblockswp.com/theme-setup)
 
 ## Development ##
 1. Clone the GitHub repository: `https://github.com/editorblocks/editor-blocks.git`
@@ -36,7 +36,7 @@ There are various ways you can contribute:
 2. Send a pull request with your bug fixes and/or new features
 3. Provide feedback and suggestions on [enhancements](https://github.com/editorblocks/editor-blocks/issues?direction=desc&labels=Enhancement&page=1&sort=created&state=open)
 
-## Create Guten Block ## 
+## Create Guten Block ##
 
 Editor Blocks wouldn't have been possible without the work of @ahmadawais.
 

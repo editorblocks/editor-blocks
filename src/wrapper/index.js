@@ -71,6 +71,7 @@ const blockAttributes = {
 
 registerBlockType( 'editor-blocks/wrapper', {
 	title: __( 'Wrapper (EB)', 'editor-blocks' ),
+	description: __( 'Add a background image or color to any block, as well as padding and margins.', 'editor-blocks' ),
 	icon: 'editor-contract',
 	category: 'editor-blocks',
 	keywords: [
