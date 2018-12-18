@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, gutenberg blocks, page builder, editor blocks
 Requires at least: 4.9
 Tested up to: 5.0
 Requires PHP: 5.4
-Stable tag: trunk
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,10 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 3. Team Members Gutenberg Block
 
 == Changelog ==
+
+= 1.1.8 =
+Add block descriptions
+Fix enqueue handles
 
 = 1.1.7 =
 Improve 'Author Block' UI
