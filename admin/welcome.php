@@ -46,28 +46,6 @@ class Editor_Blocks_Welcome {
 	 */
 	public function create_admin_page() {
 
-		$gb_install_url = wp_nonce_url(
-			add_query_arg(
-				array(
-					'action' => 'install-plugin',
-					'plugin' => 'gutenberg',
-				),
-				admin_url( 'update.php' )
-			),
-			'install-plugin_gutenberg'
-		);
-
-		$gb_activate_url = wp_nonce_url(
-			add_query_arg(
-				array(
-					'action' => 'activate',
-					'plugin' => 'gutenberg/gutenberg.php',
-				),
-				admin_url( 'plugins.php' )
-			),
-			'activate-plugin_gutenberg/gutenberg.php'
-		);
-
 		$ebt_install_url = wp_nonce_url(
 			add_query_arg(
 				array(
@@ -97,20 +75,6 @@ class Editor_Blocks_Welcome {
 						<h2>Quickstart</h2>
 					</div>
 					<div class="eb-sidebar__inner">
-						<div class="eb-sidebar__plugin">
-							<h3>Gutenberg Editor</h3>
-							<p>This theme is optimized for the Gutenberg editor.</p>
-							<?php
-							if ( function_exists( 'gutenberg_init' ) ) {
-								echo '<strong>&#10004; Gutenberg is active.</strong>';
-							} elseif ( array_key_exists( 'gutenberg/gutenberg.php', get_plugins() ) && ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
-								echo '<a class="eb-button" href="' . $gb_activate_url . '">Activate Gutenberg</a>';
-							} else {
-								echo '<a class="eb-button" href="' . $gb_install_url . '">Install Gutenberg</a>';
-							}
-							?>
-						</div>
-						<hr>
 						<div class="eb-sidebar__plugin">
 							<h3>Editor Blocks Theme</h3>
 							<p>We've built a companion theme to display Editor Blocks in the most beautiful way.</p>

@@ -5,7 +5,7 @@
  * Description: A unique collection of Gutenberg blocks.
  * Author: editorblocks
  * Author URI: https://editorblockswp.com
- * Version: 1.1.8
+ * Version: 1.2.0
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EDITOR_BLOCKS_VERSION', '1.1.8' );
+define( 'EDITOR_BLOCKS_VERSION', '1.2.0' );
 
 /**
  * Add a redirection check on activation.

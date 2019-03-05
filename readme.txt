@@ -3,17 +3,15 @@ Contributors: dannycooper, editorblocks, gutenbergblocks
 Donate link: http://editorblockswp.com
 Tags: gutenberg, blocks, gutenberg blocks, page builder, editor blocks
 Requires at least: 4.9
-Tested up to: 5.0
+Tested up to: 5.1
 Requires PHP: 5.4
-Stable tag: 1.1.8
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 A unique collection of Gutenberg blocks.
 
 == Description ==
-
-> **You might also like:** Our latest plugin allows you to remove blocks you don't need from the editor: [Disable Gutenberg Blocks](https://wordpress.org/plugins/disable-gutenberg-blocks).
 
 A unique collection of Gutenberg blocks. Here's an example of a full page created with Editor Blocks - [Editor Blocks Demo](https://editorblockswp.com/demo/)
 
@@ -76,6 +74,9 @@ Editor Blocks will work with all themes. However, depending on your theme's styl
 3. Team Members Gutenberg Block
 
 == Changelog ==
+
+= 1.1.8 =
+Remove Gutenberg plugin dependency
 
 = 1.1.8 =
 Add block descriptions
